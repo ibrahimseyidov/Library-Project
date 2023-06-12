@@ -1,0 +1,370 @@
+:root {
+    --mainColorHome: #391F00;
+    --mainColorPink: #720418;
+    --mainColorOrange: #FF8B00;
+    --mainColorPurple: #9B51E0;
+    --mainColorText: #241400;
+    --fontRoboto: 'Montserrat', sans-serif;
+    --fontMons: 'Roboto', sans-serif;
+}
+
+.header {
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    height: 86px;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    margin-bottom: 80px;
+}
+
+.home-nav {
+    display: flex;
+}
+
+.home-nav li a {
+    color: var(--mainColorText);
+    font-weight: 400;
+    font-size: 12px;
+    margin-right: 21px;
+}
+
+.join-us {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.4s ease all;
+}
+
+.join-us:hover {
+    opacity: 0.5;
+}
+
+.join-us :first-child {
+    margin-right: 8px;
+}
+
+.join-us :nth-child(2) {
+    color: var(--mainColorText);
+}
+
+.active {
+    color: #E16A00 !important;
+    text-decoration: underline;
+    font-weight: 700 !important;
+}
+
+.active:hover {
+    color: #000 !important
+}
+
+.main-section {
+    width: 100%;
+}
+
+.contain {
+    width: 80%;
+    margin: auto;
+}
+
+.first-sec {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 66px;
+}
+
+.first-left-sec {
+    width: 29%;
+}
+
+.first-left-sec :first-child {
+    color: var(--mainColorText);
+    font-size: 36px;
+    font-weight: 900;
+    margin-bottom: 16px;
+}
+
+.first-left-sec :nth-child(2) {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 196.19%;
+    color: var(--mainColorText);
+    margin-bottom: 16px;
+}
+
+.first-left-sec :nth-child(3) {
+    background-color: #E16A00;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 900;
+    color: #FFF;
+    padding: 10px 20px;
+}
+
+.first-left-sec :nth-child(3):hover {
+    opacity: 0.5;
+}
+
+.first-right-sec {
+    width: 49.4%;
+}
+
+.first-right-sec img {
+    width: 100%;
+}
+
+.second-sec {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 136px;
+}
+
+.second-catalog {
+    text-align: center;
+    margin-bottom: 47px;
+}
+
+.second-catalog :first-child {
+    color: #000;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.catalog-btn button {
+    width: 242px;
+    padding: 23px 0;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--mainColorText);
+    box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
+    margin-right: 36px;
+    margin-bottom: 36px;
+    border-radius: 10px;
+    background-color: #FFF;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.catalog-btn button:hover {
+    opacity: 0.7;
+}
+
+.third-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 159px;
+    width: 91.4%;
+}
+
+.about-score {
+    display: flex;
+}
+
+.about {
+    margin-bottom: 32px;
+}
+
+.about :first-child {
+    text-align: center;
+    color: var(--mainColorText);
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.score {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.score :first-child {
+    color: var(--mainColorText);
+    font-weight: 900;
+    font-size: 50px;
+    margin-right: 27px;
+}
+
+.score :nth-child(2) {
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--mainColorText);
+}
+
+.four-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delivery {
+    margin-bottom: 42px
+}
+
+.delivery :first-child {
+    color: var(--mainColorText);
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.delivery-content {
+    width: 83%;
+    margin-bottom: 134px;
+}
+
+.delivery-content :first-child {
+    text-align: center;
+    line-height: 196.19%;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--mainColorText);
+}
+
+.five-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 133px;
+}
+
+.follow :first-child {
+    font-weight: 900;
+    font-size: 25px;
+    color: var(--mainColorText);
+    margin-bottom: 28px;
+}
+
+.media-icon {
+    margin-left: 25px;
+}
+
+.media-icon :first-child,
+:nth-child(2) {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.footer-sec {
+    background-color: var(--mainColorHome);
+}
+
+.footer-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 56px 0 50px 0;
+    margin-bottom: 50px;
+}
+
+.footer-right {
+    display: flex;
+    width: 48.8%;
+}
+
+.footer-nav {
+    margin-right: 91px;
+}
+
+.footer-nav h3 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.footer-nav ul li {
+    margin-bottom: 8px;
+}
+
+.footer-nav ul li a {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.footer-nav ul li a:hover {
+    opacity: 0.6;
+}
+
+.copyright :first-child {
+    font-size: 12px;
+    font-weight: 400;
+    color: #000;
+    color: #FFF;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.mobile-ham {
+    display: none;
+}
+
+.mobile-ham :first-child {
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+.mobile-ham :first-child:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background: rgba(36, 20, 0, 0.9);
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+  
+  /* Position the content inside the overlay */
+  .overlay-content {
+    position: relative;
+    top: 15%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: right; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+  
+  /* The navigation links inside the overlay */
+  .overlay a {
+    margin-right: 30px;
+    padding: 8px;
+    padding-bottom: 12px;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 400;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+    color: #F2F2F2;
+}
+  
+  /* When you mouse over the navigation links, change their color */
+  .overlay a:hover, .overlay a:focus {
+    color: #818181;
+  }
+  
+  /* Position the close button (top right corner) */
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    font-size: 60px;
+    color: #fff;
+  }
+  
