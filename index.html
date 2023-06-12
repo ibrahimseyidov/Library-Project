@@ -35,7 +35,7 @@
 
             <div class="join-us">
                 <img src="./assets-client/icons/profile.svg" alt="profile">
-                <a href="#">Join Us</a>
+                <a id="myBtn">Join Us</a>
             </div>
 
             <div class="mobile-ham">
@@ -50,7 +50,7 @@
 
             <!-- Button to close the overlay navigation -->
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    
+
             <!-- Overlay content -->
             <div class="overlay-content">
                 <a href="#">Home</a>
@@ -58,9 +58,30 @@
                 <a href="#">About Store</a>
                 <a href="#">Contact Us</a>
                 <a href="#">Search</a>
-    
+
             </div>
-    
+
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close"></span>
+
+              <div class="join-modal">
+                <span>Join Us</span>
+                <div class="join-inp">
+                    <input type="text" placeholder="Full name">
+                    <input type="email" placeholder="Email">
+                </div>
+                <div class="join-btn">
+                    <button>Join</button>
+                </div>
+              </div>
+            </div>
+
         </div>
 
     </header>
@@ -176,8 +197,8 @@
                 <div class="media-icon">
                     <a href="https://www.facebook.com/" target="_blank"><img src="./assets-client/icons/facebook.svg"
                             alt="facebook"></a>
-                    <a href="https://twitter.com/" target="_blank"><img src="./assets-client/icons/twitter.svg"
-                            alt="twitter"></a>
+                    <a href="https://twitter.com/" class="twitter" target="_blank"><img
+                            src="./assets-client/icons/twitter.svg" alt="twitter"></a>
                     <a href="https://www.instagram.com/" target="_blank"><img src="./assets-client/icons/instagram.svg"
                             alt="instagram"></a>
                 </div>
@@ -239,12 +260,8 @@
 
     </footer>
 
-
-
-
-
-
     <script src="./assets-client/js/hamburger.js"></script>
+    <script src="./assets-client/js/modal.js"></script>
 </body>
 
 </html>

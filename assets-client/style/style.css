@@ -1,7 +1,7 @@
 :root {
     --mainColorHome: #391F00;
     --mainColorPink: #720418;
-    --mainColorOrange: #FF8B00;
+    --mainColorOrange: #E16A00;
     --mainColorPurple: #9B51E0;
     --mainColorText: #241400;
     --fontRoboto: 'Montserrat', sans-serif;
@@ -53,7 +53,7 @@
 }
 
 .active {
-    color: #E16A00 !important;
+    color: var(--mainColorOrange) !important;
     text-decoration: underline;
     font-weight: 700 !important;
 }
@@ -98,7 +98,7 @@
 }
 
 .first-left-sec :nth-child(3) {
-    background-color: #E16A00;
+    background-color: var(--mainColorOrange);
     outline: none;
     border: none;
     font-size: 15px;
@@ -108,6 +108,7 @@
 }
 
 .first-left-sec :nth-child(3):hover {
+    cursor: pointer;
     opacity: 0.5;
 }
 
@@ -247,7 +248,7 @@
 }
 
 .media-icon :first-child,
-:nth-child(2) {
+.twitter {
     margin-right: 20px;
     cursor: pointer;
 }
@@ -296,6 +297,7 @@
 
 .copyright :first-child {
     font-size: 12px;
+    line-height: 20px;
     font-weight: 400;
     color: #000;
     color: #FFF;
@@ -320,51 +322,169 @@
 
 /* The Overlay (background) */
 .overlay {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
     height: 100%;
     width: 0;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
     left: 0;
     top: 0;
     background: rgba(36, 20, 0, 0.9);
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-  }
-  
-  /* Position the content inside the overlay */
-  .overlay-content {
-    position: relative;
-    top: 15%; /* 25% from the top */
-    width: 100%; /* 100% width */
-    text-align: right; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
-  
-  /* The navigation links inside the overlay */
-  .overlay a {
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 7%;
+    width: 100%;
+    /* 100% width */
+    text-align: right;
+    /* Centered text/links */
+    margin-top: 30px;
+    /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
     margin-right: 30px;
     padding: 8px;
     padding-bottom: 12px;
     text-decoration: none;
     font-size: 17px;
     font-weight: 400;
-    display: block; /* Display block instead of inline */
-    transition: 0.3s; /* Transition effects on hover (color) */
+    display: block;
+    /* Display block instead of inline */
+    transition: 0.3s;
+    /* Transition effects on hover (color) */
     color: #F2F2F2;
 }
-  
-  /* When you mouse over the navigation links, change their color */
-  .overlay a:hover, .overlay a:focus {
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,
+.overlay a:focus {
     color: #818181;
-  }
-  
-  /* Position the close button (top right corner) */
-  .overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 0px;
-    font-size: 60px;
-    color: #fff;
-  }
-  
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: -120px;
+    width: 100%;
+    /* Full width */
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 42.2%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.join-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 70px 55px 35px 55px;
+}
+
+.join-modal span {
+    font-size: 44px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 48px;
+}
+
+.join-inp {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 86px;
+}
+
+.join-inp input {
+    padding: 18px 0 18px 55px;
+    border: 1px solid #CECECE;
+    background-color: #FFF;
+    color: #797667;
+    font-weight: 400;
+    font-size: 19px;
+    outline: none;
+}
+
+.join-inp :first-child {
+    margin-bottom: 34px;
+}
+
+.join-btn {
+    width: 100%;
+}
+
+.join-btn :first-child {
+    width: 100%;
+    height: 76px;
+    color: #FFF;
+    font-size: 19px;
+    font-weight: 700;
+    background-color: var(--mainColorOrange);
+    border: 1px solid #CECECE;
+    border-radius: 5px;
+    outline: none;
+}
+
+.join-btn :first-child:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--mainColorOrange);
+    /* Scroll thumb rengini istediğiniz renkle değiştirin */
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #FFF;
+    border-radius: 10px;
+}
