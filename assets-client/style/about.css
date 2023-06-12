@@ -1,0 +1,39 @@
+.mainAbout {
+    display: flex;
+}
+
+.aboutStore {
+    width: 686px;
+    height: 253px;
+}
+
+.aboutStore h1 {
+    font-weight: 900;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.aboutStore p {
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 10px;
+    color: var(--mainColorText);
+    line-height: 30px;
+}
+
+.aboutStoreImg {
+    width: 570px;
+    height: 310px;
+    margin-left: 70px;
+}
+
+.aboutStoreImg img {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.social-bar {
+    margin-top: 300px;
+}
+
+
