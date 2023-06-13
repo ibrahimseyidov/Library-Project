@@ -1,0 +1,89 @@
+
+@media screen and (max-width:440px) {
+
+    .mainContact {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contactText {
+        width: 300px;
+        margin-left: 20px;
+        text-align: center;
+    }
+
+    .firstInputSection {
+        margin-left: 40px;
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+    }
+
+    .firstInputSection input {
+        width: 250px;
+        height: 40px;
+        border: 1px solid #CECECE;
+
+    }
+
+    .inputArea {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .secondInputSection{
+        margin-left: 40px;
+        margin-top: 30px;
+        width: 250px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    
+    .secondInputSection input {
+        width: 250px;
+        height: 40px;
+        border: 1px solid #CECECE;
+    }
+
+
+    .social-bar {
+        margin-top: 130px;
+    }
+
+    .divButton {
+        width: 250px;
+        margin-left: 40px;
+        height: 37px;
+    }
+
+    .divButton button {
+        border-radius: 5px;
+        font-size: 16px;
+        color: #fff;
+    }
+
+    ::placeholder{
+        font-size: 16px;
+        font-weight: 400;
+    }
+}
+
+
+@media screen and (max-width: 869px) {
+
+     .mainContact {
+        display: flex;
+        flex-direction: column;
+    }
+    
+     .inputArea {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .secondInputSection {
+        margin-top: 30px;
+    }
+}

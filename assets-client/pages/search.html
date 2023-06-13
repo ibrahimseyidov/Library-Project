@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Slick Slider link -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="../js/phone/intlTelInput.css">
+    <link rel="stylesheet" href="../style/reset.css">
+    <link rel="stylesheet" href="../style/search.css">
+    <link rel="stylesheet" href="../mobile-style/search.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../mobile-style/mobile.css">
+    <title>Search Page</title>
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="header-container">
+
+            <div>
+                <img src="../img/topLogo.svg" alt="logo">
+            </div>
+
+            <div class="top-nav">
+                <nav>
+                    <ul class="home-nav">
+                        <li><a href="/index.html" class="active">Home</a></li>
+                        <li><a href="#">Catalog</a></li>
+                        <li><a href="./about.html">About Store</a></li>
+                        <li><a href="./contact.html">Contact Us</a></li>
+                        <li><a href="#">Search</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="join-us">
+                <img src="../icons/profile.svg" alt="profile">
+                <a href="#">Join Us</a>
+            </div>
+
+            <div class="mobile-ham">
+                <button onclick="openNav()">
+                    <img src="../icons/hamMenu.svg" alt="hamburger-menu">
+                </button>
+            </div>
+
+        </div>
+
+        <div id="myNav" class="overlay">
+
+            <!-- Button to close the overlay navigation -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+            <!-- Overlay content -->
+            <div class="overlay-content">
+                <a href="#">Home</a>
+                <a href="#">Catalog</a>
+                <a href="#">About Store</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Search</a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <div class="contain">
+        <main class="searchMain">
+       <div>
+             <div class="searchText">
+                <h1>Search</h1>
+            </div>
+            <div class="searchInputButton">
+                <input placeholder="Book" type="text">
+                <button>Search</button>
+            </div>
+       </div>
+            <div class="searchAboutBook">
+                <!-- <div class="prev">《</div> -->
+                <div class="card your-class" >
+                    <div class="insideCard">
+                        <div>
+                            <img src="../img/searchBook.svg" alt="">
+                        </div>
+                    <div class="bookText">
+                        <h2>Order Books</h2>
+                        <h3>Author</h3>
+                        <p>We work without holidays and weekends! Residents of Kiev can receive an order on the day of its registration. Customers from other cities of Ukraine can receive an order within 1-5 days, depending on the location of the settlement and the selected delivery method. Orders over UAH 1000 are delivered  free of charge *. You can see the available methods, exact terms and cost of delivery during checkout in the order basket, after selecting the delivery city     </p>
+                    </div>
+                    </div> 
+                    <div class="insideCard">
+                        <div>
+                            <img src="../img/searchBook.svg" alt="">
+                        </div>
+                    <div class="bookText">
+                        <h2>Order Books</h2>
+                        <h3>Author</h3>
+                        <p>We work without holidays and weekends! Residents of Kiev can receive an order on the day of its registration. Customers from other cities of Ukraine can receive an order within 1-5 days, depending on the location of the settlement and the selected delivery method. Orders over UAH 1000 are delivered  free of charge *. You can see the available methods, exact terms and cost of delivery during checkout in the order basket, after selecting the delivery city     </p>
+                    </div>
+                    </div>
+                </div>
+                <!-- <div class="next">》</div> -->
+
+            </div>
+        </main>
+
+        <div class="social-bar">
+            <section class="five-sec">
+
+                <div class="follow">
+                    <h3>Follow us on social media</h3>
+                </div>
+
+                <div class="media-icon">
+                    <a href="https://www.facebook.com/" target="_blank"><img src="../icons/facebook.svg"
+                            alt="facebook"></a>
+                    <a href="https://twitter.com/" class="twitter" target="_blank"><img
+                            src="../icons/twitter.svg" alt="twitter"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="../icons/instagram.svg"
+                            alt="instagram"></a>
+                </div>
+
+            </section>
+        </div>
+    </div>
+    <footer class="footer-sec">
+
+        <div class="contain">
+
+            <div class="footer-area">
+
+                <div class="bottom-logo">
+                    <img src="../img/bottomLogo.svg" alt="logo">
+                </div>
+
+                <div class="footer-right">
+
+                    <div class="footer-nav">
+                        <h3>Popular</h3>
+                        <ul>
+                            <li><a href="#">Programming</a></li>
+                            <li><a href="#">Books for children</a></li>
+                            <li><a href="#">Psychology</a></li>
+                            <li><a href="#">Business</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-nav">
+                        <h3>Cash</h3>
+                        <ul>
+                            <li><a href="#">Delivery</a></li>
+                            <li><a href="#">Payment</a></li>
+                            <li><a href="#">About the store</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-nav" style="margin-right: 0;">
+                        <h3>Help</h3>
+                        <ul>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Purchase returns</a></li>
+                            <li><a href="#">Buyer help</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                <p>All rights reserved © 2003-2021 LIBRARY TERMS OF USE | Privacy Policy</p>
+            </div>
+
+        </div>
+
+    </footer> 
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="../js/hamburger.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/slickSlider.js"></script>
+</body>
+
+</html>
