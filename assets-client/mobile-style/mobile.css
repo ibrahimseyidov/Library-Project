@@ -12,6 +12,19 @@
         font-size: 10px;
     }
 
+    .join-inp {
+        margin-bottom: 30px;
+    }
+
+    .join-modal {
+        margin: 30px 35px 25px 35px;
+    }
+
+    .modal-content {
+        margin: 12% auto;
+        width: 50%;
+    }
+
 }
 
 @media screen and (max-width: 914px) {
@@ -30,6 +43,23 @@
 
     .bottom-logo {
         margin-bottom: 36px;
+    }
+
+    .join-modal {
+        margin: 10px 15px 15px 15px;
+    }
+
+    .join-inp {
+        margin-bottom: 40px;
+    }
+
+    .join-btn :first-child {
+        height: 54px;
+    }
+
+    .join-modal span {
+        font-size: 34px;
+        margin-bottom: 30px;
     }
 
 }
@@ -60,12 +90,35 @@
         display: none;
     }
 
+    .join-us :nth-child(2) {
+        display: none;
+    }
+
     .join-us {
         display: none;
     }
 
     .mobile-ham {
-        display: block;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-ham :first-child {
+        margin-right: 22px;
+        width: 19px;
+    }
+
+    .mobile-ham :nth-child(2) {
+        background-color: transparent;
+        width: 0;
+        border: none;
+        outline: none;
+    }
+
+    .modal-content {
+        width: 60%;
     }
 
 }
@@ -166,6 +219,39 @@
         margin-right: 15px;
     }
 
+    .modal-content {
+        margin: 20% auto;
+        width: 60%;
+    }
+
+    .modal {
+        padding-top: 50px;
+    }
+
+    .join-modal {
+        margin: 5px 5px 5px 5px;
+    }
+
+    .join-inp {
+        margin-bottom: 10px;
+    }
+
+    .join-inp input {
+        font-size: 12px;
+        margin-bottom: 14px !important;
+        padding: 10px 0 10px 14px;
+    }
+
+    .join-btn :first-child {
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .join-modal span {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
 }
 
 @media screen and (max-width:440px) {
@@ -180,6 +266,10 @@
 
     .second-sec {
         margin-left: 20px;
+    }
+
+    .modal-content {
+        width: 70%;
     }
 
 }

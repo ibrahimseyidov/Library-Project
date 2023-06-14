@@ -4,8 +4,8 @@
     --mainColorOrange: #E16A00;
     --mainColorPurple: #9B51E0;
     --mainColorText: #241400;
-    --fontRoboto: 'Montserrat', sans-serif;
-    --fontMons: 'Roboto', sans-serif;
+    --fontMons: 'Montserrat', sans-serif;
+    --fontRoboto: 'Roboto', sans-serif;
 }
 
 .header {
@@ -371,6 +371,14 @@
     color: #818181;
 }
 
+.overlay .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    font-size: 60px;
+}
+
+
 /* The Modal (background) */
 .modal {
     display: none;
@@ -380,11 +388,12 @@
     z-index: 1;
     /* Sit on top */
     left: 0;
-    top: -120px;
+    top: 0;
     width: 100%;
+    height: 100%;
+    cursor: pointer;
     /* Full width */
     /* Full height */
-    overflow: auto;
     /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
     /* Fallback color */
@@ -394,28 +403,14 @@
 
 /* Modal Content/Box */
 .modal-content {
+    cursor: auto;
     background-color: #fff;
-    margin: 15% auto;
+    margin: 5% auto;
     /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 42.2%;
     /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .join-modal {
@@ -474,13 +469,18 @@
     cursor: pointer;
 }
 
+.join-img {
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
 body::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
 }
 
 body::-webkit-scrollbar-thumb {
     background-color: var(--mainColorOrange);
-    /* Scroll thumb rengini istediğiniz renkle değiştirin */
     border-radius: 10px;
 }
 
