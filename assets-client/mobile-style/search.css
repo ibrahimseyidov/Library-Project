@@ -4,6 +4,7 @@
     .searchMain {
         display: flex;
         flex-direction: column;
+        justify-content: center;
     }
 
     .searchText {
@@ -45,6 +46,7 @@
 
 
 .card {
+    margin-left: 30px;
     width: 270px;
     height: 100%;
 }
