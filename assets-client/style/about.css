@@ -3,8 +3,8 @@
 }
 
 .aboutStore {
-    width: 686px;
-    height: 253px;
+    width: 50%;
+    height: 100%;
 }
 
 .aboutStore h1 {
@@ -22,8 +22,8 @@
 }
 
 .aboutStoreImg {
-    width: 570px;
-    height: 310px;
+    width: 50%;
+    height: 100%;
     margin-left: 70px;
 }
 

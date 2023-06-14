@@ -19,6 +19,7 @@
 .searchInputButton input {
     height: 70px;
     font-size: 23px;
+    padding: 20px;
 }
 
 .searchInputButton button {
@@ -36,18 +37,23 @@
 }
 
 .searchMain {
+    width: 100%;
     display: flex;
 }
 
+.searchTextButon {
+    width: 40%;
+}
+
 .searchAboutBook {
-    margin-left: 100px;
+    width: 60%;
     position: relative;
 }
 
 .card {
     display: block;
-    width: 700px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     margin-top: 80px;
     background: #FFFFFF;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
@@ -112,7 +118,7 @@
 .prev {
     position: absolute;
     left: -40px;
-    top: 250px;
+    top: 50%;
     font-size: 30px;
     cursor: pointer;
 }
@@ -120,7 +126,7 @@
 .next {
     position: absolute;
     right: -40px;
-    bottom: 220px;
+    bottom: 45%;
     font-size: 30px;
     cursor: pointer;
 }
