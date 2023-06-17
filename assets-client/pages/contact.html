@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../mobile-style/contact.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../mobile-style/mobile.css">
+    <link rel="stylesheet" href="../style/intlTelInput.css">
     <title>Contact</title>
 </head>
 
@@ -20,27 +21,28 @@
         <div class="header-container">
 
             <div>
-                <img src="../img/topLogo.svg" alt="logo">
+                <a href="../../index.html"><img src="../img/topLogo.svg" alt="logo"></a>
             </div>
 
             <div class="top-nav">
                 <nav>
                     <ul class="home-nav">
-                        <li><a href="/index.html" class="active">Home</a></li>
-                        <li><a href="#">Catalog</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="./catalog-product.html">Catalog</a></li>
                         <li><a href="./about.html">About Store</a></li>
-                        <li><a href="./contact.html">Contact Us</a></li>
-                        <li><a href="#">Search</a></li>
+                        <li><a href="./contact.html" class="active">Contact Us</a></li>
+                        <li><a href="./search.html">Search</a></li>
                     </ul>
                 </nav>
             </div>
 
             <div class="join-us">
                 <img src="../icons/profile.svg" alt="profile">
-                <a href="#">Join Us</a>
+                <a id="myBtn">Join Us</a>
             </div>
 
             <div class="mobile-ham">
+                <button class="join-img" id="myBtnMobile"><img src="../icons/profile.svg" alt="profile"></button>
                 <button onclick="openNav()">
                     <img src="../icons/hamMenu.svg" alt="hamburger-menu">
                 </button>
@@ -50,17 +52,35 @@
 
         <div id="myNav" class="overlay">
 
-            <!-- Button to close the overlay navigation -->
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-            <!-- Overlay content -->
             <div class="overlay-content">
-                <a href="#">Home</a>
-                <a href="#">Catalog</a>
-                <a href="#">About Store</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Search</a>
+                <a href="../../index.html">Home</a>
+                <a href="./catalog-product.html">Catalog</a>
+                <a href="./about.html">About Store</a>
+                <a href="./contact.html">Contact Us</a>
+                <a href="./search.html">Search</a>
 
+            </div>
+
+        </div>
+
+        <div id="myModal" class="modal">
+
+
+            <div class="modal-content">
+                <span class="close"></span>
+
+                <div class="join-modal">
+                    <span>Join Us</span>
+                    <div class="join-inp">
+                        <input type="text" placeholder="Full name">
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="join-btn">
+                        <button>Join</button>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -69,25 +89,29 @@
 
 
     <div class="contain">
-      <main class="mainContact">
-        <div class="contactText">
-            <h1>Contact Us</h1>
-        </div>
-        <div class="inputArea">
-            <div class="firstInputSection">
-                <input type="text" placeholder="Full name">
-                <input type="text" placeholder="Adress">
+        <main class="mainContact">
+            <div class="contactText">
+                <h1>Contact Us</h1>
             </div>
-            <div class="secondInputSection">
-                <input type="text" placeholder="Email">
-                <input type="tel" placeholder="Phone">
+            <div class="inputArea">
+                <div class="firstInputSection">
+                    <input type="text" placeholder="Full name">
+                    <input type="text" placeholder="Adress">
+                </div>
+                <div class="secondInputSection">
+                    <div>
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="phone-inp" style="width: 100%;">
+                        <input type="number" id="telephone" placeholder="">
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="divButton">
-            <button>Send</button>
-        </div>
-      </main>
-       <div class="social-bar">
+            <div class="divButton">
+                <button>Send</button>
+            </div>
+        </main>
+        <div class="social-bar">
             <section class="five-sec">
 
                 <div class="follow">
@@ -97,8 +121,8 @@
                 <div class="media-icon">
                     <a href="https://www.facebook.com/" target="_blank"><img src="../icons/facebook.svg"
                             alt="facebook"></a>
-                    <a href="https://twitter.com/" class="twitter" target="_blank"><img
-                            src="../icons/twitter.svg" alt="twitter"></a>
+                    <a href="https://twitter.com/" class="twitter" target="_blank"><img src="../icons/twitter.svg"
+                            alt="twitter"></a>
                     <a href="https://www.instagram.com/" target="_blank"><img src="../icons/instagram.svg"
                             alt="instagram"></a>
                 </div>
@@ -106,7 +130,7 @@
             </section>
         </div>
     </div>
-     <footer class="footer-sec">
+    <footer class="footer-sec">
 
         <div class="contain">
 
@@ -158,10 +182,16 @@
 
     </footer>
 
-    <script></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/hamburger.js"></script>
+    <script src="../js/intlTelInput.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="../js/intlTelInput-jquery.min.js"></script>
+    <script src="../js/data.min.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/inputPhone.js"></script>
     <script src="../js/modal.js"></script>
+
 </body>
 
 </html>

@@ -1,19 +1,18 @@
-
 @media screen and (max-width: 1120px) {
 
-       .searchMain {
+    .searchMain {
         display: flex;
         flex-direction: column;
         justify-content: center;
-    }    
+    }
 
     .searchAboutBook {
-    width: 100%;
-    position: relative;
+        width: 100%;
+        position: relative;
     }
 
     .searchTextButon {
-    width: 100%;
+        width: 100%;
     }
 
     .card {
@@ -30,20 +29,32 @@
     }
 
     .prev {
-    position: absolute;
-    left: -40px;
-    top: 50%;
-    font-size: 30px;
-    cursor: pointer;
-}    
+        position: absolute;
+        left: -40px;
+        top: 50%;
+        font-size: 30px;
+        cursor: pointer;
+    }
 
-.next {
-    position: absolute;
-    right: -40px;
-    bottom: 45%;
-    font-size: 30px;
-    cursor: pointer;
-} 
+    .next {
+        position: absolute;
+        right: -40px;
+        bottom: 45%;
+        font-size: 30px;
+        cursor: pointer;
+    }
+
+    .searchAboutBook img {
+        margin-top: -60px;
+    }
+
+    .bookText {
+        margin-top: 12px;
+    }
+
+    .mobile-ham {
+        margin-right: -45px;
+    }
 
 }
 
@@ -55,28 +66,71 @@
         text-align: center;
     }
 
-    .insideCard div:first-child{
+    .insideCard div:first-child {
         width: 100%;
         display: flex;
         justify-content: center;
         margin-left: 0px;
     }
 
+    .searchAboutBook {
+        margin-bottom: -140px;
+    }
+
+    .searchText :first-child {
+        font-weight: 900;
+    }
+
+    .searchAboutBook img {
+        margin-top: -40px;
+        width: 273px;
+        margin-bottom: 40px;
+    }
+
+    .searchInputButton input {
+        height: 39.02px;
+        width: 84.3%;
+        margin: auto;
+        font-size: 16px;
+        margin-bottom: 24.72px;
+    }
+
+    .searchInputButton button {
+        width: 84.3%;
+        height: 37px;
+        margin: auto;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .bookText :first-child {
+        font-weight: 900;
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .bookText :nth-child(2) {
+        margin-bottom: 20px;
+    }
+
+    .bookText :nth-child(3) {
+        font-size: 14px;
+        line-height: 23.54px;
+    }
+
+    .card {
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+
+    }
+
     .prev {
-    position: absolute;
-    left: -40px;
-    top: 60%;
-    font-size: 30px;
-    cursor: pointer;
-}    
+        display: none;
+    }
 
     .next {
-    position: absolute;
-    right: -40px;
-    bottom: 35%;
-    font-size: 30px;
-    cursor: pointer;
-    } 
-
+        display: none;
+    }
 
 }

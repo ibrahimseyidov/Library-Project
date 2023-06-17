@@ -22,27 +22,29 @@
         <div class="header-container">
 
             <div>
-                <img src="../img/topLogo.svg" alt="logo">
+                <a href="../../index.html"><img src="../img/topLogo.svg" alt="logo"></a>
             </div>
 
             <div class="top-nav">
                 <nav>
                     <ul class="home-nav">
-                        <li><a href="/index.html" class="active">Home</a></li>
-                        <li><a href="#">Catalog</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="./catalog-product.html">Catalog</a></li>
                         <li><a href="./about.html">About Store</a></li>
                         <li><a href="./contact.html">Contact Us</a></li>
-                        <li><a href="#">Search</a></li>
+                        <li><a href="./search.html" class="active">Search</a></li>
                     </ul>
                 </nav>
             </div>
 
             <div class="join-us">
                 <img src="../icons/profile.svg" alt="profile">
-                <a href="#">Join Us</a>
+                <a id="myBtn">Join Us</a>
             </div>
 
             <div class="mobile-ham">
+                <button class="join-img" id="myBtnMobile"><img src="./assets-client/icons/profile.svg"
+                    alt="profile"></button>
                 <button onclick="openNav()">
                     <img src="../icons/hamMenu.svg" alt="hamburger-menu">
                 </button>
@@ -52,17 +54,34 @@
 
         <div id="myNav" class="overlay">
 
-            <!-- Button to close the overlay navigation -->
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-            <!-- Overlay content -->
             <div class="overlay-content">
-                <a href="#">Home</a>
-                <a href="#">Catalog</a>
-                <a href="#">About Store</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Search</a>
+                <a href="../../index.html">Home</a>
+                <a href="./catalog-product.html">Catalog</a>
+                <a href="./about.html">About Store</a>
+                <a href="./contact.html">Contact Us</a>
+                <a href="./search.html">Search</a>
 
+            </div>
+
+        </div>
+
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <span class="close"></span>
+
+                <div class="join-modal">
+                    <span>Join Us</span>
+                    <div class="join-inp">
+                        <input type="text" placeholder="Full name">
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="join-btn">
+                        <button>Join</button>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -72,37 +91,49 @@
 
     <div class="contain">
         <main class="searchMain">
-       <div class="searchTextButon">
-             <div class="searchText">
-                <h1>Search</h1>
+            <div class="searchTextButon">
+                <div class="searchText">
+                    <h1>Search</h1>
+                </div>
+                <div class="searchInputButton">
+                    <input placeholder="Book Name" type="text">
+                    <button>Search</button>
+                </div>
             </div>
-            <div class="searchInputButton">
-                <input placeholder="Book" type="text">
-                <button>Search</button>
-            </div>
-       </div>
             <div class="searchAboutBook">
                 <!-- <div class="prev">《</div> -->
-                <div class="card your-class" >
+                <div class="card your-class">
                     <div class="insideCard">
                         <div>
                             <img src="../img/searchBook.svg" alt="">
                         </div>
-                    <div class="bookText">
-                        <h2>Order Books</h2>
-                        <h3>Author</h3>
-                        <p>We work without holidays and weekends! Residents of Kiev can receive an order on the day of its registration. Customers from other cities of Ukraine can receive an order within 1-5 days, depending on the location of the settlement and the selected delivery method. Orders over UAH 1000 are delivered  free of charge *. You can see the available methods, exact terms and cost of delivery during checkout in the order basket, after selecting the delivery city     </p>
+                        <div class="bookText">
+                            <h2>Order Books</h2>
+                            <h3>Author</h3>
+                            <p>
+                                We work without holidays and weekends! Residents of Kiev can receive an order on the day
+                                of its registration. Customers from other cities of Ukraine can receive an order within
+                                1-5 days, depending on the location of the settlement and the selected delivery method.
+                                Orders over UAH 1000 are delivered free of charge *. You can see the available methods,
+                                exact terms and cost of delivery during checkout in the order basket, after selecting
+                                the delivery city
+                            </p>
+                        </div>
                     </div>
-                    </div> 
                     <div class="insideCard">
                         <div>
                             <img src="../img/searchBook.svg" alt="">
                         </div>
-                    <div class="bookText">
-                        <h2>Order Books</h2>
-                        <h3>Author</h3>
-                        <p>We work without holidays and weekends! Residents of Kiev can receive an order on the day of its registration. Customers from other cities of Ukraine can receive an order within 1-5 days, depending on the location of the settlement and the selected delivery method. Orders over UAH 1000 are delivered  free of charge *. You can see the available methods, exact terms and cost of delivery during checkout in the order basket, after selecting the delivery city     </p>
-                    </div>
+                        <div class="bookText">
+                            <h2>Order Books</h2>
+                            <h3>Author</h3>
+                            <p>We work without holidays and weekends! Residents of Kiev can receive an order on the day
+                                of its registration. Customers from other cities of Ukraine can receive an order within
+                                1-5 days, depending on the location of the settlement and the selected delivery method.
+                                Orders over UAH 1000 are delivered free of charge *. You can see the available methods,
+                                exact terms and cost of delivery during checkout in the order basket, after selecting
+                                the delivery city </p>
+                        </div>
                     </div>
                 </div>
                 <!-- <div class="next">》</div> -->
@@ -120,8 +151,8 @@
                 <div class="media-icon">
                     <a href="https://www.facebook.com/" target="_blank"><img src="../icons/facebook.svg"
                             alt="facebook"></a>
-                    <a href="https://twitter.com/" class="twitter" target="_blank"><img
-                            src="../icons/twitter.svg" alt="twitter"></a>
+                    <a href="https://twitter.com/" class="twitter" target="_blank"><img src="../icons/twitter.svg"
+                            alt="twitter"></a>
                     <a href="https://www.instagram.com/" target="_blank"><img src="../icons/instagram.svg"
                             alt="instagram"></a>
                 </div>
@@ -179,15 +210,15 @@
 
         </div>
 
-    </footer> 
+    </footer>
 
 
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="../js/hamburger.js"></script>
     <script src="../js/modal.js"></script>
     <script src="../js/slickSlider.js"></script>
+    <script src="../js/hamburger.js"></script>
 </body>
 
 </html>
