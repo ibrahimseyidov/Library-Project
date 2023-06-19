@@ -1,65 +1,190 @@
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1440px) {
+
+  .section1 {
+    overflow-y: hidden;
+  }
+
+  .logo {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .box {
+    width: 50%;
+    height: 520px;
+  }
+
+  .mobwelcom {
+    padding-top: 59px;
+  }
+
+  .inputShowPwd {
+    margin-bottom: 60px;
+  }
+
+  .showEle {
+    right: 100px !important;
+  }
+
 }
 
-@media screen and (max-width: 322px) {
-  .box,
-  #fname,
-  .join,
-  .welcome,
-  .center {
-    width: 100%;
-    margin: 0;
-    margin-top: 0;
-    padding: 0;
-  }
-  .center {
-    display: flex;
-    justify-content: center;
-  }
-  .box {
-    max-width: 229.72px;
-    width: 100%;
-    max-height: 303.93px;
-    height: 100%;
-    margin-top: 100px;
-    padding-top: 27px;
-    padding-bottom: 38px;
-    text-align: center;
-    margin-left: -30px;
-  }
-  .mobwelcom {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-  }
-  .welcome {
-    font-size: 20px;
-    line-height: 24px;
-    max-width: 148px;
-    width: 100%;
-    max-height: 64px;
-    height: 100%;
-    padding: 27px;
-    padding-top: 15px;
+@media screen and (max-width: 1279px) {
+
+  .logo {
+    margin-top: 40px;
+    margin-bottom: 70px;
   }
 
-  #fname {
-    font-size: 16px;
-    line-height: 21px;
-    max-width: 170px;
-    width: 100%;
-    max-height: 40.84px;
-    height: 100%;
-    padding: 11px;
+  .box {
+    width: 50%;
+  }
+
+  .mobwelcom :first-child {
+    font-size: 36px;
+  }
+
+  .showEle {
+    right: 90px !important;
+  }
+
+
+}
+
+@media screen and (max-width: 969px) {
+
+  .mobwelcom {
+    padding-top: 49px;
+  }
+
+  .box {
+    height: 430px;
+    width: 50%;
+  }
+
+  .mobwelcom :first-child {
+    font-size: 34px;
   }
 
   .join {
-    font-size: 18px;
-    line-height: 23px;
-    text-align: center;
-    height: 37.7px;
-    width: 193.49px;
-    margin-top: 15px;
-    padding: 10px;
+    height: 54px;
   }
+
+  #fname {
+    height: 64px;
+  }
+
+  .inputShowPwd {
+    margin-bottom: 44px;
+  }
+
+  .pass-inp {
+    height: 64px;
+  }
+
+  .showEle {
+    right: 70px !important;
+  }
+
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .mobwelcom {
+    padding-top: 29px;
+  }
+
+  .box {
+    height: 331px;
+    width: 50%;
+  }
+
+  .mobwelcom :first-child {
+    font-size: 24px;
+  }
+
+  .join {
+    height: 44px;
+    font-size: 14px;
+  }
+
+  #fname {
+    height: 44px;
+    padding-left: 20px;
+    font-size: 18px;
+  }
+
+  .inputShowPwd {
+    margin-bottom: 34px;
+  }
+
+  .pass-inp {
+    height: 44px;
+    padding-left: 20px;
+    font-size: 18px;
+  }
+
+  .showEle {
+    right: 55px !important;
+  }
+
+}
+
+@media screen and (max-width: 468px) {
+
+  .logo {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .logo img {
+    width: 151.22px;
+  }
+
+  .section-container {
+    width: 100%;
+  }
+
+  .mobwelcom {
+    padding-top: 29px;
+  }
+
+  .box {
+    height: 311px;
+    width: 229px;
+  }
+
+  .mobwelcom :first-child {
+    font-size: 20px;
+  }
+
+  .join {
+    height: 44px;
+    font-size: 14px;
+  }
+
+  #fname {
+    height: 44px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #797667;
+  }
+
+  .inputShowPwd {
+    margin-bottom: 34px;
+  }
+
+  .pass-inp {
+    height: 44px;
+    padding-left: 10px;
+    font-weight: 400;
+    font-size: 16px !important;
+    color: #797667;
+  }
+
+  .showEle {
+    right: 40px !important;
+  }
+
 }
