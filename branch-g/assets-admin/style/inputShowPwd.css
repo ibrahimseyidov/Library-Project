@@ -1,0 +1,58 @@
+* {
+	box-sizing: border-box;
+	font-size: 16px;
+	vertical-align: middle;
+}
+
+
+::-ms-clear,
+::-ms-reveal {
+	display: none;
+}
+
+input {
+	box-sizing: border-box;
+}
+
+input:active,
+input:focus {
+	outline: none;
+	-moz-outline: none;
+}
+
+
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
+	border: none;
+}
+
+
+.inputShowPwd {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+}
+
+.inputShowPwd>input {
+	font-family: Crimson Text, "sans-serif";
+	font-size: 19px;
+	font-weight: 400;
+}
+
+.inputShowPwd>.showEle {
+	display: none;
+	position: absolute;
+	height: 24px;
+	width: 24px;
+	top: 50%;
+	margin-top: -12px;
+	right: 96px;
+	background: url(../img/eye.svg) 50% 50% no-repeat;
+	background-size: 24px 24px;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.inputShowPwd>input[type="text"] {
+	display: none;
+}
