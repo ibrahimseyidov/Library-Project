@@ -1,0 +1,1 @@
+new inputShowPwd('inputShowPwd');
