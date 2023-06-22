@@ -1,0 +1,115 @@
+@media screen and (max-width: 999px) {
+
+    .logo img {
+        width: 180px;
+        margin-left: -10px;
+    }
+
+    .full {
+        margin-top: 127px;
+    }
+
+    .iconadmin {
+        float: right;
+    }
+
+    .column {
+        padding-left: 0;
+    }
+
+    .list {
+        margin-left: -1px;
+    }
+
+    .mob-logo {
+        display: none;
+    }
+
+    .booktype {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .type-add{
+        margin-left: 0px;
+    }
+
+}
+
+@media screen and (max-width: 798px) {
+
+    .bordo {
+        display: none;
+    }
+
+    .logo-mobile img {
+        display: block;
+    }
+
+    .white {
+        padding-left: 13px;
+    }
+
+    .admin-icon {
+        display: none;
+    }
+
+    .hamburger-btn {
+        display: block;
+        margin-right: 10px;
+    }
+
+    .white {
+        width: 100%;
+    }
+
+    .search-inp {
+        width: 80%;
+    }
+
+    #searchResults {
+        width: 80%;
+    }
+
+    .us {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-left: -12px;
+    }
+
+    .cus {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-left: -12px;
+    }
+
+    .table {
+        width: 100%;
+    }
+
+    .mob-logo {
+        display: block;
+    }
+
+    .hamburger-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+
+@media screen and (max-height: 450px) {
+
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
+    
+}

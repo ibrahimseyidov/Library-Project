@@ -132,6 +132,10 @@
 
 @media screen and (max-width: 468px) {
 
+  .join-container {
+    width: 233px;
+  }
+
   .logo {
     margin-top: 20px;
     margin-left: 20px;
@@ -159,12 +163,13 @@
   }
 
   .join {
-    height: 44px;
+    height: 37.7px;
     font-size: 14px;
   }
 
   #fname {
-    height: 44px;
+    height: 40.84px;
+    width: 192.61px;
     padding-left: 10px;
     font-weight: 400;
     font-size: 16px;
@@ -176,7 +181,8 @@
   }
 
   .pass-inp {
-    height: 44px;
+    width: 192.61px;
+    height: 40.84px;
     padding-left: 10px;
     font-weight: 400;
     font-size: 16px !important;
