@@ -94,7 +94,7 @@
     font-size: 13px;
     line-height: 196.19%;
     color: var(--mainColorText);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .first-left-sec :nth-child(3) {
@@ -327,7 +327,7 @@
     width: 0;
     position: fixed;
     /* Stay in place */
-    z-index: 1;
+    z-index: 999;
     /* Sit on top */
     left: 0;
     top: 0;
@@ -374,7 +374,7 @@
 .overlay .closebtn {
     position: absolute;
     top: 0px;
-    right: 0;
+    right: 0px;
     font-size: 60px;
 }
 
@@ -385,7 +385,7 @@
     /* Hidden by default */
     position: fixed;
     /* Stay in place */
-    z-index: 1;
+    z-index: 999;
     /* Sit on top */
     left: 0;
     top: 0;
@@ -488,3 +488,4 @@ body::-webkit-scrollbar-track {
     background-color: #FFF;
     border-radius: 10px;
 }
+
