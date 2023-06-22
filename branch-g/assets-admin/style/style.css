@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+body {
+  background-color: #720418 !important;
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.section-container {
+  width: 100%;
+}
+
+.logo {
+  width: 282px;
+  margin-top: 65.08px;
+  margin-left: 35px;
+  margin-bottom: 109px;
+}
+
+.box {
+  background-color: #fff;
+  width: 41.38%;
+  height: 544px;
+  margin: auto;
+}
+
+.mobwelcom {
+  padding-top: 69px;
+  margin-bottom: 17.78px;
+  text-align: center;
+}
+
+.mobwelcom :first-child {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  color: #000;
+}
+
+.form-container {
+  width: 100%;
+}
+
+.form-contain {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name-inp {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 34px;
+}
+
+#fname {
+  width: 75.1%;
+  height: 74.54px;
+  border: 1px solid #CECECE;
+  padding-left: 51.64px;
+  font-family: 'Crimson Text', sans-serif;
+  color: #797667;
+  font-weight: 400;
+  font-size: 19px;
+  outline: none;
+}
+
+.inputShowPwd {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 84.54px;
+}
+
+.pass-inp {
+  width: 75.1%;
+  height: 74.54px;
+  border: 1px solid #CECECE;
+  padding-left: 51.64px;
+  font-family: 'Crimson Text', sans-serif;
+  color: #797667;
+  font-weight: 400;
+  font-size: 19px;
+  outline: none;
+}
+
+.join-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.join {
+  width: 75.1%;
+  height: 74.54px;
+  border: none;
+  background-color: #E16A00;
+  font-family: 'Crimson Text', sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  text-align: center;
+  color: #FFFFFF;
+  border: 1px solid #CECECE;
+  border-radius: 5px;
+}
+
+.join:hover {
+  opacity: 0.8;
+}
+
+.showEle:hover {
+  opacity: 0.5;
+}
+
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #720418;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #FFF;
+  border-radius: 10px;
+}
