@@ -1,11 +1,13 @@
 .catalog-header {
     margin-bottom: 127px;
 }
+
 .catalog-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 64.7%;
+    width: 700px;
     margin-bottom: 60px;
 }
 
@@ -13,6 +15,30 @@
     color: var(--mainColorText);
     font-size: 25px;
     font-weight: 900;
+}
+
+.catalog-links {
+    width: 300px;
+    height: 40px;
+    overflow-x: scroll;
+    scrollbar-color: orange;
+    scrollbar-width: thin;
+    white-space: nowrap;
+    margin-top: 20px;
+}
+
+.catalog-links::-webkit-scrollbar {
+    background-color: #f5f5f5;
+    height: 6px;
+}
+
+.catalog-links::-webkit-scrollbar-thumb {
+    background-color: orange;
+    border-radius: 5px;
+}
+
+.catalog-links::-webkit-scrollbar-thumb:hover {
+    background-color: #ff9900;
 }
 
 .catalog-links a {
@@ -27,11 +53,11 @@
 }
 
 .books-slider-container {
-    margin-left: -60px;
     margin-bottom: 128px;
     display: flex;
     align-items: center;
     justify-content: center;
+    word-wrap: nowrap;
 }
 
 .bg-book {
@@ -41,8 +67,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 332px;
-    width: 184px;
+    width: 184px !important;
 }
 
 .bg-book:not(:last-child) {
@@ -62,11 +87,14 @@
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 30px;
-
+    width: 184px;
+    height: 332px;
+    margin: auto;
 }
 
 .book-main :first-child {
     margin-bottom: 20px;
+    padding-top: 20px;
     width: 134px;
 }
 
@@ -97,6 +125,7 @@
     font-weight: 900;
     padding: 10px 27px;
     cursor: pointer;
+    margin-bottom: 17px;
 }
 
 .book-main :nth-child(4):hover {
@@ -123,8 +152,14 @@
 }
 
 .left-btn {
-    margin-right: 30px;
+    position: relative;
     cursor: pointer;
+}
+
+.left-btn img {
+    position: absolute;
+    left: -65px;
+    top: 140px;
 }
 
 .left-btn:hover {
@@ -132,8 +167,14 @@
 }
 
 .right-btn {
-    margin-left: 30px;
+    position: relative;
     cursor: pointer;
+}
+
+.right-btn img {
+    position: absolute;
+    right: -60px;
+    top: -180px;    
 }
 
 .right-btn:hover {

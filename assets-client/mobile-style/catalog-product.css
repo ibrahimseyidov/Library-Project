@@ -1,3 +1,9 @@
+@media  screen and (max-width: 1542px) {
+    .right-btn img{
+        top: -200px;
+    }
+}
+
 @media screen and (max-width: 1367px) {
 
     .book-main :nth-child(4) {
@@ -14,13 +20,16 @@
         height: 300px;
     }
 
+.books-slider-container {
+    margin-bottom: 200px;
+}
 
 }
 
 @media screen and (max-width: 1195px) {
 
     .books-slider-container {
-        width: 100%;
+        margin-left: 10px !important;
     }
 
     .book-main :first-child {
@@ -103,16 +112,17 @@
     }
 
     .book-main :nth-child(2) {
-        font-size: 9px;
+        font-size: 10px;
     }
 
     .book-main :nth-child(3) {
-        font-size: 6px;
+        font-size: 10px;
     }
 
     .book-main :nth-child(4) {
-        font-size: 4px;
-        width: 60px;
+        font-size: 12px;
+        height: 40px;
+        width: 120px;
     }
 
     .bg-book {
@@ -229,17 +239,17 @@
     }
 
     .book-main :nth-child(2) {
-        font-size: 18px;
+        font-size: 12px;
         font-weight: 700;
     }
 
     .book-main :nth-child(3) {
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 400;
     }
 
     .book-main :nth-child(4) {
-        width: 136px;
+        width: 126px;
         height: 30px;
         font-size: 12px;
         font-weight: 900;
@@ -275,6 +285,31 @@
         font-size: 34px;
         font-weight: 900;
     }
+
+    .catalog-links::-webkit-scrollbar {
+        background-color: #f5f5f5;
+        height: 4px;
+    }
+    
+    .catalog-links::-webkit-scrollbar-thumb {
+        background-color: orange;
+        border-radius: 5px;
+    }
+    
+    .catalog-links::-webkit-scrollbar-thumb:hover {
+        background-color: #ff9900;
+    }
+
+    .catalog-links {
+        width: 300px;
+        height: 40px;
+        overflow-x: scroll;
+        scrollbar-color: orange;
+        scrollbar-width: thin;
+        white-space: nowrap;
+        margin-top: 20px;
+    }
+    
 
 
 }
