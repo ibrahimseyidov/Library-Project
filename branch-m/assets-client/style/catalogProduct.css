@@ -1,0 +1,355 @@
+.catalog-header {
+    margin-bottom: 127px;
+}
+
+.catalog-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 64.7%;
+    width: 700px;
+    margin-bottom: 60px;
+}
+
+.all-books :first-child {
+    color: var(--mainColorText);
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.catalog-links {
+    width: 300px;
+    height: 40px;
+    overflow-x: scroll;
+    scrollbar-color: orange;
+    scrollbar-width: thin;
+    white-space: nowrap;
+    margin-top: 20px;
+}
+
+.catalog-links::-webkit-scrollbar {
+    background-color: #f5f5f5;
+    height: 6px;
+}
+
+.catalog-links::-webkit-scrollbar-thumb {
+    background-color: orange;
+    border-radius: 5px;
+}
+
+.catalog-links::-webkit-scrollbar-thumb:hover {
+    background-color: #ff9900;
+}
+
+.catalog-links a {
+    color: var(--mainColorText);
+    font-size: 13px;
+    font-weight: 400;
+    margin-right: 40px;
+}
+
+.catalog-links a:hover {
+    opacity: 0.6;
+}
+
+.books-slider-container {
+    margin-bottom: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: nowrap;
+}
+
+.bg-book {
+    position: relative;
+    background-color: #FFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 184px !important;
+}
+
+.bg-book:not(:last-child) {
+    margin-right: 62px;
+}
+
+.new-icon {
+    position: absolute;
+    top: -5px;
+    right: -7px;
+}
+
+.book-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 184px;
+    height: 332px;
+    margin: auto;
+}
+
+.book-main :first-child {
+    margin-bottom: 20px;
+    padding-top: 20px;
+    width: 134px;
+}
+
+.book-main :nth-child(2) {
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--mainColorText);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.book-main :nth-child(3) {
+    margin-bottom: 16px;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--mainColorText);
+    text-align: center;
+}
+
+.book-main :nth-child(4) {
+    background-color: var(--mainColorOrange);
+    box-shadow: 0px 3px 8px rgba(225, 106, 0, 0.19);
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 10px 27px;
+    cursor: pointer;
+    margin-bottom: 17px;
+}
+
+.book-main :nth-child(4):hover {
+    opacity: 0.5;
+}
+
+.second-container {
+    margin-bottom: 171px;
+}
+
+.best-seller {
+    margin-bottom: 50px;
+}
+
+.best-seller :first-child {
+    text-align: center;
+    color: var(--mainColorText);
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.third-container {
+    margin-bottom: 206px;
+}
+
+.left-btn {
+    position: relative;
+    cursor: pointer;
+}
+
+.left-btn img {
+    position: absolute;
+    left: -65px;
+    top: 140px;
+}
+
+.left-btn:hover {
+    opacity: 0.5;
+}
+
+.right-btn {
+    position: relative;
+    cursor: pointer;
+}
+
+.right-btn img {
+    position: absolute;
+    right: -60px;
+    top: -180px;    
+}
+
+.right-btn:hover {
+    opacity: 0.5;
+}
+
+.all-book-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 148px;
+}
+
+.book-top {
+    margin-bottom: 123px;
+}
+
+.back-btn {
+    margin-bottom: 80px;
+}
+
+.back-btn :first-child {
+    background-color: var(--mainColorOrange);
+    border: none;
+    box-shadow: 0px 3px 8px rgba(225, 106, 0, 0.19);
+    border-radius: 3px;
+    outline: none;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 6.3px 0;
+    width: 100px;
+}
+
+.back-btn :first-child:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.about-book :first-child {
+    margin-bottom: 24px;
+}
+
+.about-book :first-child span {
+    background: #2F80ED;
+    box-shadow: 0px 3px 8px rgba(225, 106, 0, 0.19);
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    font-size: 12px;
+    font-weight: 900;
+    color: #FFF;
+    padding: 7px 19px;
+}
+
+.content-book :first-child {
+    color: var(--mainColorText);
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.content-book :nth-child(2) {
+    color: var(--mainColorText);
+    font-size: 16px;
+    font-weight: 700;
+    margin-left: 3px;
+    margin-bottom: 20px;
+}
+
+.content-book :nth-child(3) {
+    margin-top: 18px;
+    margin-left: 3px;
+    color: var(--mainColorText);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 14px;
+}
+
+.content-book :nth-child(4) {
+    margin-left: 3px;
+    color: var(--mainColorText);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 196.19%;
+    width: 70%;
+}
+
+.content-book :nth-child(5) {
+    background: transparent;
+    border: none;
+    outline: none;
+    margin-left: 3px;
+    color: var(--mainColorText);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 196.19%;
+}
+
+.content-book :nth-child(5):hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.comment-search {
+    display: flex;
+    align-items: center;
+    width: 75.6%;
+    margin-bottom: 53px;
+}
+
+.comment-search :first-child {
+    margin-right: 18px;
+    width: 100%;
+}
+
+.comment-search :first-child input {
+    padding: 15.5px 0;
+    padding-left: 38px;
+    border: none;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    outline: none;
+    font-size: 20px;
+    color: #232323;
+    font-weight: 300;
+}
+
+.comment-search :nth-child(2) button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    width: 60.11px;
+    height: 56px;
+    background-color: var(--mainColorOrange);
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.comment-search :nth-child(2) button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.book-comment {
+    background-color: #FFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    width: 76.2%;
+    padding: 30px 18px;
+    margin-bottom: 43px;
+}
+
+.anonim-comment {
+    margin-bottom: 14px;
+}
+
+.anonim-comment :first-child {
+    color: #232323;
+    font-weight: 700;
+    font-size: 16px;
+    margin-right: 24px;
+}
+
+.anonim-comment :nth-child(2) {
+    font-weight: 400;
+    font-size: 16px;
+    color: #232323;
+}
+
+.anonim-para {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #232323;
+}
