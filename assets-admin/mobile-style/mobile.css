@@ -1,55 +1,3 @@
-@media screen and (max-width: 1440px) {
-
-  .section1 {
-    overflow-y: hidden;
-  }
-
-  .logo {
-    margin-top: 30px;
-    margin-bottom: 20px;
-  }
-
-  .box {
-    width: 50%;
-    height: 520px;
-  }
-
-  .mobwelcom {
-    padding-top: 59px;
-  }
-
-  .inputShowPwd {
-    margin-bottom: 60px;
-  }
-
-  .showEle {
-    right: 100px !important;
-  }
-
-}
-
-@media screen and (max-width: 1279px) {
-
-  .logo {
-    margin-top: 40px;
-    margin-bottom: 70px;
-  }
-
-  .box {
-    width: 50%;
-  }
-
-  .mobwelcom :first-child {
-    font-size: 36px;
-  }
-
-  .showEle {
-    right: 90px !important;
-  }
-
-
-}
-
 @media screen and (max-width: 969px) {
 
   .mobwelcom {
@@ -57,8 +5,8 @@
   }
 
   .box {
-    height: 430px;
-    width: 50%;
+    height: 400px;
+    width: 450px
   }
 
   .mobwelcom :first-child {
@@ -67,9 +15,11 @@
 
   .join {
     height: 54px;
+    width: 400px;
   }
 
   #fname {
+    width: 400px;
     height: 64px;
   }
 
@@ -79,10 +29,11 @@
 
   .pass-inp {
     height: 64px;
+    width: 400px;
   }
 
   .showEle {
-    right: 70px !important;
+    right: 45px !important;
   }
 
 
@@ -96,7 +47,7 @@
 
   .box {
     height: 331px;
-    width: 50%;
+    width: 400px;
   }
 
   .mobwelcom :first-child {
@@ -104,17 +55,20 @@
   }
 
   .join {
+    width: 300px;
     height: 44px;
     font-size: 14px;
   }
 
   #fname {
+    width: 300px;
     height: 44px;
     padding-left: 20px;
     font-size: 18px;
   }
 
   .inputShowPwd {
+    width: 300px;
     margin-bottom: 34px;
   }
 
@@ -125,16 +79,12 @@
   }
 
   .showEle {
-    right: 55px !important;
+    right: 15px !important;
   }
 
 }
 
 @media screen and (max-width: 468px) {
-
-  .join-container {
-    width: 233px;
-  }
 
   .logo {
     margin-top: 20px;
@@ -164,12 +114,13 @@
 
   .join {
     height: 37.7px;
+    width: 192px;
     font-size: 14px;
   }
 
   #fname {
     height: 40.84px;
-    width: 192.61px;
+    width: 192px;
     padding-left: 10px;
     font-weight: 400;
     font-size: 16px;
@@ -177,11 +128,12 @@
   }
 
   .inputShowPwd {
+    width: 192px;
     margin-bottom: 34px;
   }
 
   .pass-inp {
-    width: 192.61px;
+    width: 192px;
     height: 40.84px;
     padding-left: 10px;
     font-weight: 400;
@@ -190,7 +142,8 @@
   }
 
   .showEle {
-    right: 40px !important;
+    right: 10px !important;
   }
 
 }
+
