@@ -174,8 +174,7 @@ a:hover {
   color: #333333;
 }
 
-form {
-
+.form-change {
   width: 91%;
   margin-right: 110px;
   padding: 30px;

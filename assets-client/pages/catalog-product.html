@@ -100,13 +100,13 @@
                         <h2>All Books</h2>
                     </div>
 
-                    <div class="catalog-links">
+                    <div class="catalog-links" id="categorieContainer">
                         <a href="#">All</a>
-                        <a href="#">Fantastic</a>
+                        <!-- <a href="#">Fantastic</a>
                         <a href="#">Bestseller</a>
                         <a href="#">Dedective</a>
                         <a href="#">Classic</a>
-                        <a href="#">Baby</a>
+                        <a href="#">Baby</a> -->
                     </div>
 
                 </div>
@@ -361,7 +361,7 @@
     <script type="module">
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-        import { getDatabase, set, get, ref, push, child } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+        import { getDatabase, set, get, ref, push, child, onValue } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBIwPUrIeIwVhdFOO24FP37qBLiHeLIsRw",
@@ -379,11 +379,49 @@
         const bookSlider = document.querySelector("#bookSlider");
         const bookSlider2 = document.querySelector("#bookSlider2");
         const bookSlider3 = document.querySelector("#bookSlider3");
+        const categorieContainer = document.querySelector("#categorieContainer")
 
         getData()
+        getCategorie()
+
+        function getCategorie() {
+            onValue(ref(db, "categories"), (snapshot) => {
+                const data = snapshot.val()
+                const dataArr = Object.entries(data)
+                dataArr.forEach((el) => {
+                    console.log(el);
+                    categorieContainer.innerHTML += `<a href="#">${el[1].categorie}</a>`
+                })
+
+            })
+        }
+
+
 
         function getData() {
             let dbref = ref(db, "book-data")
+
+            categorieContainer.addEventListener("click", fetchTrueCategorie)
+
+            function fetchTrueCategorie(e) {
+                let categorieName = e.target.textContent;
+
+                get(ref(db, "book-data"))
+                    .then((snapshot) => {
+                        let data = snapshot.val();
+                        let dataArr = Object.entries(data);
+                        dataArr.forEach((el) => {
+                            if(categorieName == el[1].categories){
+                                console.log("2defe");
+                            }
+                            // console.log(el[1].categories);
+                        })
+
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
+            }
 
             get(ref(db, "book-data"))
                 .then((snapshot) => {
@@ -402,7 +440,6 @@
                         dataArr.forEach((el) => {
                             if (el[1].isNew) {
                                 console.log(el[1].isNew);
-                                console.log("isleyirrr");
                                 bookSlider.innerHTML += `<div class="bg-book">
                             <div class="new-icon">
                                 <img src='../icons/new.svg' alt="new">
@@ -434,7 +471,6 @@
                         dataArr.forEach((el) => {
                             if (el[1].isNew) {
                                 console.log(el[1].isNew);
-                                console.log("isleyirrr");
                                 bookSlider2.innerHTML += `<div class="bg-book">
                             <div class="new-icon">
                                 <img src='../icons/new.svg' alt="new">
@@ -466,7 +502,6 @@
                         dataArr.forEach((el) => {
                             if (el[1].isNew) {
                                 console.log(el[1].isNew);
-                                console.log("isleyirrr");
                                 bookSlider3.innerHTML += `<div class="bg-book">
                             <div class="new-icon">
                                 <img src='../icons/new.svg' alt="new">
@@ -495,11 +530,20 @@
                             autoplay: true,
                             autoplaySpeed: 2000,
                             arrows: true,
+                            adaptiveHeight: false,
                             responsive: [
-                            {
-                                    breakpoint: 1576,
+                                {
+                                    breakpoint: 1526,
                                     settings: {
                                         slidesToShow: 4,
+                                        slidesToScroll: 1,
+                                        arrows: true,
+                                    }
+                                },
+                                {
+                                    breakpoint: 1221,
+                                    settings: {
+                                        slidesToShow: 3,
                                         slidesToScroll: 1,
                                         arrows: true,
                                     }
@@ -544,9 +588,33 @@
                             arrows: true,
                             responsive: [
                                 {
-                                    breakpoint: 696,
+                                    breakpoint: 1526,
+                                    settings: {
+                                        slidesToShow: 4,
+                                        slidesToScroll: 1,
+                                        arrows: true,
+                                    }
+                                },
+                                {
+                                    breakpoint: 1221,
                                     settings: {
                                         slidesToShow: 3,
+                                        slidesToScroll: 1,
+                                        arrows: true,
+                                    }
+                                },
+                                {
+                                    breakpoint: 1095,
+                                    settings: {
+                                        slidesToShow: 3,
+                                        slidesToScroll: 1,
+                                        arrows: true,
+                                    }
+                                },
+                                {
+                                    breakpoint: 763,
+                                    settings: {
+                                        slidesToShow: 2,
                                         slidesToScroll: 1,
                                         arrows: false,
                                     }
@@ -575,9 +643,33 @@
                             arrows: true,
                             responsive: [
                                 {
-                                    breakpoint: 696,
+                                    breakpoint: 1526,
+                                    settings: {
+                                        slidesToShow: 4,
+                                        slidesToScroll: 1,
+                                        arrows: true,
+                                    }
+                                },
+                                {
+                                    breakpoint: 1221,
                                     settings: {
                                         slidesToShow: 3,
+                                        slidesToScroll: 1,
+                                        arrows: true,
+                                    }
+                                },
+                                {
+                                    breakpoint: 1095,
+                                    settings: {
+                                        slidesToShow: 3,
+                                        slidesToScroll: 1,
+                                        arrows: true,
+                                    }
+                                },
+                                {
+                                    breakpoint: 763,
+                                    settings: {
+                                        slidesToShow: 2,
                                         slidesToScroll: 1,
                                         arrows: false,
                                     }
@@ -593,34 +685,12 @@
                             ]
                         });
 
-                    } else {
-                        console.log("No data available");
                     }
                 })
                 .catch((error) => {
-                    console.error(error);
+                    console.log(error);
                 });
         }
-
-
-            // let bookCard = responseArr.map((el) => {
-
-            //     return `<div class="bg-book">
-            //                 <div class="new-icon">
-            //                     <img src='${el.volumeInfo.imageLinks.smallThumbnail}' alt="new">
-            //                 </div>
-
-            //                 <div class="book-main">
-            //                     <img src="../img/book.svg" alt="book">
-            //                     <h3>${el.title}</h3>
-            //                     <span>${el.volumeInfo.authors[0]}</span>
-            //                     <button>READ MORE</button>
-            //                 </div>
-
-            //             </div>`
-            // }).join("")
-
-
 
     </script>
     <script src="../js/modal.js"></script>

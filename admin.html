@@ -20,7 +20,7 @@
 
 <body>
 
-  <section class="section1" style="display: block;">
+  <section class="section1" style="display: none;">
 
     <div class="section-container">
 
@@ -163,7 +163,7 @@
           <div class="form1">
             <p class="para3">Book form</p>
 
-            <form>
+            <form class="form-change">
               <div class="mb-3">
                 <label for="book" class="form-label">Book Name</label>
                 <input type="text" class="form-control mb-3" id="bookInp" aria-describedby="book />
@@ -200,9 +200,10 @@
                 <button type="button" class="btn type-add me-5" data-bs-toggle="button">Add Type</button>
                 <div class="coment">
                   <div class="mb-3 me-3">
-                    <input type="text" class="form-control" id="type" aria-describedby="type" placeholder="Book Type" />
+                    <input type="text" class="form-control categorie-input" id="type" aria-describedby="type"
+                      placeholder="Book Type" />
                   </div>
-                  <button type="button" class="btn btn-primary w-25 me-3 type-btn" data-bs-toggle="button">
+                  <button type="button" class="btn btn-primary w-25 me-3 type-btn" id="typeBtn" data-bs-toggle="button">
                     Add
                   </button>
                   <button type="button" class="btn x-btn" data-bs-toggle="button" id="xBtn"
@@ -239,7 +240,7 @@
           <div class="form1">
             <p class="para3">About Store</p>
 
-            <form>
+            <form class="form-change">
               <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" id="title" aria-describedby="emailHelp" />
@@ -372,6 +373,10 @@
               </tbody>
             </table>
           </div>
+
+          
+          <a href="" class="scrollup"><img src="./assets-admin/img/topBtn.svg"  class="top-btn" alt="topBtn"></a>
+
         </section>
 
 
@@ -386,6 +391,9 @@
   <script src="./assets-admin/js/inputShowPwd.js"></script>
   <script src="./assets-admin/js/hidepass.js"></script>
   <script src="./assets-admin/js/toast.script.js"></script>
+  <script src="./assets-admin/js/jquery.shCircleLoader.js"></script>
+  <script src="./assets-admin/js/top.js"></script>
+  <script src="./assets-admin/js/showPage.js"></script>
   <script src="./assets-admin/js/addType.js"></script>
   <script type="module">
 
@@ -422,6 +430,7 @@
     const checkBox = document.querySelector("#checkBox");
     const desc = document.querySelector("#desc");
     const selectElement = document.querySelector('.form-select');
+    const typeBtn = document.querySelector("#typeBtn");
     let selectedOptionText;
 
     function checkUser(e) {
@@ -445,9 +454,8 @@
             width: 300
           })
 
-
-          $(".section1").hide(800)
-          $(".section2").show(800)
+          $(panelPage).show(200)
+          $(signInPage).hide(600)
 
 
 
@@ -529,14 +537,25 @@
 
     }
 
+    function typeAddFirebase() {
+      var myArray = JSON.parse(localStorage.getItem("categorie")) || [];
+      myArray.forEach((el, i) => {
+        set(ref(db, "categories/" + "categorie" + i), {
+          categorie: el
+        })
+      })
 
-    storeAddBtn.addEventListener("click", addBookDataToStore);
+
+    }
+
     loginBtn.addEventListener("click", checkUser);
-    selectElement.addEventListener("click",getOption)
-    signOutBtn.addEventListener("click", signOutPanel)
+    storeAddBtn.addEventListener("click", addBookDataToStore);
+    selectElement.addEventListener("click", getOption);
+    signOutBtn.addEventListener("click", signOutPanel);
+    typeBtn.addEventListener("click", typeAddFirebase);
+
 
   </script>
-  <script src="./assets-admin/js/jquery.shCircleLoader.js"></script>
   <script src="./assets-admin/js/admin.js"></script>
   <script src="./assets-admin/js/search.js"></script>
   <script src="./assets-admin/js/hamburger.js"></script>

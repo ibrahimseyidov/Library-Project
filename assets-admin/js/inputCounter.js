@@ -4,5 +4,5 @@ $('.text-area-2').simpleTxtCounter({
 
 
 $(".text-area-1").simpleTxtCounter({
-    maxLength: 100,
+    maxLength: 300,
   });

@@ -123,7 +123,13 @@
 .second-sec {
     display: flex;
     justify-content: center;
-    margin-bottom: 136px;
+    width: 100px;
+    margin: auto;
+    margin-bottom: 100px;
+}
+
+.second-sec {
+    width: 850px
 }
 
 .second-catalog {
@@ -131,10 +137,12 @@
     margin-bottom: 47px;
 }
 
+
 .second-catalog :first-child {
     color: #000;
     font-size: 25px;
     font-weight: 900;
+    margin: auto;
 }
 
 .catalog-btn button {
@@ -409,7 +417,8 @@
     /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 42.2%;
+    width: 675px;
+    height: 555px;
     /* Could be more or less, depending on screen size */
 }
 
@@ -489,3 +498,23 @@ body::-webkit-scrollbar-track {
     border-radius: 10px;
 }
 
+.catalog-btns button {
+    width: 242px;
+    margin-right: 36px;
+    margin-bottom: 36px;
+    height: 76px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 11px 0px rgba(0, 0, 0, 0.25);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 196.187%;
+    border: none;
+    outline: none;
+    word-wrap: nowrap;
+    cursor: pointer;
+}
+
+.catalog-btns button:hover {
+    opacity: 0.8;
+}
