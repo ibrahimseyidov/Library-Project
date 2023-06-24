@@ -52,11 +52,6 @@
     opacity: 0.6;
 }
 
-.books-slider-container {
-    margin-bottom: 128px;
-    display: flex;
-}
-
 .bg-book {
     position: relative;
     background-color: #FFF;
@@ -64,7 +59,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
     width: 184px !important;
+    margin-top: 20px;
 }
 
 .bg-book:not(:last-child) {
@@ -74,7 +71,7 @@
 .new-icon {
     position: absolute;
     top: -5px;
-    right: -7px;
+    right: -8px;
 }
 
 .book-main {
@@ -82,17 +79,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
     width: 184px;
-    height: 332px;
-    margin: auto;
 }
 
 .book-main :first-child {
     margin-bottom: 20px;
     padding-top: 20px;
     width: 134px;
+    height: 190px;
 }
 
 .book-main :nth-child(2) {
@@ -170,8 +164,8 @@
 
 .right-btn img {
     position: absolute;
-    right: -60px;
-    top: -180px;    
+    right: -70px;
+    top:135px;
 }
 
 .right-btn:hover {
@@ -351,3 +345,6 @@
     color: #232323;
 }
 
+.books-slider-container {
+    margin-bottom: 128px;
+}
