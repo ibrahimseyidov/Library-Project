@@ -177,8 +177,13 @@ body {
   width: 40px;
 }
 
+#storeAdd:hover {
+  opacity: 0.8;
+}
 
-
+.about-add:hover {
+  opacity: 0.8;
+}
 
 body::-webkit-scrollbar {
   width: 5px;

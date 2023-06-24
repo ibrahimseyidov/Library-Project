@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../mobile-style/mobile.css">
     <link rel="stylesheet" href="../mobile-style/catalog-product.css">
     <link rel="stylesheet" href="../style/slick.css">
+    <link rel="stylesheet" href="../style/jquery.shCircleLoader.css">
     <title>Catalog Page</title>
 </head>
 
@@ -114,6 +115,7 @@
                 <section>
 
                     <div class="books-slider-container" id="bookSlider">
+                        <div class="example"></div>
                     </div>
 
                 </section>
@@ -125,7 +127,7 @@
                     </div>
 
                     <div class="books-slider-container second-container" id="bookSlider2">
-
+                        <div class="example"></div>
 
                     </div>
 
@@ -138,7 +140,7 @@
                     </div>
 
                     <div class="books-slider-container third-container" id="bookSlider3">
-
+                        <div class="example"></div>
                     </div>
 
                     <div class="right-btn" style="display: none;">
@@ -356,6 +358,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/jquery.shCircleLoader.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="../js/slickSlider.js"></script>
     <script type="module">
@@ -381,74 +384,174 @@
         const bookSlider3 = document.querySelector("#bookSlider3");
         const categorieContainer = document.querySelector("#categorieContainer")
 
-        getData()
-        getCategorie()
+        categorieContainer.addEventListener("click", fetchTrueCategorie)
+        document.addEventListener("DOMContentLoaded", getCategorie)
+        document.activeElement("DOMContentLoaded", getData())
 
-        function getCategorie() {
-            onValue(ref(db, "categories"), (snapshot) => {
-                const data = snapshot.val()
-                const dataArr = Object.entries(data)
-                dataArr.forEach((el) => {
-                    console.log(el);
-                    categorieContainer.innerHTML += `<a href="#">${el[1].categorie}</a>`
-                })
 
-            })
+
+        function firstSlider() {
+            $(".books-slider-container").slick({
+                prevArrow: `<div class="left-btn">
+        <img src="../icons/leftBtn.svg" alt="left-btn">
+        </div>`,
+                nextArrow: `<div class="right-btn">
+        <img src="../icons/rightBtn.svg" alt="right-btn">
+        </div>`,
+                slidesToShow: 5,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: true,
+                adaptiveHeight: false,
+                responsive: [
+                    {
+                        breakpoint: 1526,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 1,
+                            arrows: true,
+                        }
+                    },
+                    {
+                        breakpoint: 1221,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            arrows: true,
+                        }
+                    },
+                    {
+                        breakpoint: 1095,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            arrows: true,
+                        }
+                    },
+                    {
+                        breakpoint: 763,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            arrows: false,
+                        }
+                    },
+                    {
+                        breakpoint: 544,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: false,
+                        }
+                    }
+                ]
+            });
+
         }
 
+        function getCategorie() {
+            console.log("isledi");
+            get(ref(db, "categories"))
+                .then((snapshot) => {
+                    const data = snapshot.val()
+                    const dataArr = Object.entries(data)
 
+                    dataArr.forEach((el) => {
+                        console.log(el);
+                        categorieContainer.innerHTML += `<a href="#">${el[1].categorie}</a>`
+                    })
+                })
+        }
 
-        function getData() {
-            let dbref = ref(db, "book-data")
+        function fetchTrueCategorie(e) {
+            let categorieName = e.target.textContent;
 
-            categorieContainer.addEventListener("click", fetchTrueCategorie)
+            get(ref(db, "book-data"))
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
 
-            function fetchTrueCategorie(e) {
-                let categorieName = e.target.textContent;
-
-                get(ref(db, "book-data"))
-                    .then((snapshot) => {
                         let data = snapshot.val();
                         let dataArr = Object.entries(data);
+                        bookSlider.innerHTML = "";
+
                         dataArr.forEach((el) => {
-                            if(categorieName == el[1].categories){
-                                console.log("2defe");
+                            if (categorieName == el[1].categories && el[1].isNew) {
+                                bookSlider.innerHTML += `<div class="bg-book">
+                            <div class="new-icon">
+                                <img src='../icons/new.svg' alt="new">
+                            </div>
+
+                        <div class="book-main">
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
+                            <button>READ MORE</button>
+                        </div>
+
+                        </div>`
+
+
+                            } else if (categorieName == el[1].categories && !el[1].isNew) {
+
+                                bookSlider.innerHTML += `<div class="bg-book">
+                                             <div class="book-main">
+                                                <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
+                            <button>READ MORE</button>
+                        </div>
+
+                        </div>`
+
+
+                            } else if (categorieName == "All") {
+                                location.reload()
+
                             }
-                            // console.log(el[1].categories);
+
                         })
 
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
-            }
+                    }
+                })
+
+
+
+
+
+
+
+                .catch((err) => {
+                    console.log(err);
+                })
+
+        }
+
+        function getData() {
+            $(".example").shCircleLoader({
+                color: "#720418",
+            })
+            let dbref = ref(db, "book-data")
 
             get(ref(db, "book-data"))
                 .then((snapshot) => {
 
                     if (snapshot.exists()) {
-
+                        bookSlider.innerHTML = ""
                         let data = snapshot.val();
                         let dataArr = Object.entries(data);
 
-
-                        console.log(dataArr[0][1].bookImage);
-                        console.log(dataArr[0][1].bookName);
-                        console.log(dataArr[0][1].authorName);
-
-
                         dataArr.forEach((el) => {
+                            console.log(el[1].bookName.length);
                             if (el[1].isNew) {
-                                console.log(el[1].isNew);
                                 bookSlider.innerHTML += `<div class="bg-book">
                             <div class="new-icon">
                                 <img src='../icons/new.svg' alt="new">
                             </div>
 
                         <div class="book-main">
-                            <img src="${el[1].bookImage}"  style="width:110px;" alt="book">
-                            <h3>${el[1].bookName}</h3>
-                            <span>${el[1].authorName}</span>
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
                             <button>READ MORE</button>
                         </div>
 
@@ -456,9 +559,9 @@
                             } else {
                                 bookSlider.innerHTML += `<div class="bg-book">
                         <div class="book-main">
-                         <img src="${el[1].bookImage}"  style="width:110px;" alt="book">
-                            <h3>${el[1].bookName}</h3>
-                            <span>${el[1].authorName}</span>
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
                             <button>READ MORE</button>
                         </div>
                         </div>`
@@ -467,19 +570,18 @@
                             }
 
                         })
-
+                        bookSlider2.innerHTML = ""
                         dataArr.forEach((el) => {
                             if (el[1].isNew) {
-                                console.log(el[1].isNew);
                                 bookSlider2.innerHTML += `<div class="bg-book">
                             <div class="new-icon">
                                 <img src='../icons/new.svg' alt="new">
                             </div>
 
                         <div class="book-main">
-                            <img src="${el[1].bookImage}"  style="width:110px;" alt="book">
-                            <h3>${el[1].bookName}</h3>
-                            <span>${el[1].authorName}</span>
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
                             <button>READ MORE</button>
                         </div>
 
@@ -487,9 +589,9 @@
                             } else {
                                 bookSlider2.innerHTML += `<div class="bg-book">
                         <div class="book-main">
-                         <img src="${el[1].bookImage}"  style="width:110px;" alt="book">
-                            <h3>${el[1].bookName}</h3>
-                            <span>${el[1].authorName}</span>
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
                             <button>READ MORE</button>
                         </div>
                         </div>`
@@ -498,19 +600,18 @@
                             }
 
                         })
-
+                        bookSlider3.innerHTML = ""
                         dataArr.forEach((el) => {
                             if (el[1].isNew) {
-                                console.log(el[1].isNew);
                                 bookSlider3.innerHTML += `<div class="bg-book">
                             <div class="new-icon">
                                 <img src='../icons/new.svg' alt="new">
                             </div>
 
                         <div class="book-main">
-                            <img src="${el[1].bookImage}"  style="width:110px;" alt="book">
-                            <h3>${el[1].bookName}</h3>
-                            <span>${el[1].authorName}</span>
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
                             <button>READ MORE</button>
                         </div>
 
@@ -518,173 +619,180 @@
                             }
                         })
 
+                        firstSlider()
+                        secondSlider()
+                        thirdSlider()
 
-                        $(".books-slider-container").slick({
-                            prevArrow: `<div class="left-btn">
+                        function firstSlider() {
+                            $(".books-slider-container").slick({
+                                prevArrow: `<div class="left-btn">
                                 <img src="../icons/leftBtn.svg" alt="left-btn">
                                 </div>`,
-                            nextArrow: `<div class="right-btn">
+                                nextArrow: `<div class="right-btn">
                                 <img src="../icons/rightBtn.svg" alt="right-btn">
                                 </div>`,
-                            slidesToShow: 5,
-                            autoplay: true,
-                            autoplaySpeed: 2000,
-                            arrows: true,
-                            adaptiveHeight: false,
-                            responsive: [
-                                {
-                                    breakpoint: 1526,
-                                    settings: {
-                                        slidesToShow: 4,
-                                        slidesToScroll: 1,
-                                        arrows: true,
+                                slidesToShow: 5,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: true,
+                                adaptiveHeight: false,
+                                responsive: [
+                                    {
+                                        breakpoint: 1526,
+                                        settings: {
+                                            slidesToShow: 4,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1221,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1095,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 763,
+                                        settings: {
+                                            slidesToShow: 2,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 544,
+                                        settings: {
+                                            slidesToShow: 1,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
                                     }
-                                },
-                                {
-                                    breakpoint: 1221,
-                                    settings: {
-                                        slidesToShow: 3,
-                                        slidesToScroll: 1,
-                                        arrows: true,
-                                    }
-                                },
-                                {
-                                    breakpoint: 1095,
-                                    settings: {
-                                        slidesToShow: 3,
-                                        slidesToScroll: 1,
-                                        arrows: true,
-                                    }
-                                },
-                                {
-                                    breakpoint: 763,
-                                    settings: {
-                                        slidesToShow: 2,
-                                        slidesToScroll: 1,
-                                        arrows: false,
-                                    }
-                                },
-                                {
-                                    breakpoint: 544,
-                                    settings: {
-                                        slidesToShow: 1,
-                                        slidesToScroll: 1,
-                                        arrows: false,
-                                    }
-                                }
-                            ]
-                        });
+                                ]
+                            });
 
-                        $("#bookSlider2").slick({
-                            prevArrow: `<div class="left-btn">
+                        }
+                        function secondSlider() {
+                            $("#bookSlider2").slick({
+                                prevArrow: `<div class="left-btn">
                                 <img src="../icons/leftBtn.svg" alt="left-btn">
                                 </div>`,
-                            nextArrow: `<div class="right-btn">
+                                nextArrow: `<div class="right-btn">
                                 <img src="../icons/rightBtn.svg" alt="right-btn">
                                 </div>`,
-                            slidesToShow: 5,
-                            autoplay: true,
-                            autoplaySpeed: 2000,
-                            arrows: true,
-                            responsive: [
-                                {
-                                    breakpoint: 1526,
-                                    settings: {
-                                        slidesToShow: 4,
-                                        slidesToScroll: 1,
-                                        arrows: true,
+                                slidesToShow: 5,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: true,
+                                responsive: [
+                                    {
+                                        breakpoint: 1526,
+                                        settings: {
+                                            slidesToShow: 4,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1221,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1095,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 763,
+                                        settings: {
+                                            slidesToShow: 2,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 544,
+                                        settings: {
+                                            slidesToShow: 1,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
                                     }
-                                },
-                                {
-                                    breakpoint: 1221,
-                                    settings: {
-                                        slidesToShow: 3,
-                                        slidesToScroll: 1,
-                                        arrows: true,
-                                    }
-                                },
-                                {
-                                    breakpoint: 1095,
-                                    settings: {
-                                        slidesToShow: 3,
-                                        slidesToScroll: 1,
-                                        arrows: true,
-                                    }
-                                },
-                                {
-                                    breakpoint: 763,
-                                    settings: {
-                                        slidesToShow: 2,
-                                        slidesToScroll: 1,
-                                        arrows: false,
-                                    }
-                                },
-                                {
-                                    breakpoint: 544,
-                                    settings: {
-                                        slidesToShow: 1,
-                                        slidesToScroll: 1,
-                                        arrows: false,
-                                    }
-                                }
-                            ]
-                        });
-
-                        $("#bookSlider3").slick({
-                            prevArrow: `<div class="left-btn">
+                                ]
+                            });
+                        }
+                        function thirdSlider() {
+                            $("#bookSlider3").slick({
+                                prevArrow: `<div class="left-btn">
                                 <img src="../icons/leftBtn.svg" alt="left-btn">
                                 </div>`,
-                            nextArrow: `<div class="right-btn">
+                                nextArrow: `<div class="right-btn">
                                 <img src="../icons/rightBtn.svg" alt="right-btn">
                                 </div>`,
-                            slidesToShow: 5,
-                            autoplay: true,
-                            autoplaySpeed: 2000,
-                            arrows: true,
-                            responsive: [
-                                {
-                                    breakpoint: 1526,
-                                    settings: {
-                                        slidesToShow: 4,
-                                        slidesToScroll: 1,
-                                        arrows: true,
+                                slidesToShow: 5,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: true,
+                                responsive: [
+                                    {
+                                        breakpoint: 1526,
+                                        settings: {
+                                            slidesToShow: 4,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1221,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1095,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 763,
+                                        settings: {
+                                            slidesToShow: 2,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 544,
+                                        settings: {
+                                            slidesToShow: 1,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
                                     }
-                                },
-                                {
-                                    breakpoint: 1221,
-                                    settings: {
-                                        slidesToShow: 3,
-                                        slidesToScroll: 1,
-                                        arrows: true,
-                                    }
-                                },
-                                {
-                                    breakpoint: 1095,
-                                    settings: {
-                                        slidesToShow: 3,
-                                        slidesToScroll: 1,
-                                        arrows: true,
-                                    }
-                                },
-                                {
-                                    breakpoint: 763,
-                                    settings: {
-                                        slidesToShow: 2,
-                                        slidesToScroll: 1,
-                                        arrows: false,
-                                    }
-                                },
-                                {
-                                    breakpoint: 544,
-                                    settings: {
-                                        slidesToShow: 1,
-                                        slidesToScroll: 1,
-                                        arrows: false,
-                                    }
-                                }
-                            ]
-                        });
-
+                                ]
+                            });
+                        }
                     }
                 })
                 .catch((error) => {

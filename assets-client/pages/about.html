@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../mobile-style/about.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../mobile-style/mobile.css">
+    <link rel="stylesheet" href="../style/jquery.shCircleLoader.css">
     <title>About Page</title>
 </head>
 
@@ -41,8 +42,7 @@
             </div>
 
             <div class="mobile-ham">
-                <button class="join-img" id="myBtnMobile"><img src="./assets-client/icons/profile.svg"
-                    alt="profile"></button>
+                <button class="join-img" id="myBtnMobile"><img src="../icons/profile.svg" alt="profile"></button>
                 <button onclick="openNav()">
                     <img src="../icons/hamMenu.svg" alt="hamburger-menu">
                 </button>
@@ -89,8 +89,12 @@
     </header>
 
     <div class="contain">
-        <main class="mainAbout">
-            <div class="aboutStore">
+        <main class="mainAbout" id="mainAbout">
+            <div class="example-container">
+                <div class="example"></div>
+            </div>
+      
+            <!-- <div class="aboutStore">
                 <h1>About Store</h1>
                 <p>We work without holidays and weekends! Residents of Kiev can receive an order on the day of its
                     registration. Customers from other cities of Ukraine can receive an order within 1-5 days, depending
@@ -101,7 +105,7 @@
             </div>
             <div class="aboutStoreImg">
                 <img src="../img/aboutpagemain.svg" alt="book">
-            </div>
+            </div> -->
         </main>
         <div class="social-bar">
             <section class="five-sec">
@@ -113,8 +117,8 @@
                 <div class="media-icon">
                     <a href="https://www.facebook.com/" target="_blank"><img src="../icons/facebook.svg"
                             alt="facebook"></a>
-                    <a href="https://twitter.com/" class="twitter" target="_blank"><img
-                            src="../icons/twitter.svg" alt="twitter"></a>
+                    <a href="https://twitter.com/" class="twitter" target="_blank"><img src="../icons/twitter.svg"
+                            alt="twitter"></a>
                     <a href="https://www.instagram.com/" target="_blank"><img src="../icons/instagram.svg"
                             alt="instagram"></a>
                 </div>
@@ -175,10 +179,56 @@
 
     </footer>
 
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/jquery.shCircleLoader.js"></script>
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getDatabase, get, set, ref, push, onValue, child } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBIwPUrIeIwVhdFOO24FP37qBLiHeLIsRw",
+            authDomain: "library-project-3c5d6.firebaseapp.com",
+            databaseURL: "https://library-project-3c5d6-default-rtdb.firebaseio.com",
+            projectId: "library-project-3c5d6",
+            storageBucket: "library-project-3c5d6.appspot.com",
+            messagingSenderId: "294284130679",
+            appId: "1:294284130679:web:51ed25900557833811c972"
+        };
+
+        const mainAbout = document.querySelector("#mainAbout");
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        function fetchAboutData() {
+
+            $(".example").shCircleLoader({
+                color: "#720418",
+            })
+
+            get(ref(db, "about-info/"))
+                .then((snapshot) => {
+
+                    let aboutVal = snapshot.val();
+                    mainAbout.innerHTML = `<div class="aboutStore">
+                <h1>${aboutVal.aboutTitle}</h1>
+                <p>${aboutVal.aboutDesc}</p>
+            </div>
+            <div class="aboutStoreImg">
+                <img src="${aboutVal.aboutImg}" alt="book">
+            </div>`
+                })
+
+        }
+
+
+        document.addEventListener("DOMContentLoaded", fetchAboutData)
+
+    </script>
     <script src="../js/hamburger.js"></script>
     <script src="../js/modal.js"></script>
 </body>

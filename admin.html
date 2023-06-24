@@ -165,22 +165,22 @@
 
             <form class="form-change">
               <div class="mb-3">
-                <label for="book" class="form-label">Book Name</label>
-                <input type="text" class="form-control mb-3" id="bookInp" aria-describedby="book />
+                <label for="bookInp" class="form-label">Book Name</label>
+                <input type="text" class="form-control mb-3" placeholder="Book Name" id="bookInp" aria-describedby="book" />
               </div>
 
               <div class=" mb-3">
                 <label for="author" class="form-label">Author Name</label>
-                <input type="text" class="form-control" id="author" aria-describedby="author" />
+                <input type="text" class="form-control" placeholder="Author Name" id="author" aria-describedby="author" />
               </div>
               <div class="mb-3">
                 <label for="image" class="form-label">Book Image Url</label>
-                <input type="text" class="form-control" id="image" aria-describedby="image" />
+                <input type="text" class="form-control" placeholder="Image URL" id="image" aria-describedby="image" />
               </div>
 
               <div class="mb-3">
                 <label for="year" class="form-label">Publication Year</label>
-                <input type="text" class="form-control" id="year" aria-describedby="year" />
+                <input type="text" class="form-control" placeholder="Publication Year" id="year" aria-describedby="year" />
               </div>
 
               <div class="mb-3 form-check">
@@ -243,7 +243,7 @@
             <form class="form-change">
               <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" aria-describedby="emailHelp" />
+                <input type="text" class="form-control" id="title" placeholder="Book Name" aria-describedby="emailHelp" />
               </div>
 
               <div class="form-floating mb-3">
@@ -255,11 +255,11 @@
 
               <div class="mb-3">
                 <label for="imageUrl" class="form-label">Image Url</label>
-                <input type="text" class="form-control" id="imageUrl" aria-describedby="emailHelp" />
+                <input type="text" class="form-control" id="imageUrl" placeholder="Image URL" aria-describedby="emailHelp" />
               </div>
 
 
-              <button type="About info add" class="btn btn-primary">
+              <button type="About info add" id="aboutAddBtn" class="btn btn-primary about-add">
                 About Info Add
               </button>
             </form>
@@ -431,6 +431,10 @@
     const desc = document.querySelector("#desc");
     const selectElement = document.querySelector('.form-select');
     const typeBtn = document.querySelector("#typeBtn");
+    const aboutAddBtn = document.querySelector("#aboutAddBtn");
+    const aboutDesc = document.querySelector(".text-area-1");
+    const aboutImg = document.querySelector("#imageUrl");
+    const aboutTitle = document.querySelector("#title");
     let selectedOptionText;
 
     function checkUser(e) {
@@ -545,6 +549,51 @@
         })
       })
 
+    }
+
+    function aboutAddFirebase(e) {
+      e.preventDefault()
+      console.log(aboutTitle.value);
+      console.log(aboutDesc.value);
+      console.log(aboutImg.value);
+
+      if(aboutTitle.value && aboutDesc.value && aboutImg.value){
+        set(ref(db, "about-info/"), {
+        aboutTitle: aboutTitle.value,
+        aboutDesc: aboutDesc.value,
+        aboutImg: aboutImg.value
+      })
+      .then(() => {
+        $.Toast("Successful", "About Info Added Successful", "success", {
+            position_class: 'toast-top-right',
+            timeout: 4000,
+            has_progress: true,
+            width: 300
+          })
+
+      })
+      .catch(() => {
+        $.Toast("Unsuccessful", "About Info Could Not Add", "error", {
+            position_class: 'toast-top-right',
+            timeout: 4000,
+            has_progress: true,
+            width: 300
+          })
+      })
+      }else {
+        $.Toast("Unsuccessful", "Please, Enter About Info", "warning", {
+            position_class: 'toast-top-right',
+            timeout: 4000,
+            has_progress: true,
+            width: 300
+          })
+      }
+    
+
+      aboutTitle.value = "";
+      aboutDesc.value = "";
+      aboutImg.value = "";
+
 
     }
 
@@ -553,7 +602,7 @@
     selectElement.addEventListener("click", getOption);
     signOutBtn.addEventListener("click", signOutPanel);
     typeBtn.addEventListener("click", typeAddFirebase);
-
+    aboutAddBtn.addEventListener("click", aboutAddFirebase)
 
   </script>
   <script src="./assets-admin/js/admin.js"></script>
