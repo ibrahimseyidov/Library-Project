@@ -591,3 +591,6 @@ thead {
   display: none;
 }
 
+.deletebox:hover{
+  opacity: 0.5;
+}

@@ -273,7 +273,7 @@
                 .then((snapshot) => {
                     let categorieVal = snapshot.val();
                     let typeVal = Object.entries(categorieVal);
-                    console.log(typeVal[0][1].categorie);
+
                     typeVal.forEach((el) => {
                         catalogBtns.innerHTML += `<button>${el[1].categorie}</button>`
                     })
@@ -282,7 +282,17 @@
                 })
         }
 
-        document.addEventListener("DOMContentLoaded", fetchCategorie)
+        function goCategoriePage(e) {
+            console.log(e.target.textContent);
+            let activeCategorie = e.target.textContent;
+        }
+
+
+
+
+
+        document.addEventListener("DOMContentLoaded", fetchCategorie);
+        catalogBtns.addEventListener("click", goCategoriePage)
 
 
     </script>

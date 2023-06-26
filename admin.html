@@ -166,12 +166,14 @@
             <form class="form-change">
               <div class="mb-3">
                 <label for="bookInp" class="form-label">Book Name</label>
-                <input type="text" class="form-control mb-3" placeholder="Book Name" id="bookInp" aria-describedby="book" />
+                <input type="text" class="form-control mb-3" placeholder="Book Name" id="bookInp"
+                  aria-describedby="book" />
               </div>
 
               <div class=" mb-3">
                 <label for="author" class="form-label">Author Name</label>
-                <input type="text" class="form-control" placeholder="Author Name" id="author" aria-describedby="author" />
+                <input type="text" class="form-control" placeholder="Author Name" id="author"
+                  aria-describedby="author" />
               </div>
               <div class="mb-3">
                 <label for="image" class="form-label">Book Image Url</label>
@@ -180,7 +182,8 @@
 
               <div class="mb-3">
                 <label for="year" class="form-label">Publication Year</label>
-                <input type="text" class="form-control" placeholder="Publication Year" id="year" aria-describedby="year" />
+                <input type="text" class="form-control" placeholder="Publication Year" id="year"
+                  aria-describedby="year" />
               </div>
 
               <div class="mb-3 form-check">
@@ -200,7 +203,7 @@
                 <button type="button" class="btn type-add me-5" data-bs-toggle="button">Add Type</button>
                 <div class="coment">
                   <div class="mb-3 me-3">
-                    <input type="text" class="form-control categorie-input" id="type" aria-describedby="type"
+                    <input type="text" class="form-control" id="bookType" aria-describedby="type"
                       placeholder="Book Type" />
                   </div>
                   <button type="button" class="btn btn-primary w-25 me-3 type-btn" id="typeBtn" data-bs-toggle="button">
@@ -224,7 +227,7 @@
               </div> -->
 
               <div class="mb-3">
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" id="optionArea" aria-label="Default select example">
                   <option class="select" selected>Fantastic</option>
                 </select>
               </div>
@@ -243,7 +246,8 @@
             <form class="form-change">
               <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" placeholder="Book Name" aria-describedby="emailHelp" />
+                <input type="text" class="form-control" id="title" placeholder="Book Name"
+                  aria-describedby="emailHelp" />
               </div>
 
               <div class="form-floating mb-3">
@@ -255,7 +259,8 @@
 
               <div class="mb-3">
                 <label for="imageUrl" class="form-label">Image Url</label>
-                <input type="text" class="form-control" id="imageUrl" placeholder="Image URL" aria-describedby="emailHelp" />
+                <input type="text" class="form-control" id="imageUrl" placeholder="Image URL"
+                  aria-describedby="emailHelp" />
               </div>
 
 
@@ -269,6 +274,7 @@
         <section id="joinus">
           <div class="us">
             <p class="para4">Join Us</p>
+
             <table class="table">
               <thead>
                 <tr class="tr">
@@ -313,6 +319,8 @@
                 </tr>
               </tbody>
             </table>
+
+
           </div>
         </section>
 
@@ -332,50 +340,34 @@
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                <tr class="tr1">
-                  <th scope="row">1</th>
-                  <td>Audrey Mckinney</td>
-                  <td>1473 Ranchview Dr undefined San Jose</td>
-                  <td>lisa.watson@example.com </td>
-                  <td>(209) 555-0104</td>
-                  <td><button id="delete"><img class="deletebox"
-                        src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
 
-                </tr>
-                <tr class="tr2">
-                  <th scope="row">2</th>
-                  <td>Savannah Howard</td>
-                  <td>8445 Railroad St undefined Tampa</td>
-                  <td>jeff.brown@example.com</td>
-                  <td>(201) 555-0124</td>
-                  <td><button id="delete"><img class="deletebox"
-                        src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
-                </tr>
-                <tr class="tr1">
-                  <th scope="row">3</th>
-                  <td>Morris Cooper</td>
-                  <td>8584 W Sherman Dr undefined Desoto</td>
-                  <td>terra.hamilton@example.com</td>
-                  <td>(505) 555-0125</td>
-                  <td><button id="delete"><img class="deletebox"
-                        src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
-                </tr>
-                <tr class="tr2">
-                  <th scope="row">4</th>
-                  <td>Victoria Lane</td>
-                  <td>1921 Ranchview Dr undefined San Francisco</td>
-                  <td>deanna.curtis@example.com</td>
-                  <td>(704) 555-0127</td>
-                  <td><button id="delete"><img class="deletebox"
-                        src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
-                </tr>
+              <tbody id="contactArea">
+                <!-- <tr class="tr1">
+                    <th scope="row">1</th>
+                    <td>Audrey Mckinney</td>
+                    <td>1473 Ranchview Dr undefined San Jose</td>
+                    <td>lisa.watson@example.com </td>
+                    <td>(209) 555-0104</td>
+                    <td><button id="delete"><img class="deletebox"
+                          src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
+  
+                  </tr>
+                  <tr class="tr2">
+                    <th scope="row">2</th>
+                    <td>Savannah Howard</td>
+                    <td>8445 Railroad St undefined Tampa</td>
+                    <td>jeff.brown@example.com</td>
+                    <td>(201) 555-0124</td>
+                    <td><button id="delete"><img class="deletebox"
+                          src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
+                  </tr> -->
               </tbody>
+
             </table>
           </div>
 
-          
-          <a href="" class="scrollup"><img src="./assets-admin/img/topBtn.svg"  class="top-btn" alt="topBtn"></a>
+
+          <a href="" class="scrollup"><img src="./assets-admin/img/topBtn.svg" class="top-btn" alt="topBtn"></a>
 
         </section>
 
@@ -399,7 +391,7 @@
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-    import { getDatabase, get, set, ref, push, child } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+    import { getDatabase, get, set, ref, push, child, remove } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 
 
     const firebaseConfig = {
@@ -435,6 +427,8 @@
     const aboutDesc = document.querySelector(".text-area-1");
     const aboutImg = document.querySelector("#imageUrl");
     const aboutTitle = document.querySelector("#title");
+    const optionArea = document.querySelector("#optionArea");
+    const contactArea = document.querySelector("#contactArea");
     let selectedOptionText;
 
     function checkUser(e) {
@@ -498,7 +492,6 @@
         })
     }
 
-
     function addBookDataToStore(e) {
 
       e.preventDefault()
@@ -542,12 +535,40 @@
     }
 
     function typeAddFirebase() {
-      var myArray = JSON.parse(localStorage.getItem("categorie")) || [];
-      myArray.forEach((el, i) => {
-        set(ref(db, "categories/" + "categorie" + i), {
-          categorie: el
+      const categorieInput = document.querySelector("#bookType")
+
+      if (categorieInput.value) {
+        set(ref(db, "categories/" + "categorie"), {
+          categorie: categorieInput.value
         })
-      })
+          .then(() => {
+            $.Toast("Successful", "Book Type With Successfully", "success", {
+              position_class: 'toast-top-right',
+              timeout: 4000,
+              has_progress: true,
+              width: 300
+            })
+            categorieInput.value = ""
+            location.reload()
+          })
+          .catch(() => {
+            $.Toast("Warning", "Oop, Server Error!!!", "warning", {
+              position_class: 'toast-top-right',
+              timeout: 4000,
+              has_progress: true,
+              width: 300
+            })
+            categorieInput.value = ""
+          })
+      } else {
+        $.Toast("Unsuccessful", "Please, Enter Book Type", "error", {
+          position_class: 'toast-top-right',
+          timeout: 4000,
+          has_progress: true,
+          width: 300
+        })
+      }
+
 
     }
 
@@ -557,43 +578,133 @@
       console.log(aboutDesc.value);
       console.log(aboutImg.value);
 
-      if(aboutTitle.value && aboutDesc.value && aboutImg.value){
+      if (aboutTitle.value && aboutDesc.value && aboutImg.value) {
         set(ref(db, "about-info/"), {
-        aboutTitle: aboutTitle.value,
-        aboutDesc: aboutDesc.value,
-        aboutImg: aboutImg.value
-      })
-      .then(() => {
-        $.Toast("Successful", "About Info Added Successful", "success", {
-            position_class: 'toast-top-right',
-            timeout: 4000,
-            has_progress: true,
-            width: 300
-          })
+          aboutTitle: aboutTitle.value,
+          aboutDesc: aboutDesc.value,
+          aboutImg: aboutImg.value
+        })
+          .then(() => {
+            $.Toast("Successful", "About Info Added Successful", "success", {
+              position_class: 'toast-top-right',
+              timeout: 4000,
+              has_progress: true,
+              width: 300
+            })
 
-      })
-      .catch(() => {
-        $.Toast("Unsuccessful", "About Info Could Not Add", "error", {
-            position_class: 'toast-top-right',
-            timeout: 4000,
-            has_progress: true,
-            width: 300
           })
-      })
-      }else {
+          .catch(() => {
+            $.Toast("Unsuccessful", "About Info Could Not Add", "error", {
+              position_class: 'toast-top-right',
+              timeout: 4000,
+              has_progress: true,
+              width: 300
+            })
+          })
+      } else {
         $.Toast("Unsuccessful", "Please, Enter About Info", "warning", {
-            position_class: 'toast-top-right',
-            timeout: 4000,
-            has_progress: true,
-            width: 300
-          })
+          position_class: 'toast-top-right',
+          timeout: 4000,
+          has_progress: true,
+          width: 300
+        })
       }
-    
 
-      aboutTitle.value = "";
-      aboutDesc.value = "";
-      aboutImg.value = "";
+    }
 
+    function getTypeData() {
+
+      get(ref(db, "categories/"))
+        .then((snapshot) => {
+          let categorieVal = snapshot.val();
+          let categorieArr = Object.entries(categorieVal)
+          categorieArr.forEach((el) => {
+            optionArea.innerHTML += ` <option class="select">${el[1].categorie}</option>`
+          })
+
+        })
+
+    }
+
+    function getAboutData() {
+
+      get(ref(db, "about-info/"))
+        .then((snapshot) => {
+          let aboutData = snapshot.val();
+          let aboutArr = Object.entries(aboutData);
+          console.log(aboutArr);
+          aboutTitle.value = aboutArr[2][1];
+          aboutDesc.value = aboutArr[0][1];
+          aboutImg.value = aboutArr[1][1];
+
+        })
+
+    }
+
+    function getContactData() {
+
+      get(ref(db, "contact-info/"))
+        .then((snapshot) => {
+          let contactData = snapshot.val();
+          let contactArr = Object.entries(contactData)
+
+          contactArr.forEach((el, i) => {
+            contactArea.innerHTML += `<tr class="tr${(i + 1) % 2 == 0 ? 2 : 1}">
+                  <th scope="row">${i + 1}</th>
+                  <td>${el[1].fullName}</td>
+                  <td>${el[1].address}</td>
+                  <td>${el[1].email}</td>
+                  <td>${el[1].number}</td>
+                  <td><button id="delete"><img class="deletebox"
+                        src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
+                </tr>
+          `
+          })
+        })
+
+    }
+
+    function delContactInfo(e) {
+
+      if (e.target.className == "deletebox") {
+
+        let currentInfo = e.target.parentElement.parentElement.parentElement;
+
+        $(currentInfo).fadeOut("slow", function () {
+          this.remove()
+        })
+        get(ref(db, "contact-info/"))
+          .then((snapshot) => {
+            let contactVal = snapshot.val();
+            let contactArr = Object.entries(contactVal);
+
+            contactArr.forEach((el, i) => {
+
+              if (currentInfo.children[1].textContent == el[1].fullName && currentInfo.children[2].textContent == el[1].address && currentInfo.children[3].textContent == el[1].email && currentInfo.children[4].textContent == el[1].number) {
+                const key = el[0];
+                remove(ref(db, `contact-info/${key}`))
+                  .then(() => {
+                    $.Toast("Successful", "Contact Info Deleted Successfully", "success", {
+                      position_class: 'toast-top-right',
+                      timeout: 4000,
+                      has_progress: true,
+                      width: 300
+                    })
+                  })
+                  .catch(() => {
+                    $.Toast("Warning", "Oops! Data Could Not Delete ", "warning", {
+                      position_class: 'toast-top-right',
+                      timeout: 4000,
+                      has_progress: true,
+                      width: 300
+                    })
+                  })
+
+              }
+            })
+          })
+
+      }
 
     }
 
@@ -602,7 +713,12 @@
     selectElement.addEventListener("click", getOption);
     signOutBtn.addEventListener("click", signOutPanel);
     typeBtn.addEventListener("click", typeAddFirebase);
-    aboutAddBtn.addEventListener("click", aboutAddFirebase)
+    aboutAddBtn.addEventListener("click", aboutAddFirebase);
+    contactArea.addEventListener("click", delContactInfo)
+    document.addEventListener("DOMContentLoaded", getTypeData);
+    document.addEventListener("DOMContentLoaded", getAboutData);
+    document.addEventListener("DOMContentLoaded", getContactData);
+
 
   </script>
   <script src="./assets-admin/js/admin.js"></script>

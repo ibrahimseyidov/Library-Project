@@ -348,3 +348,7 @@
 .books-slider-container {
     margin-bottom: 128px;
 }
+
+.book-right-container :first-child{
+    width: 379px;
+}
