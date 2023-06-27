@@ -73,7 +73,7 @@ function displayResults(data) {
                         const dateStr = item.volumeInfo.publishedDate
                         const date = new Date(dateStr);
                         const year = date.getFullYear()
-                        console.log(item);
+                        console.log(item.volumeInfo.imageLinks);
                         $("#bookInp").val(item.volumeInfo.title);
                         $("#author").val(item.volumeInfo.authors[0]);
                         $("#image").val(item.volumeInfo.imageLinks.smallThumbnail);
