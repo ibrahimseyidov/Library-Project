@@ -35,7 +35,7 @@
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 6px 0 8px;
+  padding: 0 16px 0 35px;
 }
 .iti__arrow {
   margin-left: 6px;
