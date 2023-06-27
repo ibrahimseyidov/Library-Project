@@ -34,7 +34,7 @@ function performSearch(searchQuery) {
             displayResults(data);
         })
         .catch(error => {
-            console.error("API isteği sırasında bir hata oluştu:", error);
+            console.error("Xəta baş verdi!", error);
         });
 }
 

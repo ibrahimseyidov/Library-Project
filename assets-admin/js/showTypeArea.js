@@ -6,3 +6,5 @@ $("#xBtn").on("click", function () {
     $(".coment").css("display", "none")
 })
 
+
+

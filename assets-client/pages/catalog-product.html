@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../mobile-style/mobile.css">
     <link rel="stylesheet" href="../mobile-style/catalog-product.css">
     <link rel="stylesheet" href="../style/slick.css">
+    <link rel="stylesheet" href="../style/jquery.shCircleLoader.css">
     <title>Catalog Page</title>
 </head>
 
@@ -92,7 +93,7 @@
 
         <div class="contain">
 
-            <div style="display: block;">
+            <div class="categorie-page" style="display: block;">
 
                 <div class="catalog-container">
 
@@ -100,13 +101,13 @@
                         <h2>All Books</h2>
                     </div>
 
-                    <div class="catalog-links">
+                    <div class="catalog-links" id="categorieContainer">
                         <a href="#">All</a>
-                        <a href="#">Fantastic</a>
+                        <!-- <a href="#">Fantastic</a>
                         <a href="#">Bestseller</a>
                         <a href="#">Dedective</a>
                         <a href="#">Classic</a>
-                        <a href="#">Baby</a>
+                        <a href="#">Baby</a> -->
                     </div>
 
                 </div>
@@ -114,6 +115,7 @@
                 <section>
 
                     <div class="books-slider-container" id="bookSlider">
+                        <div class="example"></div>
                     </div>
 
                 </section>
@@ -125,7 +127,7 @@
                     </div>
 
                     <div class="books-slider-container second-container" id="bookSlider2">
-
+                        <div class="example"></div>
 
                     </div>
 
@@ -138,7 +140,7 @@
                     </div>
 
                     <div class="books-slider-container third-container" id="bookSlider3">
-
+                        <div class="example"></div>
                     </div>
 
                     <div class="right-btn" style="display: none;">
@@ -149,132 +151,120 @@
 
             </section>
 
-            <section class="five-sec">
 
-                <div class="follow">
-                    <h3>Follow us on social media</h3>
-                </div>
+            <div id="bookInfo" style="display: none;">
 
-                <div class="media-icon">
-                    <a href="https://www.facebook.com/" target="_blank"><img src="../icons/facebook.svg"
-                            alt="facebook"></a>
-                    <a href="https://twitter.com/" class="twitter" target="_blank"><img src="../icons/twitter.svg"
-                            alt="twitter"></a>
-                    <a href="https://www.instagram.com/" target="_blank"><img src="../icons/instagram.svg"
-                            alt="instagram"></a>
-                </div>
+                <div>
 
-            </section>
-        </div>
+                    <div class="back-btn">
+                        <button id="backBtn">
+                            < BACK</button>
+                    </div>
 
-        <div style="display: none;">
+                    <div class="all-book-container">
 
-            <div>
+                        <div class="book-left-container">
 
-                <div class="back-btn">
-                    <button>
-                        < BACK</button>
-                </div>
+                            <div class="book-top">
+                                <!-- 
+                                <div class="about-book">
 
-                <div class="all-book-container">
+                                    <div>
+                                        <span>2017</span>
+                                    </div>
 
-                    <div class="book-left-container">
+                                    <div class="content-book">
+                                        <h2>Order in Chaous</h2>
+                                        <span>2 days ago added</span>
+                                        <h3>Konstantin Koptelov</h3>
+                                        <p>
+                                            s of Kiev can receive an order on the day of its registration. Customers
+                                            from
+                                            other
+                                            cities
+                                            of Ukraine can receive an order within 1-5 days, depending on the location
+                                            of
+                                            the
+                                            settlement
+                                            and the selected delivery method. Orders over UAH 1000 are delivered free of
+                                            charge
+                                            *.
+                                            You
+                                            can see the available methods, exact terms and cost of delivery during
+                                            checkout
+                                            in
+                                            the
+                                            order
+                                            basket, after selecting the delivery city.
+                                        </p>
+                                        <button>More details</button>
+                                    </div>
 
-                        <div class="book-top">
-
-                            <div class="about-book">
-
-                                <div>
-                                    <span>2017</span>
-                                </div>
-
-                                <div class="content-book">
-                                    <h2>Order in Chaous</h2>
-                                    <span>2 days ago added</span>
-                                    <h3>Konstantin Koptelov</h3>
-                                    <p>
-                                        s of Kiev can receive an order on the day of its registration. Customers
-                                        from
-                                        other
-                                        cities
-                                        of Ukraine can receive an order within 1-5 days, depending on the location
-                                        of
-                                        the
-                                        settlement
-                                        and the selected delivery method. Orders over UAH 1000 are delivered free of
-                                        charge
-                                        *.
-                                        You
-                                        can see the available methods, exact terms and cost of delivery during
-                                        checkout
-                                        in
-                                        the
-                                        order
-                                        basket, after selecting the delivery city.
-                                    </p>
-                                    <button>More details</button>
-                                </div>
+                                </div> -->
 
                             </div>
-                        </div>
 
-                        <div class="book-bottom">
+                            <div class="book-bottom">
 
-                            <div class="comment-search">
-                                <div>
-                                    <input type="text" placeholder="your anonim comment...">
+                                <div class="comment-search">
+                                    <div>
+                                        <input type="text" placeholder="your anonim comment...">
+                                    </div>
+                                    <div>
+                                        <button><img class="send-btn" src="../icons/sendIcon.svg" alt="send"></button>
+                                    </div>
                                 </div>
-                                <div>
-                                    <button><img class="send-btn" src="../icons/sendIcon.svg" alt="send"></button>
-                                </div>
-                            </div>
 
-                            <div class="book-comment">
-                                <div class="anonim-comment">
-                                    <span>anonim</span>
-                                    <span>18:32 today</span>
+                                <div class="book-comment">
+                                    <div class="anonim-comment">
+                                        <span>anonim</span>
+                                        <span>18:32 today</span>
+                                    </div>
+                                    <div class="anonim-para">
+                                        <p>
+                                            Woah, your project looks awesome! How long have you been coding for? I’m
+                                            still
+                                            new,
+                                            but think I want to dive into React as well soon. Perhaps you can give me an
+                                            insight
+                                            on where I can learn React? Thanks!
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="anonim-para">
-                                    <p>
-                                        Woah, your project looks awesome! How long have you been coding for? I’m
-                                        still
-                                        new,
-                                        but think I want to dive into React as well soon. Perhaps you can give me an
-                                        insight
-                                        on where I can learn React? Thanks!
-                                    </p>
-                                </div>
-                            </div>
 
-                            <div class="book-comment">
-                                <div class="anonim-comment">
-                                    <span>anonim</span>
-                                    <span>18:32 today</span>
+                                <div class="book-comment">
+                                    <div class="anonim-comment">
+                                        <span>anonim</span>
+                                        <span>18:32 today</span>
+                                    </div>
+                                    <div class="anonim-para">
+                                        <p>
+                                            Woah, your project looks awesome! How long have you been coding for? I’m
+                                            still
+                                            new,
+                                            but think I want to dive into React as well soon. Perhaps you can give me an
+                                            insight
+                                            on where I can learn React? Thanks!
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="anonim-para">
-                                    <p>
-                                        Woah, your project looks awesome! How long have you been coding for? I’m
-                                        still
-                                        new,
-                                        but think I want to dive into React as well soon. Perhaps you can give me an
-                                        insight
-                                        on where I can learn React? Thanks!
-                                    </p>
-                                </div>
+
                             </div>
 
                         </div>
 
-                    </div>
+                        <div class="book-right-container">
+                            <!-- <img src="../img/productBook.svg" alt="product-book"> -->
+                        </div>
 
-                    <div class="book-right-container">
-                        <img src="../img/productBook.svg" alt="product-book">
                     </div>
 
                 </div>
+
 
             </div>
 
+
             <section class="five-sec">
 
                 <div class="follow">
@@ -291,8 +281,6 @@
                 </div>
 
             </section>
-
-
         </div>
 
         </div>
@@ -356,12 +344,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/jquery.shCircleLoader.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="../js/slickSlider.js"></script>
     <script type="module">
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-        import { getDatabase, set, get, ref, push, child } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+        import { getDatabase, set, get, ref, push, child, onValue } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBIwPUrIeIwVhdFOO24FP37qBLiHeLIsRw",
@@ -379,12 +368,94 @@
         const bookSlider = document.querySelector("#bookSlider");
         const bookSlider2 = document.querySelector("#bookSlider2");
         const bookSlider3 = document.querySelector("#bookSlider3");
+        const categorieContainer = document.querySelector("#categorieContainer");
+        const categoriePage = document.querySelector(".categorie-page");
+        const bookInfo = document.querySelector("#bookInfo");
+        const bookTop = document.querySelector(".book-top");
+        const bookImageContainer = document.querySelector(".book-right-container");
 
-        getData()
 
-        function getData() {
-            let dbref = ref(db, "book-data")
+        categorieContainer.addEventListener("click", fetchTrueCategorie);
+        document.addEventListener("DOMContentLoaded", getCategorie);
+        document.addEventListener("DOMContentLoaded", getData());
 
+        function firstSlider() {
+            $(".books-slider-container").slick({
+                prevArrow: `<div class="left-btn">
+        <img src="../icons/leftBtn.svg" alt="left-btn">
+        </div>`,
+                nextArrow: `<div class="right-btn">
+        <img src="../icons/rightBtn.svg" alt="right-btn">
+        </div>`,
+                slidesToShow: 5,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: true,
+                adaptiveHeight: false,
+                responsive: [
+                    {
+                        breakpoint: 1526,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 1,
+                            arrows: true,
+                        }
+                    },
+                    {
+                        breakpoint: 1221,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            arrows: true,
+                        }
+                    },
+                    {
+                        breakpoint: 1095,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            arrows: true,
+                        }
+                    },
+                    {
+                        breakpoint: 763,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            arrows: false,
+                        }
+                    },
+                    {
+                        breakpoint: 544,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrows: false,
+                        }
+                    }
+                ]
+            });
+
+        }
+
+        function getCategorie() {
+
+            get(ref(db, "categories"))
+                .then((snapshot) => {
+                    const data = snapshot.val()
+                    const dataArr = Object.entries(data)
+
+
+                    dataArr.forEach((el) => {
+                        categorieContainer.innerHTML += `<a href="#">${el[1].categorie}</a>`
+                    })
+                })
+        }
+
+        function fetchTrueCategorie(e) {
+            let categorieName = e.target.textContent;
+
+            bookSlider.innerHTML = ""
             get(ref(db, "book-data"))
                 .then((snapshot) => {
 
@@ -393,36 +464,90 @@
                         let data = snapshot.val();
                         let dataArr = Object.entries(data);
 
-
-                        console.log(dataArr[0][1].bookImage);
-                        console.log(dataArr[0][1].bookName);
-                        console.log(dataArr[0][1].authorName);
-
-
                         dataArr.forEach((el) => {
-                            if (el[1].isNew) {
-                                console.log(el[1].isNew);
-                                console.log("isleyirrr");
+                            if (categorieName == el[1].categories && el[1].isNew) {
+
                                 bookSlider.innerHTML += `<div class="bg-book">
                             <div class="new-icon">
                                 <img src='../icons/new.svg' alt="new">
                             </div>
 
                         <div class="book-main">
-                            <img src="${el[1].bookImage}"  style="width:110px;" alt="book">
-                            <h3>${el[1].bookName}</h3>
-                            <span>${el[1].authorName}</span>
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
                             <button>READ MORE</button>
+                        </div>
+
+                        </div>`
+
+
+                            } else if (categorieName == el[1].categories && !el[1].isNew) {
+
+                                bookSlider.innerHTML += `<div class="bg-book">
+                                             <div class="book-main">
+                                                <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
+                            <button>READ MORE</button>
+                        </div>
+
+                        </div>`
+
+
+                            } else if (categorieName == "All") {
+                                location.reload()
+
+                            }
+
+                        })
+
+                    }
+                })
+
+
+                .catch((err) => {
+                    console.log(err);
+                })
+
+        }
+
+        function getData() {
+            $(".example").shCircleLoader({
+                color: "#720418",
+            })
+            let dbref = ref(db, "book-data")
+
+            get(ref(db, "book-data"))
+                .then((snapshot) => {
+
+                    if (snapshot.exists()) {
+                        bookSlider.innerHTML = ""
+                        let data = snapshot.val();
+                        let dataArr = Object.entries(data);
+
+                        dataArr.forEach((el) => {
+                            if (el[1].isNew) {
+                                bookSlider.innerHTML += `<div class="bg-book">
+                            <div class="new-icon">
+                                <img src='../icons/new.svg' alt="new">
+                            </div>
+
+                        <div class="book-main">
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
+                            <button class="read">READ MORE</button>
                         </div>
 
                         </div>`
                             } else {
                                 bookSlider.innerHTML += `<div class="bg-book">
                         <div class="book-main">
-                         <img src="${el[1].bookImage}"  style="width:110px;" alt="book">
-                            <h3>${el[1].bookName}</h3>
-                            <span>${el[1].authorName}</span>
-                            <button>READ MORE</button>
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
+                            <button class="read">READ MORE</button>
                         </div>
                         </div>`
 
@@ -430,31 +555,29 @@
                             }
 
                         })
-
+                        bookSlider2.innerHTML = ""
                         dataArr.forEach((el) => {
                             if (el[1].isNew) {
-                                console.log(el[1].isNew);
-                                console.log("isleyirrr");
                                 bookSlider2.innerHTML += `<div class="bg-book">
                             <div class="new-icon">
                                 <img src='../icons/new.svg' alt="new">
                             </div>
 
                         <div class="book-main">
-                            <img src="${el[1].bookImage}"  style="width:110px;" alt="book">
-                            <h3>${el[1].bookName}</h3>
-                            <span>${el[1].authorName}</span>
-                            <button>READ MORE</button>
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
+                            <button class="read">READ MORE</button>
                         </div>
 
                         </div>`
                             } else {
                                 bookSlider2.innerHTML += `<div class="bg-book">
                         <div class="book-main">
-                         <img src="${el[1].bookImage}"  style="width:110px;" alt="book">
-                            <h3>${el[1].bookName}</h3>
-                            <span>${el[1].authorName}</span>
-                            <button>READ MORE</button>
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
+                            <button class="read">READ MORE</button>
                         </div>
                         </div>`
 
@@ -462,167 +585,272 @@
                             }
 
                         })
-
+                        bookSlider3.innerHTML = ""
                         dataArr.forEach((el) => {
                             if (el[1].isNew) {
-                                console.log(el[1].isNew);
-                                console.log("isleyirrr");
                                 bookSlider3.innerHTML += `<div class="bg-book">
                             <div class="new-icon">
                                 <img src='../icons/new.svg' alt="new">
                             </div>
 
                         <div class="book-main">
-                            <img src="${el[1].bookImage}"  style="width:110px;" alt="book">
-                            <h3>${el[1].bookName}</h3>
-                            <span>${el[1].authorName}</span>
-                            <button>READ MORE</button>
+                            <img src="${el[1].bookImage}" alt="book">
+                            <h3>${el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName}</h3>
+                            <span>${el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName}</span>
+                            <button class="read">READ MORE</button>
                         </div>
 
                         </div>`
                             }
                         })
 
+                        firstSlider()
+                        secondSlider()
+                        thirdSlider()
 
-                        $(".books-slider-container").slick({
-                            prevArrow: `<div class="left-btn">
+                        function firstSlider() {
+                            $(".books-slider-container").slick({
+                                prevArrow: `<div class="left-btn">
                                 <img src="../icons/leftBtn.svg" alt="left-btn">
                                 </div>`,
-                            nextArrow: `<div class="right-btn">
+                                nextArrow: `<div class="right-btn">
                                 <img src="../icons/rightBtn.svg" alt="right-btn">
                                 </div>`,
-                            slidesToShow: 5,
-                            autoplay: true,
-                            autoplaySpeed: 2000,
-                            arrows: true,
-                            responsive: [
-                            {
-                                    breakpoint: 1576,
-                                    settings: {
-                                        slidesToShow: 4,
-                                        slidesToScroll: 1,
-                                        arrows: true,
+                                slidesToShow: 5,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: true,
+                                adaptiveHeight: false,
+                                responsive: [
+                                    {
+                                        breakpoint: 1526,
+                                        settings: {
+                                            slidesToShow: 4,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1221,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1095,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 763,
+                                        settings: {
+                                            slidesToShow: 2,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 544,
+                                        settings: {
+                                            slidesToShow: 1,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
                                     }
-                                },
-                                {
-                                    breakpoint: 1095,
-                                    settings: {
-                                        slidesToShow: 3,
-                                        slidesToScroll: 1,
-                                        arrows: true,
-                                    }
-                                },
-                                {
-                                    breakpoint: 763,
-                                    settings: {
-                                        slidesToShow: 2,
-                                        slidesToScroll: 1,
-                                        arrows: false,
-                                    }
-                                },
-                                {
-                                    breakpoint: 544,
-                                    settings: {
-                                        slidesToShow: 1,
-                                        slidesToScroll: 1,
-                                        arrows: false,
-                                    }
-                                }
-                            ]
-                        });
+                                ]
+                            });
 
-                        $("#bookSlider2").slick({
-                            prevArrow: `<div class="left-btn">
+                        }
+                        function secondSlider() {
+                            $("#bookSlider2").slick({
+                                prevArrow: `<div class="left-btn">
                                 <img src="../icons/leftBtn.svg" alt="left-btn">
                                 </div>`,
-                            nextArrow: `<div class="right-btn">
+                                nextArrow: `<div class="right-btn">
                                 <img src="../icons/rightBtn.svg" alt="right-btn">
                                 </div>`,
-                            slidesToShow: 5,
-                            autoplay: true,
-                            autoplaySpeed: 2000,
-                            arrows: true,
-                            responsive: [
-                                {
-                                    breakpoint: 696,
-                                    settings: {
-                                        slidesToShow: 3,
-                                        slidesToScroll: 1,
-                                        arrows: false,
+                                slidesToShow: 5,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: true,
+                                responsive: [
+                                    {
+                                        breakpoint: 1526,
+                                        settings: {
+                                            slidesToShow: 4,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1221,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1095,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 763,
+                                        settings: {
+                                            slidesToShow: 2,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 544,
+                                        settings: {
+                                            slidesToShow: 1,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
                                     }
-                                },
-                                {
-                                    breakpoint: 544,
-                                    settings: {
-                                        slidesToShow: 1,
-                                        slidesToScroll: 1,
-                                        arrows: false,
-                                    }
-                                }
-                            ]
-                        });
-
-                        $("#bookSlider3").slick({
-                            prevArrow: `<div class="left-btn">
+                                ]
+                            });
+                        }
+                        function thirdSlider() {
+                            $("#bookSlider3").slick({
+                                prevArrow: `<div class="left-btn">
                                 <img src="../icons/leftBtn.svg" alt="left-btn">
                                 </div>`,
-                            nextArrow: `<div class="right-btn">
+                                nextArrow: `<div class="right-btn">
                                 <img src="../icons/rightBtn.svg" alt="right-btn">
                                 </div>`,
-                            slidesToShow: 5,
-                            autoplay: true,
-                            autoplaySpeed: 2000,
-                            arrows: true,
-                            responsive: [
-                                {
-                                    breakpoint: 696,
-                                    settings: {
-                                        slidesToShow: 3,
-                                        slidesToScroll: 1,
-                                        arrows: false,
+                                slidesToShow: 5,
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: true,
+                                responsive: [
+                                    {
+                                        breakpoint: 1526,
+                                        settings: {
+                                            slidesToShow: 4,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1221,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 1095,
+                                        settings: {
+                                            slidesToShow: 3,
+                                            slidesToScroll: 1,
+                                            arrows: true,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 763,
+                                        settings: {
+                                            slidesToShow: 2,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 544,
+                                        settings: {
+                                            slidesToShow: 1,
+                                            slidesToScroll: 1,
+                                            arrows: false,
+                                        }
                                     }
-                                },
-                                {
-                                    breakpoint: 544,
-                                    settings: {
-                                        slidesToShow: 1,
-                                        slidesToScroll: 1,
-                                        arrows: false,
-                                    }
-                                }
-                            ]
-                        });
-
-                    } else {
-                        console.log("No data available");
+                                ]
+                            });
+                        }
                     }
                 })
                 .catch((error) => {
-                    console.error(error);
+                    console.log(error);
                 });
         }
 
+        $(document).on("click", ".read", function () {
+            localStorage.setItem("sectionState", "visible")
+            $(".categorie-page").fadeOut();
+            $("#bookInfo").fadeIn()
 
-            // let bookCard = responseArr.map((el) => {
+            let currentCard = this.parentElement;
 
-            //     return `<div class="bg-book">
-            //                 <div class="new-icon">
-            //                     <img src='${el.volumeInfo.imageLinks.smallThumbnail}' alt="new">
-            //                 </div>
+            console.log(this.parentElement);
+            console.log(currentCard.children[1].textContent);
+            console.log(currentCard.children[2].textContent);
 
-            //                 <div class="book-main">
-            //                     <img src="../img/book.svg" alt="book">
-            //                     <h3>${el.title}</h3>
-            //                     <span>${el.volumeInfo.authors[0]}</span>
-            //                     <button>READ MORE</button>
-            //                 </div>
+            get(ref(db, "book-data/"))
+                .then((snapshot) => {
+                    let data = snapshot.val();
+                    let dataArr = Object.entries(data);
 
-            //             </div>`
-            // }).join("")
+                    dataArr.forEach((el) => {
+                        if (el[1].bookName.length > 18 ? el[1].bookName.slice(0, 18) + "..." : el[1].bookName == currentCard.children[1].textContent && el[1].authorName.length > 18 ? el[1].authorName.slice(0, 18) + "..." : el[1].authorName == currentCard.children[2].textContent) {
+
+                            bookTop.innerHTML = `<div class="about-book">
+
+                                <div>
+                                    <span>${el[1].publishYear}</span>
+                                </div>
+
+                                <div class="content-book">
+                                    <h2>${el[1].bookName}</h2>
+                                    <span>2 days ago added</span>
+                                    <h3>${el[1].authorName}</h3>
+                                    <p>
+                                        ${el[1].description}
+                                    </p>
+                                    <button>More details</button>
+                                </div>
+
+                                </div>`
+
+                            bookImageContainer.innerHTML = `<div class="book-right-container">
+                            <img src="${el[1].bookImage}" alt="product-book">
+                        </div>`
+
+                            localStorage.setItem("publishYear", el[1].publishYear)
+                            localStorage.setItem("bookName", el[1].bookName)
+                            localStorage.setItem("authorName", el[1].authorName)
+                            localStorage.setItem("description", el[1].description)
+                            localStorage.setItem("bookImage", el[1].bookImage);
+
+                        }
+                    })
+                })
 
 
+
+
+        })
+
+
+        $(document).on("click", "#backBtn", function () {
+            localStorage.setItem("sectionState", "invisible")
+            $("#bookInfo").fadeOut()
+            $(".categorie-page").fadeIn()
+            location.reload()
+        })
 
     </script>
+    <script src="../js/showPage.js"></script>
     <script src="../js/modal.js"></script>
     <script src="../js/hamburger.js"></script>
 

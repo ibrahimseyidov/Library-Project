@@ -1,4 +1,4 @@
-@media screen and (max-width: 1084px) {
+@media screen and (max-width: 1200px) {
 
     .catalog-btn button {
         width: 180px;
@@ -20,14 +20,19 @@
         margin: 30px 35px 25px 35px;
     }
 
+    .join-btn :first-child {
+        height: 70px;
+    }
+
     .modal-content {
-        margin: 12% auto;
-        width: 50%;
+        margin: 4% auto;
+        width: 500px;
+        height: 450px;
     }
 
 }
 
-@media screen and (max-width: 914px) {
+@media screen and (max-width: 940px) {
 
     /* Footer Mobile */
 
@@ -45,8 +50,8 @@
         margin-bottom: 36px;
     }
 
-    .join-modal {
-        margin: 10px 15px 15px 15px;
+    .modal-content {
+        height: 410px;
     }
 
     .join-inp {
@@ -60,6 +65,15 @@
     .join-modal span {
         font-size: 34px;
         margin-bottom: 30px;
+    }
+
+    .second-sec {
+        width: 687px;
+    }
+
+    .catalog-btns button {
+        width: 180px;
+        height: 65px;
     }
 
 }
@@ -116,14 +130,9 @@
         border: none;
         outline: none;
     }
-
-    .modal-content {
-        width: 60%;
-    }
-
 }
 
-@media screen and (max-width: 697px) {
+@media screen and (max-width: 765px) {
 
     .first-sec {
         display: flex;
@@ -145,27 +154,21 @@
         width: 90%;
     }
 
-    .second-sec {
-        margin: 0;
-        margin-bottom: 93px;
-    }
-
     .catalog-btns {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .catalog-btn {
-        display: flex;
-        flex-direction: column;
+    .second-sec {
+        width: 287px;
     }
 
-    .catalog-btn button {
-        width: 263px;
+    .catalog-btns button {
+        width: 223px;
+        height: 65px;
+        margin-right: 0;
         font-size: 14px;
-        margin: 0;
-        margin-bottom: 15px;
     }
 
     .mobile-catalog-1 {
@@ -219,42 +222,11 @@
         margin-right: 15px;
     }
 
-    .modal-content {
-        margin: 20% auto;
-        width: 60%;
-    }
 
-    .modal {
-        padding-top: 50px;
-    }
-
-    .join-modal {
-        margin: 5px 5px 5px 5px;
-    }
-
-    .join-inp {
-        margin-bottom: 10px;
-    }
-
-    .join-inp input {
-        font-size: 12px;
-        margin-bottom: 14px !important;
-        padding: 10px 0 10px 14px;
-    }
-
-    .join-btn :first-child {
-        height: 28px;
-        font-size: 14px;
-    }
-
-    .join-modal span {
-        font-size: 24px;
-        margin-bottom: 24px;
-    }
 
 }
 
-@media screen and (max-width:440px) {
+@media screen and (max-width:590px) {
 
     .follow {
         text-align: center;
@@ -264,18 +236,14 @@
         width: 50px;
     }
 
-    .second-sec {
-        margin-left: 20px;
-    }
-
     .modal-content {
-        width: 70%;
+        width: 400px;
     }
 
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-@media screen and (max-height: 450px) {
+@media screen and (max-width: 450px) {
     .overlay a {
         font-size: 20px
     }
@@ -284,5 +252,26 @@
         font-size: 40px;
         top: 15px;
         right: 35px;
+    }
+
+    .modal-content {
+        padding: 0;
+        width: 260px;
+        height: 354px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .join-inp input {
+        width: 218px;
+        height: 46px;
+        padding-left: 13px;
+        color: #797667;
+        font-size: 16px;
+    }
+
+    .join-btn :first-child {
+        height: 42px;
     }
 }
