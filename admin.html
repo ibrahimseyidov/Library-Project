@@ -1,32 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets-admin/style/reset.css" />
-    <link rel="stylesheet" href="./assets-admin/style/inputShowPwd.css" />
-    <link rel="stylesheet" href="./assets-admin/style/toast.style.css" />
-    <link rel="stylesheet" href="./assets-admin/style/style.css" />
-    <link rel="stylesheet" href="./assets-admin/mobile-style/mobile.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./assets-admin/style/panel.css" />
-    <link rel="stylesheet" href="./assets-admin/mobile-style/panel.css" />
-    <link
-      rel="stylesheet"
-      href="./assets-admin/style/jquery.shCircleLoader.css"
-    />
-    <title>Admin</title>
-  </head>
-
-  <body>
-    <section class="section1" style="display: none">
-      <div class="section-container">
         <div class="logo">
           <img src="./assets-admin/img/logo.svg" alt="logo" />
         </div>
@@ -198,39 +171,6 @@
             <div class="form1">
               <p class="para3">Book form</p>
 
-              <form class="form-change">
-                <div class="mb-3">
-                  <label for="bookInp" class="form-label">Book Name</label>
-                  <input
-                    type="text"
-                    class="form-control mb-3"
-                    placeholder="Book Name"
-                    id="bookInp"
-                    aria-describedby="book"
-                  />
-                </div>
-
-                <div class="mb-3">
-                  <label for="author" class="form-label">Author Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Author Name"
-                    id="author"
-                    aria-describedby="author"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="image" class="form-label">Book Image Url</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Image URL"
-                    id="image"
-                    aria-describedby="image"
-                  />
-                </div>
-
                 <div class="mb-3">
                   <label for="year" class="form-label">Publication Year</label>
                   <input
@@ -266,14 +206,6 @@
                   <label for="desc">Description</label>
                 </div>
 
-                <div class="booktype d-flex">
-                  <p>Book Type</p>
-                  <button
-                    type="button"
-                    class="btn type-add me-5"
-                    data-bs-toggle="button"
-                  >
-                    Add Type
                   </button>
                   <div class="coment">
                     <div class="mb-3 me-3">
@@ -319,42 +251,74 @@
                 </button>
               </div> -->
 
-                <div class="mb-3">
-                  <select
-                    class="form-select"
-                    id="optionArea"
-                    aria-label="Default select example"
-                  >
-                    <option class="select" selected>Fantastic</option>
-                  </select>
-                </div>
 
-                <button
-                  type="About info add"
-                  id="storeAdd"
-                  class="btn btn-primary"
-                >
-                  Add
-                </button>
-              </form>
-            </div>
-          </section>
+              <div class="mb-3">
+                <select class="form-select" id="optionArea" aria-label="Default select example">
+                  <option class="select" selected>Fantastic</option>
+                </select>
+              </div>
+
+              <button type="About info add" id="storeAdd" class="btn btn-primary">
+                Add
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <section id="about">
+          <div class="form1">
+            <p class="para3">About Store</p>
+
+            <form class="form-change">
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Book Name"
+                  aria-describedby="emailHelp" />
+              </div>
+
+              <div class="form-floating mb-3">
+                <textarea class="form-control text-area-1" placeholder="Leave a comment here" id="floatingTextarea2"
+                  style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Description</label>
+              </div>
+
+
+              <div class="mb-3">
+                <label for="imageUrl" class="form-label">Image Url</label>
+                <input type="text" class="form-control" id="imageUrl" placeholder="Image URL"
+                  aria-describedby="emailHelp" />
+              </div>
+
 
           <section id="about">
             <div class="form1">
               <p class="para3">About Store</p>
 
-              <form class="form-change">
-                <div class="mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="title"
-                    placeholder="Book Name"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
+
+              <button type="About info add" id="aboutAddBtn" class="btn btn-primary about-add">
+                About Info Add
+              </button>
+            </form>
+          </div>
+        </section>
+
+        <section id="joinus">
+          <div class="us">
+            <p class="para4">Join Us</p>
+
+            <table class="table">
+              <thead>
+                <tr class="tr">
+                  <th scope="col">#</th>
+                  <th scope="col">Full Name</th>
+                  <th scope="col">Email Address</th>
+                  <th scope="col"><button id="delete"><img src="./assets-admin/img/trash.png"
+                        style="width: 30px;"></button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+
 
                 <div class="form-floating mb-3">
                   <textarea
@@ -366,106 +330,7 @@
                   <label for="floatingTextarea2">Description</label>
                 </div>
 
-                <div class="mb-3">
-                  <label for="imageUrl" class="form-label">Image Url</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="imageUrl"
-                    placeholder="Image URL"
-                    aria-describedby="emailHelp"
-                  />
-                </div>
 
-                <button
-                  type="About info add"
-                  id="aboutAddBtn"
-                  class="btn btn-primary about-add"
-                >
-                  About Info Add
-                </button>
-              </form>
-            </div>
-          </section>
-
-          <section id="joinus">
-            <div class="us">
-              <p class="para4">Join Us</p>
-
-              <table class="table">
-                <thead>
-                  <tr class="tr">
-                    <th scope="col">#</th>
-                    <th scope="col">Full Name</th>
-                    <th scope="col">Email Address</th>
-                    <th scope="col">
-                      <button id="delete">
-                        <img
-                          src="./assets-admin/img/trash.png"
-                          style="width: 30px"
-                        />
-                      </button>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody id="joinUsArea">
-                  <!-- <tr class="tr1">
-                    <th scope="row">1</th>
-                    <td>Audrey Mckinney</td>
-                    <td>lisa.watson@example.com</td>
-                    <td>
-                      <button id="delete">
-                        <img
-                          class="deletebox"
-                          src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"
-                        />
-                      </button>
-                    </td>
-                  </tr>
-
-                  <tr class="tr2">
-                    <th scope="row">2</th>
-                    <td>Savannah Howard</td>
-                    <td>jeff.brown@example.com</td>
-                    <td>
-                      <button id="delete">
-                        <img
-                          class="deletebox"
-                          src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"
-                        />
-                      </button>
-                    </td>
-                  </tr> -->
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          <section id="contact">
-            <div class="cus">
-              <p class="para4">Contact Us</p>
-              <table class="table">
-                <thead>
-                  <tr class="tr">
-                    <th scope="col">#</th>
-                    <th scope="col">Full Name</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Email Address</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">
-                      <button id="delete">
-                        <img
-                          class="deletebox"
-                          src="../assets-admin/img/trash.png"
-                          style="width: 30px"
-                        />
-                      </button>
-                    </th>
-                  </tr>
-                </thead>
-
-                <tbody id="contactArea">
-                  <!-- <tr class="tr1">
                     <th scope="row">1</th>
                     <td>Audrey Mckinney</td>
                     <td>1473 Ranchview Dr undefined San Jose</td>
@@ -484,9 +349,7 @@
                     <td><button id="delete"><img class="deletebox"
                           src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
                   </tr> -->
-                </tbody>
-              </table>
-            </div>
+
 
             <a href="" class="scrollup"
               ><img
@@ -499,92 +362,6 @@
       </section>
     </div>
 
-    <script src="//code.jquery.com/jquery.min.js"></script>
-    <script src="./assets-admin/js/inputShowPwd.js"></script>
-    <script src="./assets-admin/js/hidepass.js"></script>
-    <script src="./assets-admin/js/toast.script.js"></script>
-    <script src="./assets-admin/js/jquery.shCircleLoader.js"></script>
-    <script src="./assets-admin/js/top.js"></script>
-    <script src="./assets-admin/js/showPage.js"></script>
-    <script src="./assets-admin/js/addType.js"></script>
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-      import {
-        getAuth,
-        signInWithEmailAndPassword,
-        signOut,
-      } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-      import {
-        getDatabase,
-        get,
-        set,
-        ref,
-        push,
-        child,
-        remove,
-      } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
-
-      const firebaseConfig = {
-        apiKey: "AIzaSyBIwPUrIeIwVhdFOO24FP37qBLiHeLIsRw",
-        authDomain: "library-project-3c5d6.firebaseapp.com",
-        databaseURL:
-          "https://library-project-3c5d6-default-rtdb.firebaseio.com",
-        projectId: "library-project-3c5d6",
-        storageBucket: "library-project-3c5d6.appspot.com",
-        messagingSenderId: "294284130679",
-        appId: "1:294284130679:web:51ed25900557833811c972",
-      };
-
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      const db = getDatabase(app);
-
-      const signInPage = document.querySelector(".section1");
-      const panelPage = document.querySelector(".section2");
-      const emailInp = document.querySelector("#fname");
-      const passInp = document.querySelector(".pass-inp");
-      const loginBtn = document.querySelector(".join");
-      const signOutBtn = document.querySelector("#signOutBtn");
-      const storeAddBtn = document.querySelector("#storeAdd");
-      const book = document.querySelector("#bookInp");
-      const author = document.querySelector("#author");
-      const image = document.querySelector("#image");
-      const year = document.querySelector("#year");
-      const checkBox = document.querySelector("#checkBox");
-      const desc = document.querySelector("#desc");
-      const selectElement = document.querySelector(".form-select");
-      const typeBtn = document.querySelector("#typeBtn");
-      const aboutAddBtn = document.querySelector("#aboutAddBtn");
-      const aboutDesc = document.querySelector(".text-area-1");
-      const aboutImg = document.querySelector("#imageUrl");
-      const aboutTitle = document.querySelector("#title");
-      const optionArea = document.querySelector("#optionArea");
-      const contactArea = document.querySelector("#contactArea");
-      const joinUsArea = document.querySelector("#joinUsArea");
-      let selectedOptionText;
-
-      function checkUser(e) {
-        e.preventDefault();
-        let emailVal = emailInp.value.trim();
-        let passVal = passInp.value.trim();
-
-        signInWithEmailAndPassword(auth, emailVal, passVal)
-          .then((userCredential) => {
-            localStorage.setItem("email", emailVal);
-            localStorage.setItem("pass", passVal);
-            localStorage.setItem("sectionState", "visible");
-
-            let user = userCredential.user;
-
-            $.Toast("Successful", "Login Successful", "success", {
-              position_class: "toast-top-right",
-              timeout: 4000,
-              has_progress: true,
-              width: 300,
-            });
-
-            $(panelPage).show(200);
-            $(signInPage).hide(600);
           })
           .catch((err) => {
             $.Toast("Fail", "Login Failed", "error", {
@@ -596,27 +373,7 @@
           });
       }
 
-      function getOption(e) {
-        selectedOptionText = e.target.value;
-      }
 
-      function signOutPanel() {
-        signOut(auth)
-          .then(() => {
-            localStorage.setItem("sectionState", "hidden");
-            $.Toast("Successful", "Logout Successful", "success", {
-              position_class: "toast-top-right",
-              timeout: 4000,
-              has_progress: true,
-              width: 300,
-            });
-            $(panelPage).hide(600);
-            $(signInPage).show(600);
-          })
-          .catch((err) => {
-            alert(err);
-          });
-      }
 
       function addBookDataToStore(e) {
         e.preventDefault();
@@ -692,9 +449,7 @@
             position_class: "toast-top-right",
             timeout: 4000,
             has_progress: true,
-            width: 300,
-          });
-        }
+
       }
 
       function aboutAddFirebase(e) {
@@ -756,10 +511,6 @@
         });
       }
 
-      function getContactData() {
-        get(ref(db, "contact-info/")).then((snapshot) => {
-          let contactData = snapshot.val();
-          let contactArr = Object.entries(contactData);
 
           contactArr.forEach((el, i) => {
             contactArea.innerHTML += `<tr class="tr${(i + 1) % 2 == 0 ? 2 : 1}">
@@ -771,131 +522,6 @@
                   <td><button id="delete"><img class="deletebox"
                         src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
                 </tr>
-          `;
-          });
-        });
-      }
-
-      function delContactInfo(e) {
-        if (e.target.className == "deletebox") {
-          let currentInfo = e.target.parentElement.parentElement.parentElement;
-
-          $(currentInfo).fadeOut("slow", function () {
-            this.remove();
-          });
-          get(ref(db, "contact-info/")).then((snapshot) => {
-            let contactVal = snapshot.val();
-            let contactArr = Object.entries(contactVal);
-
-            contactArr.forEach((el, i) => {
-              if (
-                currentInfo.children[1].textContent == el[1].fullName &&
-                currentInfo.children[2].textContent == el[1].address &&
-                currentInfo.children[3].textContent == el[1].email &&
-                currentInfo.children[4].textContent == el[1].number
-              ) {
-                const key = el[0];
-                remove(ref(db, `contact-info/${key}`))
-                  .then(() => {
-                    $.Toast(
-                      "Successful",
-                      "Contact Info Deleted Successfully",
-                      "success",
-                      {
-                        position_class: "toast-top-right",
-                        timeout: 4000,
-                        has_progress: true,
-                        width: 300,
-                      }
-                    );
-                  })
-                  .catch(() => {
-                    $.Toast(
-                      "Warning",
-                      "Oops! Data Could Not Delete ",
-                      "warning",
-                      {
-                        position_class: "toast-top-right",
-                        timeout: 4000,
-                        has_progress: true,
-                        width: 300,
-                      }
-                    );
-                  });
-              }
-            });
-          });
-        }
-      }
-
-      function fetchJoinUsData() {
-        get(ref(db, "join-us-data/")).then((snapshot) => {
-          let dataVal = snapshot.val();
-          let dataArr = Object.entries(dataVal);
-          dataArr.forEach((el, i) => {
-            joinUsArea.innerHTML += `<tr class="tr1">
-                  <th scope="row">${i + 1}</th>
-                  <td>${el[1].fullName}</td>
-                  <td>${el[1].emailAddress}</td>
-                  <td><button id="delete"><img class="deletebox"
-                        src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
-                </tr>`;
-          });
-        });
-      }
-
-      function delJoinInfo(e) {
-        console.log(e);
-        if (e.target.className == "deletebox") {
-          let currentInfo = e.target.parentElement.parentElement.parentElement;
-          console.log(currentInfo);
-          $(currentInfo).fadeOut("slow", function () {
-            this.remove();
-          });
-          get(ref(db, "join-us-data/")).then((snapshot) => {
-            let dataVal = snapshot.val();
-            let dataArr = Object.entries(dataVal);
-            console.log(dataArr);
-            console.log(currentInfo.children[1].textContent);
-            dataArr.forEach((el, i) => {
-              if (
-                currentInfo.children[1].textContent == el[1].fullName &&
-                currentInfo.children[2].textContent == el[1].emailAddress
-              ) {
-                const key = el[0];
-                console.log(key);
-                remove(ref(db, `join-us-data/${key}`))
-                  .then(() => {
-                    $.Toast(
-                      "Successful",
-                      "Join Info Deleted Successfully",
-                      "success",
-                      {
-                        position_class: "toast-top-right",
-                        timeout: 4000,
-                        has_progress: true,
-                        width: 300,
-                      }
-                    );
-                  })
-                  .catch(() => {
-                    $.Toast(
-                      "Warning",
-                      "Oops! Data Could Not Delete ",
-                      "warning",
-                      {
-                        position_class: "toast-top-right",
-                        timeout: 4000,
-                        has_progress: true,
-                        width: 300,
-                      }
-                    );
-                  });
-              }
-            });
-          });
-        }
-      }
 
       loginBtn.addEventListener("click", checkUser);
       storeAddBtn.addEventListener("click", addBookDataToStore);
