@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../mobile-style/mobile.css">
     <link rel="stylesheet" href="../style/intlTelInput.css">
+    <link rel="stylesheet" href="../style/toast.style.css">
     <title>Contact</title>
 </head>
 
@@ -95,12 +96,12 @@
             </div>
             <div class="inputArea">
                 <div class="firstInputSection">
-                    <input  type="text" placeholder="Full name">
-                    <input  type="text" placeholder="Adress">
+                    <input type="text" id="fName" placeholder="Full name">
+                    <input type="text" id="address" placeholder="Address">
                 </div>
                 <div class="secondInputSection">
                     <div>
-                        <input  type="email" placeholder="Email">
+                        <input type="email" id="email" placeholder="Email">
                     </div>
                     <div class="phone-inp" style="width: 100%;">
                         <input type="number" id="telephone" placeholder="">
@@ -108,7 +109,7 @@
                 </div>
             </div>
             <div class="divButton">
-                <button id="send">Send</button>
+                <button id="sendBtn">Send</button>
             </div>
         </main>
         <div class="social-bar">
@@ -191,7 +192,90 @@
     <script src="../js/utils.js"></script>
     <script src="../js/inputPhone.js"></script>
     <script src="../js/modal.js"></script>
+    <script src="../js/toast.script.js"></script>
+    <script type="module">
 
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getDatabase, get, set, ref, child, push } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBIwPUrIeIwVhdFOO24FP37qBLiHeLIsRw",
+            authDomain: "library-project-3c5d6.firebaseapp.com",
+            databaseURL: "https://library-project-3c5d6-default-rtdb.firebaseio.com",
+            projectId: "library-project-3c5d6",
+            storageBucket: "library-project-3c5d6.appspot.com",
+            messagingSenderId: "294284130679",
+            appId: "1:294284130679:web:51ed25900557833811c972"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        const sendBtn = document.querySelector("#sendBtn");
+        const fName = document.querySelector("#fName");
+        const address = document.querySelector("#address");
+        const email = document.querySelector("#email");
+        const number = document.querySelector("#telephone");
+
+        function sendContactInfoToDb() {
+
+            let fNameVal = fName.value;
+            let addressVal = address.value;
+            let emailVal = email.value;
+            let numberVal = number.value;
+
+            console.log(fNameVal);
+            console.log(addressVal);
+            console.log(emailVal);
+            console.log(numberVal);
+
+            if (fNameVal && addressVal && emailVal && numberVal) {
+                push(ref(db, "contact-info"), {
+                    fullName: fNameVal,
+                    address: addressVal,
+                    email: emailVal,
+                    number: numberVal,
+                })
+                    .then(() => {
+                        $.Toast("Successful", "Data Sended With Successfully", "success", {
+                            position_class: 'toast-top-right',
+                            timeout: 4000,
+                            has_progress: true,
+                            width: 300
+                        })
+                    })
+                    .catch(() => {
+                        $.Toast("Warning", "Oop! Data Could Not Send", "success", {
+                            position_class: 'toast-top-right',
+                            timeout: 4000,
+                            has_progress: true,
+                            width: 300
+                        })
+                    })
+
+                    fName.value = "";
+                    address.value = "";
+                    email.value = "";
+                    number.value = "";
+
+
+            } else {
+                $.Toast("Unsuccessful", "Message Could Not Send!", "error", {
+                    position_class: 'toast-top-right',
+                    timeout: 4000,
+                    has_progress: true,
+                    width: 300
+                })
+            }
+
+
+        }
+
+
+        sendBtn.addEventListener("click", sendContactInfoToDb)
+
+    </script>
 </body>
 
 </html>

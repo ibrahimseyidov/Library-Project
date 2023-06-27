@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Slick Slider link -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="../style/reset.css">
     <link rel="stylesheet" href="../style/search.css">
     <link rel="stylesheet" href="../mobile-style/search.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../mobile-style/mobile.css">
+    <link rel="stylesheet" href="../style/toast.style.css">
     <title>Search Page</title>
 </head>
 
@@ -43,8 +43,8 @@
             </div>
 
             <div class="mobile-ham">
-                <button class="join-img" id="myBtnMobile"><img src="../icons/profile.svg"
-                    alt="profile" class="profile"></button>
+                <button class="join-img" id="myBtnMobile"><img src="../icons/profile.svg" alt="profile"
+                        class="profile"></button>
                 <button onclick="openNav()">
                     <img src="../icons/hamMenu.svg" alt="hamburger-menu">
                 </button>
@@ -96,14 +96,14 @@
                     <h1>Search</h1>
                 </div>
                 <div class="searchInputButton">
-                    <input placeholder="Book Name" type="text">
-                    <button>Search</button>
+                    <input placeholder="Book Name" id="bkNameInp" type="text">
+                    <button id="searchBtn">Search</button>
                 </div>
             </div>
             <div class="searchAboutBook">
                 <!-- <div class="prev">《</div> -->
-                <div class="card your-class">
-                    <div class="insideCard">
+                <div class="card your-class" id="cardContainer">
+                    <!-- <div class="insideCard">
                         <div>
                             <img src="../img/searchBook.svg" alt="">
                         </div>
@@ -119,26 +119,17 @@
                                 the delivery city
                             </p>
                         </div>
-                    </div>
-                    <div class="insideCard">
-                        <div>
-                            <img src="../img/searchBook.svg" alt="">
+                    </div> -->
+                    <!-- <div style="display: flex; flex-direction: column; align-items:center;">
+                        <div style="margin-bottom:30px">
+                            <img src="../img/sad.jpg" style="width: 100px; border-radius: 50%">
                         </div>
-                        <div class="bookText">
-                            <h2>Order Books</h2>
-                            <h3>Author</h3>
-                            <p>We work without holidays and weekends! Residents of Kiev can receive an order on the day
-                                of its registration. Customers from other cities of Ukraine can receive an order within
-                                1-5 days, depending on the location of the settlement and the selected delivery method.
-                                Orders over UAH 1000 are delivered free of charge *. You can see the available methods,
-                                exact terms and cost of delivery during checkout in the order basket, after selecting
-                                the delivery city </p>
-                        </div>
+                        <span style="font-size: 28px; color:rgb(114, 4, 24); font-weight: 700;" >Searched Book Not Found</span>
                     </div>
-                </div>
-                <!-- <div class="next">》</div> -->
+                </div> -->
+                    <!-- <div class="next">》</div> -->
 
-            </div>
+                </div>
         </main>
 
         <div class="social-bar">
@@ -160,6 +151,7 @@
             </section>
         </div>
     </div>
+
     <footer class="footer-sec">
 
         <div class="contain">
@@ -216,8 +208,89 @@
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="../js/toast.script.js"></script>
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        import { getDatabase, set, get, ref, push, child, onValue } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBIwPUrIeIwVhdFOO24FP37qBLiHeLIsRw",
+            authDomain: "library-project-3c5d6.firebaseapp.com",
+            databaseURL: "https://library-project-3c5d6-default-rtdb.firebaseio.com",
+            projectId: "library-project-3c5d6",
+            storageBucket: "library-project-3c5d6.appspot.com",
+            messagingSenderId: "294284130679",
+            appId: "1:294284130679:web:51ed25900557833811c972"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        const bkNameInp = document.querySelector("#bkNameInp");
+        const searchBtn = document.querySelector("#searchBtn");
+        const cardContainer = document.querySelector("#cardContainer");
+
+        function showTrueBook() {
+
+            let bkName = bkNameInp.value.toLowerCase()
+              if (bkName) {
+                get(ref(db, "book-data/"))
+                    .then((snapshot) => {
+                        cardContainer.innerHTML = ""
+                        bkNameInp.value = ""
+                        let bookData = snapshot.val();
+                        let bookArr = Object.entries(bookData);
+                        let completed = false;
+
+                        bookArr.forEach((el, i) => {
+
+                            if (el[1].bookName.toLowerCase().includes(bkName)) {
+                        
+                                cardContainer.innerHTML += `<div class="insideCard">
+                              <div>
+                               <img src="${el[1].bookImage}" style="width:220px; padding-right: 37px;">
+                               </div>
+                                    <div class="bookText">
+                                        <h2>${el[1].bookName}</h2>
+                                        <h3>${el[1].authorName}</h3>
+                                        <p>
+                                        ${el[1].description.length > 350 ? el[1].description.slice(0, 350) + "..." : el[1].description}
+                                        </p>
+                                    </div>
+                                </div>`
+
+                                if (i == bookArr.length - 1) {
+                                    completed = true
+                                }
+
+                                if (completed) {
+                                    $("#cardContainer").slick({
+                                        prevArrow: `<div class="prev"><img src="../icons/leftBtn.svg" alt="left-btn"></div>`,
+                                        nextArrow: `<div class="next"><img src="../icons/rightBtn.svg" alt="right-btn"></div>`,
+                                    });
+
+                                }
+
+                            }
+                        })
+                    })
+            } else {
+                $.Toast("Error", "Please, Enter Valid Value!", "error", {
+                    position_class: 'toast-top-right',
+                    timeout: 4000,
+                    has_progress: true,
+                    width: 300
+                })
+            }
+
+        }
+
+
+        searchBtn.addEventListener("click", showTrueBook)
+
+    </script>
     <script src="../js/modal.js"></script>
-    <script src="../js/slickSlider.js"></script>
     <script src="../js/hamburger.js"></script>
 </body>
 

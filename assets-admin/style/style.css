@@ -13,20 +13,21 @@ body {
 
 .logo {
   width: 282px;
-  margin-top: 65.08px;
+  margin-top: 25px;
   margin-left: 35px;
-  margin-bottom: 109px;
+  margin-bottom: 40px;
 }
 
 .box {
   background-color: #fff;
-  width: 41.38%;
-  height: 544px;
+  width: 500px;
+  height: 450px;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 .mobwelcom {
-  padding-top: 69px;
+  padding-top: 29px;
   margin-bottom: 17.78px;
   text-align: center;
 }
@@ -57,7 +58,7 @@ body {
 }
 
 #fname {
-  width: 75.1%;
+  width: 450px;
   height: 74.54px;
   border: 1px solid #CECECE;
   padding-left: 51.64px;
@@ -72,11 +73,11 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-bottom: 84.54px;
+  margin-bottom: 44.54px;
 }
 
 .pass-inp {
-  width: 75.1%;
+  width: 450px;
   height: 74.54px;
   border: 1px solid #CECECE;
   padding-left: 51.64px;
@@ -94,7 +95,7 @@ body {
 }
 
 .join {
-  width: 75.1%;
+  width: 450px;
   height: 74.54px;
   border: none;
   background-color: #E16A00;
@@ -111,10 +112,78 @@ body {
   opacity: 0.8;
 }
 
+.showEle {
+  right: 49px !important;
+}
+
 .showEle:hover {
   opacity: 0.5;
 }
 
+.text-area-1 {
+  resize: none;
+}
+
+.text-area-2 {
+  resize: none;
+}
+
+.text-area-2::-webkit-scrollbar {
+  width: 5px;
+}
+
+.text-area-2::-webkit-scrollbar-thumb {
+  background-color: #720418;
+  border-radius: 10px;
+}
+
+.text-area-2::-webkit-scrollbar-track {
+  background-color: #FFF;
+  border-radius: 10px;
+}
+
+.text-area-1::-webkit-scrollbar {
+  width: 5px;
+}
+
+.text-area-1::-webkit-scrollbar-thumb {
+  background-color: #720418;
+  border-radius: 10px;
+}
+
+.text-area-1::-webkit-scrollbar-track {
+  background-color: #FFF;
+  border-radius: 10px;
+}
+
+.scrollup {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 15px;
+  right: 5px;
+  text-align: center;
+  padding: 10px;
+  z-index: 100;
+  display: none;
+}
+
+.scrollup:hover {
+  opacity: 0.8;
+}
+
+.top-btn {
+  float: right;
+  width: 40px;
+}
+
+#storeAdd:hover {
+  opacity: 0.8;
+}
+
+.about-add:hover {
+  opacity: 0.8;
+}
 
 body::-webkit-scrollbar {
   width: 5px;
