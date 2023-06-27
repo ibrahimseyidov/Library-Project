@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../mobile-style/catalog-product.css">
     <link rel="stylesheet" href="../style/slick.css">
     <link rel="stylesheet" href="../style/jquery.shCircleLoader.css">
+    <link rel="stylesheet" href="../style/toast.style.css">
     <title>Catalog Page</title>
 </head>
 
@@ -208,14 +209,16 @@
 
                                 <div class="comment-search">
                                     <div>
-                                        <input type="text" placeholder="your anonim comment...">
+                                        <input type="text" id="commentInp" placeholder="your anonim comment...">
                                     </div>
                                     <div>
                                         <button><img class="send-btn" src="../icons/sendIcon.svg" alt="send"></button>
                                     </div>
                                 </div>
+                                <div id="bookComment">
 
-                                <div class="book-comment">
+                                </div>
+                                <!-- <div class="book-comment">
                                     <div class="anonim-comment">
                                         <span>anonim</span>
                                         <span>18:32 today</span>
@@ -230,9 +233,9 @@
                                             on where I can learn React? Thanks!
                                         </p>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="book-comment">
+                                <!-- <div class="book-comment">
                                     <div class="anonim-comment">
                                         <span>anonim</span>
                                         <span>18:32 today</span>
@@ -247,7 +250,7 @@
                                             on where I can learn React? Thanks!
                                         </p>
                                     </div>
-                                </div>
+                                </div> -->
 
                             </div>
 
@@ -344,8 +347,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="../js/jquery.shCircleLoader.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="../js/toast.script.js"></script>
     <script src="../js/slickSlider.js"></script>
     <script type="module">
 
@@ -373,11 +378,13 @@
         const bookInfo = document.querySelector("#bookInfo");
         const bookTop = document.querySelector(".book-top");
         const bookImageContainer = document.querySelector(".book-right-container");
-
+        const sendBtn = document.querySelector(".send-btn");
+        const commentArea = document.querySelector("#bookComment");
 
         categorieContainer.addEventListener("click", fetchTrueCategorie);
         document.addEventListener("DOMContentLoaded", getCategorie);
         document.addEventListener("DOMContentLoaded", getData());
+        sendBtn.addEventListener("click", showUserComment);
 
         function firstSlider() {
             $(".books-slider-container").slick({
@@ -444,10 +451,12 @@
                 .then((snapshot) => {
                     const data = snapshot.val()
                     const dataArr = Object.entries(data)
-
+                    let currentURL = window.location.href
 
                     dataArr.forEach((el) => {
-                        categorieContainer.innerHTML += `<a href="#">${el[1].categorie}</a>`
+                        let categorieURL = `${currentURL}?categorie=${encodeURIComponent(el[1].categorie)}`
+                        categorieContainer.innerHTML += `<a href="${categorieURL}">${el[1].categorie}</a>`
+   
                     })
                 })
         }
@@ -514,7 +523,7 @@
 
         function getData() {
             $(".example").shCircleLoader({
-                color: "#720418",
+                color: "#E16A00",
             })
             let dbref = ref(db, "book-data")
 
@@ -557,7 +566,7 @@
                         })
                         bookSlider2.innerHTML = ""
                         dataArr.forEach((el) => {
-                            if (el[1].isNew) {
+                            if (el[1].isNew && el[1].categories == "Bestseller") {
                                 bookSlider2.innerHTML += `<div class="bg-book">
                             <div class="new-icon">
                                 <img src='../icons/new.svg' alt="new">
@@ -571,7 +580,7 @@
                         </div>
 
                         </div>`
-                            } else {
+                            } else if (el[1].categories == "Bestseller") {
                                 bookSlider2.innerHTML += `<div class="bg-book">
                         <div class="book-main">
                             <img src="${el[1].bookImage}" alt="book">
@@ -796,6 +805,36 @@
             console.log(currentCard.children[1].textContent);
             console.log(currentCard.children[2].textContent);
 
+            var settings = {
+                "url": "https://blog-api-t6u0.onrender.com/posts",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+            };
+
+            $.ajax(settings)
+                .then((response) => {
+                    console.log(response);
+                    for (let i = 100; i < response.length; i++) {
+                        let title = response[i].userData.title
+                        let comment = response[i].userData.body
+                        commentArea.innerHTML += `<div class="book-comment">
+                                    <div class="anonim-comment">
+                                        <span>anonim</span>
+                                        <span>${title}</span>
+                                    </div>
+                                    <div class="anonim-para">
+                                        <p>${comment}</p>
+                                    </div>
+                                </div>`
+                    }
+                })
+                .catch(() => {
+                    console.log("error");
+                })
+
             get(ref(db, "book-data/"))
                 .then((snapshot) => {
                     let data = snapshot.val();
@@ -835,17 +874,97 @@
                         }
                     })
                 })
-
+                .catch(() => {
+                    console.log("error");
+                })
 
 
 
         })
+
+        function showUserComment() {
+            let userComment = $("#commentInp").val()
+            let now1 = moment()
+            let publishDate = now1.format('YYYY-MM-DD HH:mm');
+            var diffSeconds = now1.diff(publishDate, 'seconds');
+            var diffMinutes = now1.diff(publishDate, 'minutes');
+            var diffHours = now1.diff(publishDate, 'hours');
+            console.log(publishDate);
+            let displayText = "";
+
+            if (diffSeconds < 60) {
+                displayText = 'A few seconds ago';
+            } else if (diffMinutes < 60) {
+                displayText = diffMinutes + ' minutes ago';
+            } else if (diffHours < 24) {
+                displayText = diffHours + ' hours ago';
+            } else {
+                displayText = postTime.format('YYYY-MM-DD HH:mm');
+            }
+
+
+            if (userComment) {
+                commentArea.innerHTML += `<div class="book-comment">
+                                    <div class="anonim-comment">
+                                        <span>anonim</span>
+                                        <span>${displayText}</span>
+                                    </div>
+                                    <div class="anonim-para">
+                                        <p>${userComment}</p>
+                                    </div>
+                                </div>`
+
+                $("#commentInp").val("")
+
+                let userData = {
+                    "title": `${publishDate}`,
+                    "body": `${userComment}`
+                }
+
+                var settings = {
+                    "url": "https://blog-api-t6u0.onrender.com/posts",
+                    "method": "POST",
+                    "timeout": 0,
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "data": JSON.stringify({ userData }),
+                };
+
+                $.ajax(settings)
+                    .then((response) => {
+                        $.Toast("Success", "Comment Added Successfully", "success", {
+                            position_class: 'toast-top-right',
+                            timeout: 4000,
+                            has_progress: true,
+                            width: 300
+                        })
+                    })
+                    .catch(() => {
+                        alert("err")
+                    })
+            } else {
+                $.Toast("Error", "Please, Enter Your Comment", "error", {
+                    position_class: 'toast-top-right',
+                    timeout: 4000,
+                    has_progress: true,
+                    width: 300
+                })
+            }
+
+        }
+
 
 
         $(document).on("click", "#backBtn", function () {
             localStorage.setItem("sectionState", "invisible")
             $("#bookInfo").fadeOut()
             $(".categorie-page").fadeIn()
+            localStorage.removeItem("publishYear");
+            localStorage.removeItem("bookName");
+            localStorage.removeItem("authorName");
+            localStorage.removeItem("description");
+            localStorage.removeItem("bookImage");
             location.reload()
         })
 

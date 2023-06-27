@@ -420,6 +420,11 @@ thead {
   display: none;
 }
 
+#example {
+  width: 50px !important;
+  margin: 0 auto;
+}
+
 /* The sidebar menu */
 .sidebar {
   height: 100%;
