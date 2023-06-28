@@ -103,11 +103,19 @@
                     <div>
                         <input type="email" id="email" placeholder="Email">
                     </div>
-                    <div class="phone-inp" style="width: 100%;">
+                    <div class="phone-inp" >
                         <input type="number" id="telephone" placeholder="">
                     </div>
                 </div>
             </div>
+            <div class="MessageArea">
+                <textarea 
+                class="text-area-3"
+                  id="message"
+                  rows="5"
+                  placeholder="Message"
+                ></textarea>
+              </div>
             <div class="divButton">
                 <button id="sendBtn">Send</button>
             </div>
@@ -193,6 +201,8 @@
     <script src="../js/inputPhone.js"></script>
     <script src="../js/modal.js"></script>
     <script src="../js/toast.script.js"></script>
+    <script src="../js/jquery-simple-txt-counter.min.js"></script>
+    <script src="../js/inputCounter.js"></script>
     <script type="module">
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
@@ -217,25 +227,26 @@
         const address = document.querySelector("#address");
         const email = document.querySelector("#email");
         const number = document.querySelector("#telephone");
-
+        const message = document.querySelector("#message");
         function sendContactInfoToDb() {
 
             let fNameVal = fName.value;
             let addressVal = address.value;
             let emailVal = email.value;
             let numberVal = number.value;
-
+            let messageVal = message.value;
             console.log(fNameVal);
             console.log(addressVal);
             console.log(emailVal);
             console.log(numberVal);
-
-            if (fNameVal && addressVal && emailVal && numberVal) {
+            console.log(messageVal);
+            if (fNameVal && addressVal && emailVal && numberVal && messageVal) {
                 push(ref(db, "contact-info"), {
                     fullName: fNameVal,
                     address: addressVal,
                     email: emailVal,
                     number: numberVal,
+                    message: messageVal,
                 })
                     .then(() => {
                         $.Toast("Successful", "Data Sended With Successfully", "success", {
@@ -258,6 +269,7 @@
                     address.value = "";
                     email.value = "";
                     number.value = "";
+                    message.value="";
 
 
             } else {

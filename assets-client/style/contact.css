@@ -9,10 +9,16 @@
     font-size: 36px;
     color: #333333;
 }
-
+.mainContact{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .inputArea {
     margin-top: 30px;
     display: flex;
+    width: 100%;
+
 }
 
 .firstInputSection {
@@ -26,6 +32,7 @@
     width: 50%;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 }
 
 .firstInputSection input {
@@ -52,7 +59,20 @@
     border: 1px solid #CECECE;
     outline: none;
 }
-
+.MessageArea{
+    width: 100%;
+}
+.MessageArea textarea{
+    resize: none;
+    width: 100%;
+    font-size: 23px;
+    margin-top: 30px;
+   margin-bottom: 10px;
+    color: #797667;
+    padding: 38px 0 0 38px;
+    border: 1px solid #CECECE;
+    outline: none;
+}
 .divButton {
     width: 47.67%;
     height: 75px;
@@ -78,10 +98,6 @@
     margin-top: 300px;
 }
 
-#telephone {
-    padding-left: 90px;
-}
-
 #telephone::-webkit-inner-spin-button,
 #telephone::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -90,14 +106,9 @@
 
 .phone-inp {
     margin-top: 30px;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .phone-inp input {
     width: 610.46px !important; 
 }
-
-
-
-
-

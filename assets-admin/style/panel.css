@@ -359,16 +359,24 @@ thead {
   display: none;
 }
 
-.deletebox {
+.deletebox ,.view-box{
   width: 20px;
   color: #fff !important;
 }
 
-#delete {
+#delete ,#view{
   border: none;
   background: none;
 }
-
+.quickView{
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+.quickView img{
+  width: 20px;
+  height: 20px;
+}
 .search-inp {
   width: 32.84%;
   font-family: 'Preahvihear', sans-serif;
