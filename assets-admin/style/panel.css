@@ -363,16 +363,6 @@ thead {
   width: 20px;
   color: #fff !important;
 }
-.quickView{
-  outline: none;
-  border: none;
-  background-color: transparent;
-}
-.quickView img{
-  width: 20px;
-  height: 20px;
-}
-
 
 #delete {
   border: none;

@@ -452,11 +452,8 @@
                     const data = snapshot.val()
                     const dataArr = Object.entries(data)
                     let currentURL = window.location.href
-
                     dataArr.forEach((el) => {
-                        let categorieURL = `${currentURL}?categorie=${encodeURIComponent(el[1].categorie)}`
-                        categorieContainer.innerHTML += `<a href="${categorieURL}">${el[1].categorie}</a>`
-   
+                        categorieContainer.innerHTML += `<a href="#">${el[1].categorie}</a>`
                     })
                 })
         }
@@ -464,7 +461,8 @@
         function fetchTrueCategorie(e) {
             let categorieName = e.target.textContent;
 
-            bookSlider.innerHTML = ""
+            bookSlider.innerHTML = "";
+
             get(ref(db, "book-data"))
                 .then((snapshot) => {
 
