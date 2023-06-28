@@ -352,3 +352,7 @@
 .book-right-container :first-child{
     width: 379px;
 }
+
+.no-comment {
+    font-size: 20px;
+}

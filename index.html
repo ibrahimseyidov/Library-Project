@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets-client/style/reset.css">
     <link rel="stylesheet" href="./assets-client/style/style.css">
     <link rel="stylesheet" href="./assets-client/mobile-style/mobile.css">
+    <link rel="stylesheet" href="./assets-client/style/toast.style.css">
     <title>Home Page</title>
 </head>
 
@@ -75,11 +76,11 @@
                 <div class="join-modal">
                     <span>Join Us</span>
                     <div class="join-inp">
-                        <input type="text" placeholder="Full name">
-                        <input type="email" placeholder="Email">
+                        <input type="text" id="fullname" placeholder="Full name">
+                        <input type="email" id="email" placeholder="Email">
                     </div>
                     <div class="join-btn">
-                        <button>Join</button>
+                        <button id="joinbtn">Join</button>
                     </div>
                 </div>
             </div>
@@ -247,6 +248,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./assets-client/js/toast.script.js"></script>
     <script type="module">
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
@@ -267,6 +269,9 @@
         const db = getDatabase(app);
 
         const catalogBtns = document.querySelector(".catalog-btns");
+        const fullname = document.querySelector("#fullname");
+        const email = document.querySelector("#email");
+        const joinbtn = document.querySelector("#joinbtn");
 
         function fetchCategorie() {
             get(ref(db, "categories"))
@@ -283,16 +288,59 @@
         }
 
         function goCategoriePage(e) {
-           window.location.href = `./assets-client/pages/catalog-product.html?categorie=${e.target.textContent}`
+            window.location.href = `./assets-client/pages/catalog-product.html?categorie=${e.target.textContent}`
         }
 
+        function joinUs(e) {
+            e.preventDefault();
 
+            if (fullname.value && email.value && validateEmail(email.value)) {
+                push(ref(db, "join-us-data/"), {
+                    fullName: fullname.value,
+                    emailAddress: email.value,
+                })
+                    .then(() => {
+                        $.Toast(
+                            "Successful",
+                            "You Joined With Us Successfully",
+                            "success",
+                            {
+                                position_class: "toast-top-right",
+                                timeout: 4000,
+                                has_progress: true,
+                                width: 300,
+                            }
+                        );
+                    })
 
+                    .catch((error) => {
+                        $.Toast("Warning", "Data Could not Send", "warning", {
+                            position_class: "toast-top-right",
+                            timeout: 4000,
+                            has_progress: true,
+                            width: 300,
+                        });
+                    });
+            } else {
+                $.Toast("Unsuccessful", "Please, Enter Valid Email and Username", "error", {
+                    position_class: "toast-top-right",
+                    timeout: 4000,
+                    has_progress: true,
+                    width: 300,
+                });
+            }
+            fullname.value = "";
+            email.value = "";
+        }
 
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
 
         document.addEventListener("DOMContentLoaded", fetchCategorie);
         catalogBtns.addEventListener("click", goCategoriePage)
-
+        joinbtn.addEventListener("click", joinUs);
 
     </script>
     <script src="./assets-client/js/hamburger.js"></script>

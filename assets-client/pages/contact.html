@@ -75,11 +75,11 @@
                 <div class="join-modal">
                     <span>Join Us</span>
                     <div class="join-inp">
-                        <input type="text" placeholder="Full name">
-                        <input type="email" placeholder="Email">
+                        <input type="text" id="fullname" placeholder="Full name">
+                        <input type="email" id="emailInp" placeholder="Email">
                     </div>
                     <div class="join-btn">
-                        <button>Join</button>
+                        <button id="joinbtn">Join</button>
                     </div>
                 </div>
             </div>
@@ -228,6 +228,10 @@
         const email = document.querySelector("#email");
         const number = document.querySelector("#telephone");
         const message = document.querySelector("#message");
+        const fullname = document.querySelector("#fullname");
+        const emailInp = document.querySelector("#emailInp");
+        const joinbtn = document.querySelector("#joinbtn");
+
         function sendContactInfoToDb() {
 
             let fNameVal = fName.value;
@@ -235,12 +239,7 @@
             let emailVal = email.value;
             let numberVal = number.value;
             let messageVal = message.value;
-            console.log(fNameVal);
-            console.log(addressVal);
-            console.log(emailVal);
-            console.log(numberVal);
-            console.log(messageVal);
-            if (fNameVal && addressVal && emailVal && numberVal && messageVal) {
+             if (fNameVal && addressVal && emailVal && numberVal && messageVal && validateEmail(email.value)) {
                 push(ref(db, "contact-info"), {
                     fullName: fNameVal,
                     address: addressVal,
@@ -284,8 +283,56 @@
 
         }
 
+        function joinUs(e) {
+            e.preventDefault();
 
-        sendBtn.addEventListener("click", sendContactInfoToDb)
+            if (fullname.value && emailInp.value && validateEmail(emailInp.value)) {
+                push(ref(db, "join-us-data/"), {
+                    fullName: fullname.value,
+                    emailAddress: emailInp.value,
+                })
+                    .then(() => {
+                        $.Toast(
+                            "Successful",
+                            "You Joined With Us Successfully",
+                            "success",
+                            {
+                                position_class: "toast-top-right",
+                                timeout: 4000,
+                                has_progress: true,
+                                width: 300,
+                            }
+                        );
+                    })
+
+                    .catch((error) => {
+                        $.Toast("Warning", "Data Could not Send", "warning", {
+                            position_class: "toast-top-right",
+                            timeout: 4000,
+                            has_progress: true,
+                            width: 300,
+                        });
+                    });
+            } else {
+                $.Toast("Unsuccessful", "Please, Enter Valid Email and Username", "error", {
+                    position_class: "toast-top-right",
+                    timeout: 4000,
+                    has_progress: true,
+                    width: 300,
+                });
+            }
+            fullname.value = "";
+            emailInp.value = "";
+        }
+
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+
+        sendBtn.addEventListener("click", sendContactInfoToDb);
+        joinbtn.addEventListener("click", joinUs);
 
     </script>
 </body>

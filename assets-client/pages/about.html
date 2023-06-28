@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../mobile-style/mobile.css">
     <link rel="stylesheet" href="../style/jquery.shCircleLoader.css">
+    <link rel="stylesheet" href="../style/toast.style.css">
     <title>About Page</title>
 </head>
 
@@ -74,11 +75,11 @@
                 <div class="join-modal">
                     <span>Join Us</span>
                     <div class="join-inp">
-                        <input type="text" placeholder="Full name">
-                        <input type="email" placeholder="Email">
+                        <input type="text" id="fullname" placeholder="Full name">
+                        <input type="email" id="email" placeholder="Email">
                     </div>
                     <div class="join-btn">
-                        <button>Join</button>
+                        <button id="joinbtn">Join</button>
                     </div>
                 </div>
             </div>
@@ -184,6 +185,7 @@
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/jquery.shCircleLoader.js"></script>
+    <script src="../js/toast.script.js"></script>
     <script type="module">
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
@@ -200,6 +202,9 @@
         };
 
         const mainAbout = document.querySelector("#mainAbout");
+        const fullname = document.querySelector("#fullname");
+        const email = document.querySelector("#email");
+        const joinbtn = document.querySelector("#joinbtn");
 
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
@@ -225,8 +230,55 @@
 
         }
 
+        function joinUs(e) {
+            e.preventDefault();
 
-        document.addEventListener("DOMContentLoaded", fetchAboutData)
+            if (fullname.value && email.value && validateEmail(email.value)) {
+                push(ref(db, "join-us-data/"), {
+                    fullName: fullname.value,
+                    emailAddress: email.value,
+                })
+                    .then(() => {
+                        $.Toast(
+                            "Successful",
+                            "You Joined With Us Successfully",
+                            "success",
+                            {
+                                position_class: "toast-top-right",
+                                timeout: 4000,
+                                has_progress: true,
+                                width: 300,
+                            }
+                        );
+                    })
+
+                    .catch((error) => {
+                        $.Toast("Warning", "Data Could not Send", "warning", {
+                            position_class: "toast-top-right",
+                            timeout: 4000,
+                            has_progress: true,
+                            width: 300,
+                        });
+                    });
+            } else {
+                $.Toast("Unsuccessful", "Please, Enter Valid Email and Username", "error", {
+                    position_class: "toast-top-right",
+                    timeout: 4000,
+                    has_progress: true,
+                    width: 300,
+                });
+            }
+            fullname.value = "";
+            email.value = "";
+        }
+
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        document.addEventListener("DOMContentLoaded", fetchAboutData);
+        joinbtn.addEventListener("click", joinUs);
 
     </script>
     <script src="../js/hamburger.js"></script>

@@ -1,10 +1,12 @@
 const bookTop = document.querySelector(".book-top");
 const bookImageContainer = document.querySelector(".book-right-container");
 const commentArea = document.querySelector("#bookComment");
+const bookInfo = document.querySelector("#bookInfo");
 
 window.addEventListener("load", getPageValue);
 
 function getPageValue() {
+
     let sectionState = localStorage.getItem("sectionState");
     if (sectionState === "visible") {
         showSection1()
@@ -21,6 +23,61 @@ function showSection1() {
     let authorName = localStorage.getItem("authorName");
     let description = localStorage.getItem("description");
     let bookImage = localStorage.getItem("bookImage");
+
+    var settings = {
+        "url": "https://blog-api-t6u0.onrender.com/posts",
+        "method": "GET",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+    };
+
+    $.ajax(settings)
+        .then((response) => {
+            if (response[100]) {
+                commentArea.innerHTML = ""
+                for (let i = 100; i < response.length; i++) {
+                    let now1 = moment()
+                    let publishDates = response[i].userData.title
+                    let comment = response[i].userData.body
+                    var diffSeconds = now1.diff(publishDates, 'seconds');
+                    var diffMinutes = now1.diff(publishDates, 'minutes');
+                    var diffHours = now1.diff(publishDates, 'hours');
+
+                    let displayText = "";
+
+                    if (diffSeconds < 60) {
+                        displayText = 'A few seconds ago';
+                    } else if (diffMinutes < 60) {
+                        displayText = diffMinutes + ' minutes ago';
+                    } else if (diffHours < 24) {
+                        displayText = diffHours + ' hours ago';
+                    } else {
+                        displayText = postTime.format('YYYY-MM-DD HH:mm');
+                    }
+
+
+                    commentArea.innerHTML += `<div class="book-comment">
+                    <div class="anonim-comment">
+                        <span>anonim</span>
+                        <span>${displayText}</span>
+                    </div>
+                    <div class="anonim-para">
+                        <p>${comment}</p>
+                    </div>
+                </div>`
+                }
+            } else {
+                commentArea.innerHTML += `<div class="book-comment no-comment">
+                There are no comments yet
+            </div>`
+            }
+
+        })
+        .catch(() => {
+            console.log("error");
+        })
 
     if (publishYear && bookName && authorName && description && bookImage) {
 
@@ -45,63 +102,14 @@ function showSection1() {
         bookImageContainer.innerHTML = `<div class="book-right-container">
     <img src="${bookImage}" alt="product-book">
     </div>`
-
     }
 
 
-    var settings = {
-        "url": "https://blog-api-t6u0.onrender.com/posts",
-        "method": "GET",
-        "timeout": 0,
-        "headers": {
-            "Content-Type": "application/json"
-        },
-    };
 
-    $.ajax(settings)
-        .then((response) => {
-            for (let i = 101; i < response.length; i++) {
-                let now1 = moment()
-                let publishDates = response[i].userData.title
-                let comment = response[i].userData.body
-                var diffSeconds = now1.diff(publishDates, 'seconds');
-                var diffMinutes = now1.diff(publishDates, 'minutes');
-                var diffHours = now1.diff(publishDates, 'hours');
-
-                let displayText = "";
-
-                if (diffSeconds < 60) {
-                    displayText = 'A few seconds ago';
-                } else if (diffMinutes < 60) {
-                    displayText = diffMinutes + ' minutes ago';
-                } else if (diffHours < 24) {
-                    displayText = diffHours + ' hours ago';
-                } else {
-                    displayText = postTime.format('YYYY-MM-DD HH:mm');
-                }
-                commentArea.innerHTML += `<div class="book-comment">
-                            <div class="anonim-comment">
-                                <span>anonim</span>
-                                <span>${displayText}</span>
-                            </div>
-                            <div class="anonim-para">
-                                <p>${comment}</p>
-                            </div>
-                        </div>`
-            }
-        })
-        .catch(() => {
-            console.log("error");
-        })
 
 }
 
 function showSection2() {
     $("#bookInfo").hide()
     $(".categorie-page").show()
-    // localStorage.removeItem("publishYear");
-    // localStorage.removeItem("bookName");
-    // localStorage.removeItem("authorName");
-    // localStorage.removeItem("description");
-    // localStorage.removeItem("bookImage");
 }

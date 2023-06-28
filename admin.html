@@ -197,6 +197,7 @@
                 <label for="desc">Description</label>
               </div>
 
+              <input style="display: none;" id="hideArea"></input>
 
               <div class="booktype d-flex">
                 <p>Book Type</p>
@@ -214,6 +215,7 @@
                     X
                   </button>
                 </div>
+
               </div>
 
               <!-- <div class="coment mb-3">
@@ -286,9 +288,8 @@
                   </th>
                 </tr>
               </thead>
-              <tbody>
-
-                <tr class="tr1">
+              <tbody id="joinUsArea">
+                <!-- <tr class="tr1">
                   <th scope="row">1</th>
                   <td>Audrey Mckinney</td>
                   <td>lisa.watson@example.com </td>
@@ -302,21 +303,7 @@
                   <td>jeff.brown@example.com</td>
                   <td><button id="delete"><img class="deletebox"
                         src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
-                </tr>
-                <tr class="tr1">
-                  <th scope="row">3</th>
-                  <td>Morris Cooper</td>
-                  <td>terra.hamilton@example.com</td>
-                  <td><button id="delete"><img class="deletebox"
-                        src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
-                </tr>
-                <tr class="tr2">
-                  <th scope="row">4</th>
-                  <td>Victoria Lane</td>
-                  <td>deanna.curtis@example.com</td>
-                  <td><button id="delete"><img class="deletebox"
-                        src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
 
@@ -335,15 +322,12 @@
                   <th scope="col">Address</th>
                   <th scope="col">Email Address</th>
                   <th scope="col">Phone Number</th>
-                  <th scope="col"><button id="delete"> <img class="deletebox" src="../assets-admin/img/trash.png"
+                  <th scope="col"><button id="delete"> <img class="deletebox" src="./assets-admin/img/trash.png"
                         style="width: 30px;"></button>
                   </th>
                   <th scope="col">
                     <button id="view">
-                      <img
-                        class="view-box"
-                        src="../assets-admin/img/eye-2.svg"
-                      />
+                      <img class="view-box" src="./assets-admin/img/eye-2.svg" />
                     </button>
                   </th>
                 </tr>
@@ -387,11 +371,11 @@
 
   <div id="myModal" class="modal">
     <div class="modal-content">
-     <div class="d-flex justify-content-end">
-      <button type="button" class="close" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-     </div>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
       <div class="quickView-modal">
         <div id="messageInner"></div>
       </div>
@@ -449,6 +433,8 @@
     const optionArea = document.querySelector("#optionArea");
     const contactArea = document.querySelector("#contactArea");
     const messageInner = document.querySelector("#messageInner");
+    const joinUsArea = document.querySelector("#joinUsArea");
+    const hideArea = document.querySelector("#hideArea");
     let selectedOptionText;
 
     function checkUser(e) {
@@ -527,6 +513,7 @@
       }
 
       push(ref(db, "book-data/"), {
+        bookId: hideArea.value,
         bookName: book.value,
         authorName: author.value,
         bookImage: image.value,
@@ -666,10 +653,10 @@
       get(ref(db, "contact-info/"))
         .then((snapshot) => {
           let contactData = snapshot.val();
-          let contactArr = Object.entries(contactData)
-
-          contactArr.forEach((el, i) => {
-            contactArea.innerHTML += `<tr class="tr${(i + 1) % 2 == 0 ? 2 : 1}">
+          if (contactData) {
+            let contactArr = Object.entries(contactData)
+            contactArr.forEach((el, i) => {
+              contactArea.innerHTML += `<tr class="tr${(i + 1) % 2 == 0 ? 2 : 1}">
                   <th scope="row">${i + 1}</th>
                   <td>${el[1].fullName}</td>
                   <td>${el[1].address}</td>
@@ -682,10 +669,10 @@
                       </button></td>
                         </tr>
           `;
-            messageInner.innerHTML = `${el[1].message}`;
-          })
+              messageInner.innerHTML = `${el[1].message}`;
+            })
+          }
         })
-
     }
 
     function delContactInfo(e) {
@@ -732,6 +719,79 @@
 
     }
 
+    function fetchJoinUsData() {
+      get(ref(db, "join-us-data/")).then((snapshot) => {
+        if (snapshot.val()) {
+          let dataVal = snapshot.val();
+          let dataArr = Object.entries(dataVal);
+          dataArr.forEach((el, i) => {
+            joinUsArea.innerHTML += `<tr class="tr1">
+                  <th scope="row">${i + 1}</th>
+                  <td>${el[1].fullName}</td>
+                  <td>${el[1].emailAddress}</td>
+                  <td><button id="delete"><img class="deletebox"
+                        src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
+                </tr>`;
+          });
+        }
+
+      });
+    }
+
+    function delJoinInfo(e) {
+      console.log(e);
+      if (e.target.className == "deletebox") {
+        let currentInfo = e.target.parentElement.parentElement.parentElement;
+        console.log(currentInfo);
+        $(currentInfo).fadeOut("slow", function () {
+          this.remove();
+        });
+        get(ref(db, "join-us-data/")).then((snapshot) => {
+          let dataVal = snapshot.val();
+          let dataArr = Object.entries(dataVal);
+          console.log(dataArr);
+          console.log(currentInfo.children[1].textContent);
+          dataArr.forEach((el, i) => {
+            if (
+              currentInfo.children[1].textContent == el[1].fullName &&
+              currentInfo.children[2].textContent == el[1].emailAddress
+            ) {
+              const key = el[0];
+              console.log(key);
+              remove(ref(db, `join-us-data/${key}`))
+                .then(() => {
+                  $.Toast(
+                    "Successful",
+                    "Join Info Deleted Successfully",
+                    "success",
+                    {
+                      position_class: "toast-top-right",
+                      timeout: 4000,
+                      has_progress: true,
+                      width: 300,
+                    }
+                  );
+                })
+                .catch(() => {
+                  $.Toast(
+                    "Warning",
+                    "Oops! Data Could Not Delete ",
+                    "warning",
+                    {
+                      position_class: "toast-top-right",
+                      timeout: 4000,
+                      has_progress: true,
+                      width: 300,
+                    }
+                  );
+                });
+            }
+          });
+        });
+      }
+    }
+
+
     loginBtn.addEventListener("click", checkUser);
     storeAddBtn.addEventListener("click", addBookDataToStore);
     selectElement.addEventListener("click", getOption);
@@ -742,7 +802,8 @@
     document.addEventListener("DOMContentLoaded", getTypeData);
     document.addEventListener("DOMContentLoaded", getAboutData);
     document.addEventListener("DOMContentLoaded", getContactData);
-
+    document.addEventListener("DOMContentLoaded", fetchJoinUsData);
+    joinUsArea.addEventListener("click", delJoinInfo);
 
   </script>
   <script src="./assets-admin/js/admin.js"></script>

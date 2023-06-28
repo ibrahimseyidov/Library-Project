@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="../style/reset.css">
     <link rel="stylesheet" href="../style/search.css">
     <link rel="stylesheet" href="../mobile-style/search.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../mobile-style/mobile.css">
     <link rel="stylesheet" href="../style/toast.style.css">
@@ -75,11 +75,11 @@
                 <div class="join-modal">
                     <span>Join Us</span>
                     <div class="join-inp">
-                        <input type="text" placeholder="Full name">
-                        <input type="email" placeholder="Email">
+                        <input type="text" id="fullname" placeholder="Full name">
+                        <input type="email" id="email" placeholder="Email">
                     </div>
                     <div class="join-btn">
-                        <button>Join</button>
+                        <button id="joinbtn">Join</button>
                     </div>
                 </div>
             </div>
@@ -208,6 +208,7 @@
 
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="../js/slick.js"></script>
     <script src="../js/toast.script.js"></script>
     <script type="module">
 
@@ -230,23 +231,27 @@
         const bkNameInp = document.querySelector("#bkNameInp");
         const searchBtn = document.querySelector("#searchBtn");
         const cardContainer = document.querySelector("#cardContainer");
+        const fullname = document.querySelector("#fullname");
+        const email = document.querySelector("#email");
+        const joinbtn = document.querySelector("#joinbtn");
 
         function showTrueBook() {
 
-            let bkName = bkNameInp.value.toLowerCase()
-              if (bkName) {
+            let bkName = bkNameInp.value.toLowerCase();
+
+            if (bkName) {
                 get(ref(db, "book-data/"))
                     .then((snapshot) => {
                         cardContainer.innerHTML = ""
-                        bkNameInp.value = ""
+                        bkNameInp.value = "";
                         let bookData = snapshot.val();
                         let bookArr = Object.entries(bookData);
                         let completed = false;
 
                         bookArr.forEach((el, i) => {
 
-                            if (el[1].bookName.toLowerCase().includes(bkName)) {
-                        
+                            if (el[1].bookName.toLowerCase().trim().includes(bkName) || el[1].authorName.toLowerCase().trim().includes(bkName)) {
+
                                 cardContainer.innerHTML += `<div class="insideCard">
                               <div>
                                <img src="${el[1].bookImage}" style="width:220px; padding-right: 37px;">
@@ -259,21 +264,24 @@
                                         </p>
                                     </div>
                                 </div>`
+                            }
 
-                                if (i == bookArr.length - 1) {
-                                    completed = true
-                                }
 
-                                if (completed) {
-                                    $("#cardContainer").slick({
-                                        prevArrow: `<div class="prev"><img src="../icons/leftBtn.svg" alt="left-btn"></div>`,
-                                        nextArrow: `<div class="next"><img src="../icons/rightBtn.svg" alt="right-btn"></div>`,
-                                    });
+                            if (i == bookArr.length - 1) {
+                                completed = true
+                            }
 
-                                }
+                            if (completed) {
+                                $("#cardContainer").slick({
+                                    prevArrow: `<div class="prev"><img src="../icons/leftBtn.svg" alt="left-btn"></div>`,
+                                    nextArrow: `<div class="next"><img src="../icons/rightBtn.svg" alt="right-btn"></div>`,
+                                });
 
                             }
+
                         })
+
+
                     })
             } else {
                 $.Toast("Error", "Please, Enter Valid Value!", "error", {
@@ -286,8 +294,56 @@
 
         }
 
+        function joinUs(e) {
+            e.preventDefault();
 
-        searchBtn.addEventListener("click", showTrueBook)
+            if (fullname.value && email.value && validateEmail(email.value)) {
+                push(ref(db, "join-us-data/"), {
+                    fullName: fullname.value,
+                    emailAddress: email.value,
+                })
+                    .then(() => {
+                        $.Toast(
+                            "Successful",
+                            "You Joined With Us Successfully",
+                            "success",
+                            {
+                                position_class: "toast-top-right",
+                                timeout: 4000,
+                                has_progress: true,
+                                width: 300,
+                            }
+                        );
+                    })
+
+                    .catch((error) => {
+                        $.Toast("Warning", "Data Could not Send", "warning", {
+                            position_class: "toast-top-right",
+                            timeout: 4000,
+                            has_progress: true,
+                            width: 300,
+                        });
+                    });
+            } else {
+                $.Toast("Unsuccessful", "Please, Enter Valid Email and Username", "error", {
+                    position_class: "toast-top-right",
+                    timeout: 4000,
+                    has_progress: true,
+                    width: 300,
+                });
+            }
+            fullname.value = "";
+            email.value = "";
+        }
+
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+
+        searchBtn.addEventListener("click", showTrueBook);
+        joinbtn.addEventListener("click", joinUs);
 
     </script>
     <script src="../js/modal.js"></script>
