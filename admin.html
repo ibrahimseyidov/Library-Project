@@ -15,6 +15,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./assets-admin/style/style.css" />
+    <link rel="stylesheet" href="./assets-admin/mobile-style/mobile.css" />
     <link rel="stylesheet" href="./assets-admin/style/panel.css" />
     <link rel="stylesheet" href="./assets-admin/mobile-style/panel.css" />
     <link
@@ -194,9 +196,17 @@
             </div>
           </section>
 
+
           <section id="book">
             <div class="form1">
               <p class="para3">Book form</p>
+
+
+
+          <section id="book">
+            <div class="form1">
+              <p class="para3">Book form</p>
+
 
               <form class="form-change">
                 <div class="mb-3">
@@ -329,6 +339,7 @@
                   </select>
                 </div>
 
+
                 <button
                   type="About info add"
                   id="storeAdd"
@@ -408,6 +419,173 @@
                     </th>
                   </tr>
                 </thead>
+                <tbody>
+                  <tr class="tr1">
+                    <th scope="row">1</th>
+                    <td>Audrey Mckinney</td>
+                    <td>lisa.watson@example.com</td>
+                    <td>
+                      <button id="delete">
+                        <img
+                          class="deletebox"
+                          src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"
+                        />
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr class="tr2">
+                    <th scope="row">2</th>
+                    <td>Savannah Howard</td>
+                    <td>jeff.brown@example.com</td>
+                    <td>
+                      <button id="delete">
+                        <img
+                          class="deletebox"
+                          src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"
+                        />
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="tr1">
+                    <th scope="row">3</th>
+                    <td>Morris Cooper</td>
+                    <td>terra.hamilton@example.com</td>
+                    <td>
+                      <button id="delete">
+                        <img
+                          class="deletebox"
+                          src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"
+                        />
+                      </button>
+                    </td>
+                  </tr>
+                  <tr class="tr2">
+                    <th scope="row">4</th>
+                    <td>Victoria Lane</td>
+                    <td>deanna.curtis@example.com</td>
+                    <td>
+                      <button id="delete">
+                        <img
+                          class="deletebox"
+                          src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"
+                        />
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="contact">
+            <div class="cus">
+              <p class="para4">Contact Us</p>
+
+
+                <button
+                  type="About info add"
+                  id="storeAdd"
+                  class="btn btn-primary"
+                >
+                  Add
+                </button>
+              </form>
+            </div>
+          </section>
+
+          <section id="about">
+            <div class="form1">
+              <p class="para3">About Store</p>
+
+              <form class="form-change">
+                <div class="mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="title"
+                    placeholder="Book Name"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+
+                <div class="form-floating mb-3">
+                  <textarea
+                    class="form-control text-area-1"
+                    placeholder="Leave a comment here"
+                    id="floatingTextarea2"
+                    style="height: 100px"
+                  ></textarea>
+                  <label for="floatingTextarea2">Description</label>
+                </div>
+
+                <div class="mb-3">
+                  <label for="imageUrl" class="form-label">Image Url</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="imageUrl"
+                    placeholder="Image URL"
+                    aria-describedby="emailHelp"
+                  />
+                </div>
+
+                <button
+                  type="About info add"
+                  id="aboutAddBtn"
+                  class="btn btn-primary about-add"
+                >
+                  About Info Add
+                </button>
+              </form>
+            </div>
+          </section>
+
+          <section id="joinus">
+            <div class="us">
+              <p class="para4">Join Us</p>
+
+
+              <table class="table">
+                <thead>
+                  <tr class="tr">
+                    <th scope="col">#</th>
+                    <th scope="col">Full Name</th>
+
+                    <th scope="col">Address</th>
+                    <th scope="col">Email Address</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">
+                      <button id="delete">
+                        <img
+                          class="deletebox"
+                          src="../assets-admin/img/trash.png"
+
+                    <th scope="col">Email Address</th>
+                    <th scope="col">
+                      <button id="delete">
+                        <img
+                          src="./assets-admin/img/trash.png"
+
+                          style="width: 30px"
+                        />
+                      </button>
+                    </th>
+
+                    <th scope="col">
+                      <button id="delete">
+                        <img
+                          class="deletebox"
+                          src="../assets-admin/img/eye-2.svg"
+                        />
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+
+                  </tr>
+                </thead>
                 <tbody id="joinUsArea">
                   <!-- <tr class="tr1">
                     <th scope="row">1</th>
@@ -464,6 +642,7 @@
                   </tr>
                 </thead>
 
+
                 <tbody id="contactArea">
                   <!-- <tr class="tr1">
                     <th scope="row">1</th>
@@ -497,6 +676,16 @@
           </section>
         </div>
       </section>
+    </div>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close"></span>
+
+        <div class="quickView-modal">
+          <div id="messageInner"></div>
+        </div>
+      </div>
     </div>
 
     <script src="//code.jquery.com/jquery.min.js"></script>
@@ -560,6 +749,7 @@
       const aboutTitle = document.querySelector("#title");
       const optionArea = document.querySelector("#optionArea");
       const contactArea = document.querySelector("#contactArea");
+      const messageInner = document.querySelector("#messageInner");
       const joinUsArea = document.querySelector("#joinUsArea");
       let selectedOptionText;
 
@@ -768,10 +958,22 @@
                   <td>${el[1].address}</td>
                   <td>${el[1].email}</td>
                   <td>${el[1].number}</td>
+
+                  <td><button id="delete">
+                    <img class="deletebox" src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button>
+                    </td>
+                    <td>
+                    <button id="myBtn" onclick="modalShow();" class="quickView"><img src="../assets-admin/img/eye.png" class="quickViewBox"/>
+                      </button></td>
+                        </tr>
+          `;
+            messageInner.innerHTML = `${el[1].message}`;
+
                   <td><button id="delete"><img class="deletebox"
                         src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
                 </tr>
           `;
+
           });
         });
       }
@@ -826,6 +1028,7 @@
             });
           });
         }
+
       }
 
       function fetchJoinUsData() {
@@ -895,6 +1098,7 @@
             });
           });
         }
+
       }
 
       loginBtn.addEventListener("click", checkUser);
@@ -915,5 +1119,7 @@
     <script src="./assets-admin/js/hamburger.js"></script>
     <script src="./assets-admin/js/jquery-simple-txt-counter.min.js"></script>
     <script src="./assets-admin/js/inputCounter.js"></script>
+    <script src="./assets-admin/js/modal.js"></script>
+
   </body>
 </html>

@@ -1,3 +1,10 @@
+@media(max-width:1200px){
+  .modal-content {
+    margin: 4% auto;
+    width: 500px !important;
+    height: 450px !important;
+}
+}
 @media screen and (max-width: 969px) {
 
   .mobwelcom {
@@ -83,7 +90,11 @@
   }
 
 }
-
+@media(max-width:590px){
+  .modal-content {
+    width: 400px !important;
+}
+}
 @media screen and (max-width: 468px) {
 
   .logo {
@@ -144,6 +155,9 @@
   .showEle {
     right: 10px !important;
   }
-
+.modal-content{
+  width: 260px !important;
+ 
+}
 }
 
