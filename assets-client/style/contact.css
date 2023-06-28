@@ -98,6 +98,10 @@
     margin-top: 300px;
 }
 
+#telephone {
+    padding-left: 90px;
+}
+
 #telephone::-webkit-inner-spin-button,
 #telephone::-webkit-outer-spin-button {
   -webkit-appearance: none;

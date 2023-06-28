@@ -283,8 +283,7 @@
         }
 
         function goCategoriePage(e) {
-            console.log(e.target.textContent);
-            let activeCategorie = e.target.textContent;
+           window.location.href = `./assets-client/pages/catalog-product.html?categorie=${e.target.textContent}`
         }
 
 
@@ -296,6 +295,7 @@
 
 
     </script>
+
     <script src="./assets-client/js/hamburger.js"></script>
     <script src="./assets-client/js/modal.js"></script>
 </body>
