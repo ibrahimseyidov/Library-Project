@@ -234,10 +234,10 @@ body::-webkit-scrollbar-track {
   border: 1px solid #888;
   width: 433px !important;
   height: 300px;
-  border-radius: 0 !important;
+  border-radius: 0px !important;
 
 }
-
+  
 .modal-content #messageInner {
   word-wrap: break-word;
   padding: 20px;
