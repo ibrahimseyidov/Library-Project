@@ -124,8 +124,8 @@
 .iti--allow-dropdown input[type=tel], .iti--separate-dial-code input,
 .iti--separate-dial-code input[type=text],
 .iti--separate-dial-code input[type=tel] {
-  padding-right: 6px;
-  padding-left: 52px;
+  padding-right: 18px;
+  padding-left: 91px;
   margin-left: 0;
 }
 [dir=rtl] .iti--allow-dropdown input,

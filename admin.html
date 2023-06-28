@@ -338,6 +338,14 @@
                   <th scope="col"><button id="delete"> <img class="deletebox" src="../assets-admin/img/trash.png"
                         style="width: 30px;"></button>
                   </th>
+                  <th scope="col">
+                    <button id="view">
+                      <img
+                        class="view-box"
+                        src="../assets-admin/img/eye-2.svg"
+                      />
+                    </button>
+                  </th>
                 </tr>
               </thead>
 
@@ -377,7 +385,18 @@
   </div>
 
 
-
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+     <div class="d-flex justify-content-end">
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+     </div>
+      <div class="quickView-modal">
+        <div id="messageInner"></div>
+      </div>
+    </div>
+  </div>
 
   <script src="//code.jquery.com/jquery.min.js"></script>
   <script src="./assets-admin/js/inputShowPwd.js"></script>
@@ -429,6 +448,7 @@
     const aboutTitle = document.querySelector("#title");
     const optionArea = document.querySelector("#optionArea");
     const contactArea = document.querySelector("#contactArea");
+    const messageInner = document.querySelector("#messageInner");
     let selectedOptionText;
 
     function checkUser(e) {
@@ -657,8 +677,12 @@
                   <td>${el[1].number}</td>
                   <td><button id="delete"><img class="deletebox"
                         src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
-                </tr>
-          `
+                <td>
+                    <button id="myBtn" onclick="modalShow();" class="quickView"><img src="../assets-admin/img/eye.png" class="quickViewBox"/>
+                      </button></td>
+                        </tr>
+          `;
+            messageInner.innerHTML = `${el[1].message}`;
           })
         })
 
@@ -726,6 +750,7 @@
   <script src="./assets-admin/js/hamburger.js"></script>
   <script src="./assets-admin/js/jquery-simple-txt-counter.min.js"></script>
   <script src="./assets-admin/js/inputCounter.js"></script>
+  <script src="./assets-admin/js/modal.js"></script>
 </body>
 
 </html>

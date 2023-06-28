@@ -1,3 +1,11 @@
+
+@media(max-width:1200px){
+  .modal-content {
+    margin: 4% auto;
+    width: 384px !important;
+    height: 256px !important;
+}
+}
 @media screen and (max-width: 969px) {
 
   .mobwelcom {
@@ -40,7 +48,11 @@
 }
 
 @media screen and (max-width: 768px) {
-
+  .modal-content {
+    margin: 4% auto;
+    width: 304px !important;
+    height: 256px !important;
+}
   .mobwelcom {
     padding-top: 29px;
   }
