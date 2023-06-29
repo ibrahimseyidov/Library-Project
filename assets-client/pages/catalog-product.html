@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="../style/catalogProduct.css">
     <link rel="stylesheet" href="../mobile-style/mobile.css">
     <link rel="stylesheet" href="../mobile-style/catalog-product.css">
+    <link rel="stylesheet" href='../style/jquery.shCircleLoader.css'>
     <link rel="stylesheet" href="../style/slick.css">
-    <link rel="stylesheet" href="../style/jquery.shCircleLoader.css">
     <link rel="stylesheet" href="../style/toast.style.css">
     <title>Catalog Page</title>
 </head>
@@ -129,7 +129,6 @@
 
                     <div class="books-slider-container second-container" id="bookSlider2">
                         <div class="example"></div>
-
                     </div>
 
                 </section>
@@ -347,10 +346,10 @@
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <script src="../js/jquery.shCircleLoader.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="../js/toast.script.js"></script>
     <script src="../js/slickSlider.js"></script>
+    <script src="../js/jquery.shCircleLoader.js"></script>
+    <script src="../js/toast.script.js"></script>
     <script type="module">
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
@@ -641,11 +640,11 @@
             $(".example").shCircleLoader({
                 color: "#E16A00",
             })
-            let dbref = ref(db, "book-data")
+
+            let dbref = ref(db, "book-data");
 
             get(ref(db, "book-data"))
                 .then((snapshot) => {
-
                     if (snapshot.exists()) {
                         bookSlider.innerHTML = ""
                         let data = snapshot.val();
