@@ -309,6 +309,52 @@
           </div>
         </section>
 
+        <section id="booksArea">
+          <div class="cus">
+            <p class="para4">Books</p>
+            <div class="book-scroll" style=" max-height: 300px;
+            overflow-y: auto;">
+              <table class="table">
+                <thead>
+                  <tr class="tr">
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Author</th>
+                    <th>Trash</th>
+                  </tr>
+                </thead>
+
+                <tbody id="booksContainer">
+                  <!-- <tr class="tr1">
+                      <th scope="row">1</th>
+                      <td>Audrey Mckinney</td>
+                      <td>1473 Ranchview Dr undefined San Jose</td>
+                      <td>lisa.watson@example.com </td>
+                      <td>(209) 555-0104</td>
+                      <td><button id="delete"><img class="deletebox"
+                            src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
+    
+                    </tr>
+                    <tr class="tr2">
+                      <th scope="row">2</th>
+                      <td>Savannah Howard</td>
+                      <td>8445 Railroad St undefined Tampa</td>
+                      <td>jeff.brown@example.com</td>
+                      <td>(201) 555-0124</td>
+                      <td><button id="delete"><img class="deletebox"
+                            src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
+                    </tr> -->
+                </tbody>
+
+              </table>
+            </div>
+
+          </div>
+        </section>
+
+
         <section id="contact">
           <div class="cus">
             <p class="para4">Contact Us</p>
@@ -320,12 +366,8 @@
                   <th scope="col">Address</th>
                   <th scope="col">Email Address</th>
                   <th scope="col">Phone Number</th>
-                  <th scope="col"></th>
-                  <th scope="col">
-                    <button id="view">
-                      <!-- <img class="view-box" src="./assets-admin/img/eye-2.svg"> -->
-                    </button>
-                  </th>
+                  <th scope="col">Trash</th>
+                  <th scope="col">View</th>
                 </tr>
               </thead>
 
@@ -431,6 +473,7 @@
     const messageInner = document.querySelector("#messageInner");
     const joinUsArea = document.querySelector("#joinUsArea");
     const hideArea = document.querySelector("#hideArea");
+    const booksContainer = document.querySelector("#booksContainer");
     let selectedOptionText;
 
     function checkUser(e) {
@@ -644,32 +687,34 @@
 
     }
 
+   
     function getContactData() {
 
-      get(ref(db, "contact-info/"))
-        .then((snapshot) => {
-          let contactData = snapshot.val();
-          if (contactData) {
-            let contactArr = Object.entries(contactData)
-            contactArr.forEach((el, i) => {
-              contactArea.innerHTML += `<tr class="tr${(i + 1) % 2 == 0 ? 2 : 1}">
-                  <th scope="row">${i + 1}</th>
-                  <td>${el[1].fullName}</td>
-                  <td>${el[1].address}</td>
-                  <td>${el[1].email}</td>
-                  <td>${el[1].number}</td>
-                  <td><button id="delete"><img class="deletebox"
-                        src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
-                <td>
-                    <button id="myBtn" onclick="modalShow();" class="quickView"><img src="./assets-admin/img/eye.png" class="quickViewBox"/>
-                      </button></td>
-                        </tr>
-          `
-              messageInner.innerHTML = `${el[1].message}`;
-            })
-          }
-        })
+get(ref(db, "contact-info/"))
+  .then((snapshot) => {
+    let contactData = snapshot.val();
+    if (contactData) {
+      let contactArr = Object.entries(contactData)
+      contactArr.forEach((el, i) => {
+
+        contactArea.innerHTML += `<tr class="tr${(i + 1) % 2 == 0 ? 2 : 1}">
+            <th scope="row">${i + 1}</th>
+            <td>${el[1].fullName}</td>
+            <td>${el[1].address}</td>
+            <td>${el[1].email}</td>
+            <td>${el[1].number}</td>
+            <td><button id="delete"><img class="deletebox"
+                  src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
+          <td>
+              <button id="myBtn" onclick="modalShow();" class="quickView"><img src="../assets-admin/img/eye.png" class="quickViewBox"/>
+                </button></td>
+                  </tr>
+    `;
+        messageInner.innerHTML = `${el[1].message}`;
+      })
     }
+  })
+}
 
     function delContactInfo(e) {
 
@@ -743,49 +788,128 @@
           this.remove();
         });
         get(ref(db, "join-us-data/")).then((snapshot) => {
-          let dataVal = snapshot.val();
-          let dataArr = Object.entries(dataVal);
-          console.log(dataArr);
-          console.log(currentInfo.children[1].textContent);
-          dataArr.forEach((el, i) => {
-            if (
-              currentInfo.children[1].textContent == el[1].fullName &&
-              currentInfo.children[2].textContent == el[1].emailAddress
-            ) {
-              const key = el[0];
-              console.log(key);
-              remove(ref(db, `join-us-data/${key}`))
-                .then(() => {
-                  $.Toast(
-                    "Successful",
-                    "Join Info Deleted Successfully",
-                    "success",
-                    {
-                      position_class: "toast-top-right",
-                      timeout: 4000,
-                      has_progress: true,
-                      width: 300,
-                    }
-                  );
-                })
-                .catch(() => {
-                  $.Toast(
-                    "Warning",
-                    "Oops! Data Could Not Delete ",
-                    "warning",
-                    {
-                      position_class: "toast-top-right",
-                      timeout: 4000,
-                      has_progress: true,
-                      width: 300,
-                    }
-                  );
-                });
-            }
-          });
+          if (snapshot.val()) {
+            let dataVal = snapshot.val();
+            let dataArr = Object.entries(dataVal);
+
+            dataArr.forEach((el, i) => {
+              if (
+                currentInfo.children[1].textContent == el[1].fullName &&
+                currentInfo.children[2].textContent == el[1].emailAddress
+              ) {
+                const key = el[0];
+                console.log(key);
+                remove(ref(db, `join-us-data/${key}`))
+                  .then(() => {
+                    $.Toast(
+                      "Successful",
+                      "Join Info Deleted Successfully",
+                      "success",
+                      {
+                        position_class: "toast-top-right",
+                        timeout: 4000,
+                        has_progress: true,
+                        width: 300,
+                      }
+                    );
+                  })
+                  .catch(() => {
+                    $.Toast(
+                      "Warning",
+                      "Oops! Data Could Not Delete ",
+                      "warning",
+                      {
+                        position_class: "toast-top-right",
+                        timeout: 4000,
+                        has_progress: true,
+                        width: 300,
+                      }
+                    );
+                  });
+              }
+            });
+          }
         });
+
+
       }
     }
+
+    function getBooksData() {
+      get(ref(db, "book-data/"))
+        .then((snapshot) => {
+          if (snapshot.val()) {
+            let bookData = snapshot.val();
+            let dataArr = Object.entries(bookData);
+            dataArr.forEach((el, i) => {
+              booksContainer.innerHTML += `<tr class="tr${(i + 1) % 2 == 0 ? 2 : 1}">
+                  <th scope="row">${i + 1}</th>
+                  <td style="width:150px; display:flex; flex-direction:column; align-items:center;"><img style="width:26px; margin-bottom: 4px" src="${el[1].bookImage}">${el[1].bookName.length > 20 ? el[1].bookName.slice(0, 20) : el[1].bookName}</td>
+                  <td style="width:200px;">${el[1].description.length > 120 ? el[1].description.slice(0, 120) + "..." : el[1].description}</td>
+                  <td>${el[1].categories}</td>
+                  <td>${el[1].authorName}</td>
+                  <td><button id="delete"><img class="deletebox"
+                        src="https://cdn-icons-png.flaticon.com/512/3389/3389152.png"></button></td>
+                    <td style="display:none">${el[1].bookId}</td>
+          `
+            })
+          }
+        })
+
+    }
+
+    function deleteBooks(e) {
+      console.log("issledidi");
+      if (e.target.className == "deletebox") {
+        let currentBook = e.target.parentElement.parentElement.parentElement
+        $(currentBook).fadeOut("slow", function () {
+          this.remove();
+        });
+
+        get(ref(db, "book-data/")).then((snapshot) => {
+          if (snapshot.val()) {
+            let dataVal = snapshot.val();
+            let dataArr = Object.entries(dataVal);
+
+            dataArr.forEach((el, i) => {
+              if (currentBook.children[6].textContent == el[1].bookId) {
+                const key = el[0];
+
+                remove(ref(db, `book-data/${key}`))
+                  .then(() => {
+                    $.Toast(
+                      "Successful",
+                      "Join Info Deleted Successfully",
+                      "success",
+                      {
+                        position_class: "toast-top-right",
+                        timeout: 4000,
+                        has_progress: true,
+                        width: 300,
+                      }
+                    );
+                  })
+                  .catch(() => {
+                    $.Toast(
+                      "Warning",
+                      "Oops! Data Could Not Delete ",
+                      "warning",
+                      {
+                        position_class: "toast-top-right",
+                        timeout: 4000,
+                        has_progress: true,
+                        width: 300,
+                      }
+                    );
+                  });
+              }
+            });
+          }
+        });
+
+      }
+    }
+
 
 
     loginBtn.addEventListener("click", checkUser);
@@ -799,7 +923,9 @@
     document.addEventListener("DOMContentLoaded", getAboutData);
     document.addEventListener("DOMContentLoaded", getContactData);
     document.addEventListener("DOMContentLoaded", fetchJoinUsData);
+    document.addEventListener("DOMContentLoaded", getBooksData)
     joinUsArea.addEventListener("click", delJoinInfo);
+    booksContainer.addEventListener("click", deleteBooks)
 
   </script>
   <script src="./assets-admin/js/admin.js"></script>
