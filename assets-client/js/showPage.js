@@ -24,6 +24,33 @@ function showSection1() {
     let description = localStorage.getItem("description");
     let bookImage = localStorage.getItem("bookImage");
 
+    if (publishYear && bookName && authorName && description && bookImage) {
+
+        bookTop.innerHTML = `<div class="about-book">
+
+        <div>
+            <span>${publishYear}</span>
+        </div>
+    
+        <div class="content-book">
+            <h2>${bookName}</h2>
+            <span>2 days ago added</span>
+            <h3>${authorName}</h3>
+            <p>
+                ${description}
+            </p>
+            <button>More details</button>
+        </div>
+    
+        </div>`
+
+        bookImageContainer.innerHTML = `<div class="book-right-container">
+    <img src="${bookImage}" alt="product-book">
+    </div>`
+    }
+
+
+
     var settings = {
         "url": "https://blog-api-t6u0.onrender.com/posts",
         "method": "GET",
@@ -78,31 +105,6 @@ function showSection1() {
         .catch(() => {
             console.log("error");
         })
-
-    if (publishYear && bookName && authorName && description && bookImage) {
-
-        bookTop.innerHTML = `<div class="about-book">
-
-        <div>
-            <span>${publishYear}</span>
-        </div>
-    
-        <div class="content-book">
-            <h2>${bookName}</h2>
-            <span>2 days ago added</span>
-            <h3>${authorName}</h3>
-            <p>
-                ${description}
-            </p>
-            <button>More details</button>
-        </div>
-    
-        </div>`
-
-        bookImageContainer.innerHTML = `<div class="book-right-container">
-    <img src="${bookImage}" alt="product-book">
-    </div>`
-    }
 
 
 
