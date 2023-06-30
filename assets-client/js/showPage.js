@@ -56,57 +56,31 @@ function showSection1() {
         "method": "GET",
         "timeout": 0,
         "headers": {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "X-API-Key": "PMAK-649e116ff4abfc0031a64238-XXXX"
         },
     };
 
     $.ajax(settings)
         .then((response) => {
-            if (response[100]) {
-                commentArea.innerHTML = ""
-                for (let i = 100; i < response.length; i++) {
-                    let now1 = moment()
-                    let publishDates = response[i].userData.title
-                    let comment = response[i].userData.body
-                    var diffSeconds = now1.diff(publishDates, 'seconds');
-                    var diffMinutes = now1.diff(publishDates, 'minutes');
-                    var diffHours = now1.diff(publishDates, 'hours');
-
-                    let displayText = "";
-
-                    if (diffSeconds < 60) {
-                        displayText = 'A few seconds ago';
-                    } else if (diffMinutes < 60) {
-                        displayText = diffMinutes + ' minutes ago';
-                    } else if (diffHours < 24) {
-                        displayText = diffHours + ' hours ago';
-                    } else {
-                        displayText = postTime.format('YYYY-MM-DD HH:mm');
-                    }
-
-
-                    commentArea.innerHTML += `<div class="book-comment">
-                    <div class="anonim-comment">
-                        <span>anonim</span>
-                        <span>${displayText}</span>
-                    </div>
-                    <div class="anonim-para">
-                        <p>${comment}</p>
-                    </div>
-                </div>`
-                }
-            } else {
-                commentArea.innerHTML += `<div class="book-comment no-comment">
-                There are no comments yet
-            </div>`
+            console.log(response);
+            for (let i = 100; i < response.length; i++) {
+                let title = response[i].title
+                let comment = response[i].body
+                commentArea.innerHTML += `<div class="book-comment">
+                            <div class="anonim-comment">
+                                <span>anonim</span>
+                                <span>${title}</span>
+                            </div>
+                            <div class="anonim-para">
+                                <p>${comment}</p>
+                            </div>
+                        </div>`
             }
-
         })
         .catch(() => {
             console.log("error");
         })
-
-
 
 
 }
